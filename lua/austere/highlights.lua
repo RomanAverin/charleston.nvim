@@ -8,18 +8,18 @@ function M.get(pallet)
 
     Normal = { fg = color.text, bg = color.bg }, -- Normal text
     Comment = { fg = color.faded_text, italic = true }, -- Any comment
-    Constant = { fg = color.silver }, -- (*) Any constant
-    String = { fg = color.blue }, --   A string constant: "this is a string"
+    Constant = { fg = color.beige }, -- (*) Any constant
+    String = { fg = color.green }, --   A string constant: "this is a string"
     Character = { fg = color.teal }, --   A character constant: 'c', '\n'
     Number = { fg = color.yellow }, --   A number constant: 234, 0xff
     Boolean = { fg = color.red }, --   A boolean constant: TRUE, false
     Float = { fg = color.yellow }, --   A floating point constant: 2.3e10
     Identifier = { fg = color.beige }, -- (*) Any variable name
-    Function = { fg = color.cyan }, --   Function name (also: methods for classes)
+    Function = { fg = color.orange }, --   Function name (also: methods for classes)
     Statement = { fg = color.purple }, -- (*) Any statement
-    -- Conditional    { }, --   if, then, else, endif, switch, etc.
-    -- Repeat         { }, --   for, do, while, etc.
-    -- Label          { }, --   case, default, etc.
+    Conditional = { fg = color.purple }, --   if, then, else, endif, switch, etc.
+    Repeat = { fg = color.cambridge_blue }, --   for, do, while, etc.
+    Label = { fg = color.magenta }, --   case, default, etc.
     Operator = { fg = color.text }, --   "sizeof", "+", "*", etc.
     Keyword = { fg = color.purple }, --   any other keyword
     Exception = { fg = color.purple }, --   try, catch, throw
@@ -32,7 +32,7 @@ function M.get(pallet)
 
     Type = { fg = color.cyan }, -- (*) int, long, char, etc.
     Typedef = { link = "Type" }, --   A typedef
-    -- StorageClass   { }, --   static, register, volatile, etc.
+    StorageClass = { fg = color.orange }, --   static, register, volatile, etc.
     Structure = { fg = color.orange }, --   struct, union, enum, etc.
 
     Special = { fg = color.silver }, -- (*) Any special symbol
@@ -60,52 +60,41 @@ function M.get(pallet)
 
     -- Tree-Sitter syntax groups.
     --
-    -- sym"@text.literal"      { }, -- Comment
-    -- sym"@text.reference"    { }, -- Identifier
-    -- sym"@text.title"        { }, -- Title
-    -- sym"@text.uri"          { }, -- Underlined
-    -- sym"@text.underline"    { }, -- Underlined
-    -- sym"@text.todo"         { }, -- Todo
-    ["@comment"] = { link = "Comment" }, -- Comment
-    -- sym "@punctuation"      { }, -- Delimiter
-    ["@constant"] = { link = "Constant" }, -- Constant
-    -- sym"@constant.builtin"  { }, -- Special
-    -- sym"@constant.macro"    { }, -- Define
-    -- sym"@define"            { }, -- Define
-    ["@macro"] = { link = "Macro" }, -- Macro
-    ["@string"] = { link = "String" }, -- String
-
-    -- sym"@string.escape"     { }, -- SpecialChar
-    -- sym"@string.special"    { }, -- SpecialChar
-    ["@character"] = { link = "Character" }, -- Character
-    -- sym "@character.special" { }, -- SpecialChar
-    ["@number"] = { link = "Number" }, -- Number
-    ["@boolean"] = { link = "Boolean" }, -- Boolean
-    ["@float"] = { link = "Float" }, -- Float
-    ["@function"] = { link = "Function" }, -- Function
-    ["@function.builtin"] = { link = "Function" }, -- Special
-    -- sym"@function.macro"    { }, -- Macro
-    -- sym"@parameter"         { }, -- Identifier
-    -- sym"@method"            { }, -- Function
-    -- sym"@field"             { }, -- Identifier
-    -- sym"@property"          { }, -- Identifier
-    ["@constructor"] = { link = "Special" }, -- Special
-    -- sym"@conditional"       { }, -- Conditional
-    -- sym"@repeat"            { }, -- Repeat
-    -- sym"@label"             { }, -- Label
-    ["@operator"] = { link = "Operator" }, -- Operator
-    ["@keyword"] = { link = "Keyword" }, -- Keyword
-    -- sym"@exception"         { }, -- Exception
+    -- ["@comment"] = { link = "Comment" }, -- Comment
+    -- ["@comment.hint"] = { fg = color.silver },
+    -- ["@comment.info"] = { fg = color.silver },
+    -- ["@comment.note"] = { fg = color.teal },
+    -- ["@comment.todo"] = { fg = color.cyan },
+    -- ["@comment.warning"] = { fg = color.yellow },
+    -- ["@constant"] = { link = "Constant" }, -- Constant
+    -- ["@macro"] = { link = "Macro" }, -- Macro
+    -- ["@string"] = { link = "String" }, -- String
+    -- ["@markup.emphasis"] = { italic = true },
+    -- ["@markup.environment"] = { link = "Macro" },
+    -- ["@markup.environment.name"] = { link = "Type" },
+    -- ["@markup.heading"] = { link = "Title" },
+    -- ["@markup.italic"] = { italic = true },
+    -- ["@markup.link"] = { fg = color.teal },
+    -- ["@markup.link.label"] = { link = "SpecialChar" },
+    -- ["@markup.link.label.symbol"] = { link = "Identifier" },
+    -- ["@markup.link.url"] = { link = "Underlined" },
+    -- ["@markup.list"] = { fg = color.blue }, -- For special punctutation that does not fall in the categories before.
+    -- ["@markup.list.checked"] = { fg = color.green }, -- For brackets and parens.
+    -- ["@markup.list.markdown"] = { fg = color.orange, bold = true },
+    -- ["@markup.list.unchecked"] = { fg = color.blue }, -- For brackets and parens.
+    -- ["@markup.math"] = { link = "Special" },
+    -- ["@markup.raw"] = { link = "String" },
+    -- ["@markup.raw.markdown_inline"] = { bg = color.float_bg, fg = color.blue },
+    -- ["@constructor"] = { link = "Special" }, -- Special
+    -- ["@operator"] = { link = "Operator" }, -- Operator
+    -- ["@keyword"] = { link = "Keyword" }, -- Keyword
     ["@variable"] = { link = "Identifier" }, -- Identifier
-    ["@type"] = { link = "Type" }, -- Type
-    ["@type.definition"] = { link = "Typedef" }, -- Typedef
-    -- sym"@storageclass"      { }, -- StorageClass
-    ["@structure"] = { link = "Structure" }, -- Structure
-    -- sym"@namespace"         { }, -- Identifier
-    ["@include"] = { link = "Include" }, -- Include
-    -- sym"@preproc"           { }, -- PreProc
-    -- sym"@debug"             { }, -- Debug
-    -- sym"@tag"               { }, -- Tag
+    -- ["@tag"] = { link = "Label" },
+    -- ["@type"] = { link = "Type" }, -- Type
+    -- ["@type.definition"] = { link = "Typedef" }, -- Typedef
+    -- ["@structure"] = { link = "Structure" }, -- Structure
+    -- ["@include"] = { link = "Include" }, -- Include
+
     --
     -- Git
     GitAdded = { fg = color.green },
@@ -183,14 +172,15 @@ function M.get(pallet)
     Whitespace = { fg = color.faded_text }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     Winseparator = { link = "VertSplit" }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
     -- WildMenu     { }, -- Current match in 'wildmenu' completion
-
+    Winbar = { bg = color.bar_bg },
+    WinbarNC = { bg = color.bar_bg },
     -- These groups are for the native LSP client and diagnostic system. Some
     -- other LSP clients may use these groups, or use their own. Consult your
     -- LSP client's documentation.
 
     -- See :h lsp-highlight, some groups may not be listed, submit a PR fix to lush-template!
     --
-    LspReferenceText = { link = "Visual" }, -- Used for highlighting "text" references
+    LspReferenceText = { underline = true }, -- Used for highlighting "text" references
     LspReferenceRead = { link = "LspReferenceText" }, -- Used for highlighting "read" references
     LspReferenceWrite = { link = "LspReferenceText" }, -- Used for highlighting "write" references
     LspInlayHint = { link = "Comment", bold = true },
@@ -284,6 +274,19 @@ function M.get(pallet)
     NotifyERRORTitle = { fg = color.red },
     NotifyERRORBody = { fg = color.red, bg = color.float_bg },
     NotifyERRORBorder = { fg = color.float_bg, bg = color.float_bg },
+
+    --- Cmp
+    CmpItemMenu = { fg = color.blue },
+    CmpItemAbbrMatch = { fg = color.orange, bold = true, force = true },
+    CmpItemKindFunction = { link = "Function", force = true },
+    CmpItemKindMethod = { link = "Function" },
+    CmpItemKindClass = { link = "Type", force = true },
+    CmpItemKindSnippet = { link = "Normal" },
+    CmpItemKindConstant = { link = "Constant" },
+    CmpItemKindEnum = { link = "Constant" },
+    CmpItemKindVariable = { link = "Variable" },
+    CmpItemKindKeyword = { link = "Keyword" },
+    CmpItemKindFolder = { link = "Directory" },
   }
 
   return ret

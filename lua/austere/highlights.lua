@@ -91,7 +91,7 @@ function M.get(pallet)
     ["@variable"] = { link = "Identifier" }, -- Identifier
     -- ["@tag"] = { link = "Label" },
     -- ["@type"] = { link = "Type" }, -- Type
-    -- ["@type.definition"] = { link = "Typedef" }, -- Typedef
+    ["@type.definition"] = { link = "Typedef" }, -- Typedef
     -- ["@structure"] = { link = "Structure" }, -- Structure
     -- ["@include"] = { link = "Include" }, -- Include
 

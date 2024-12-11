@@ -5,7 +5,6 @@ local M = {}
 function M.get(pallet)
   local color = pallet
   local ret = {
-
     Normal = { fg = color.text, bg = color.bg }, -- Normal text
     Comment = { fg = color.faded_text, italic = true }, -- Any comment
     Constant = { fg = color.beige }, -- (*) Any constant
@@ -18,7 +17,7 @@ function M.get(pallet)
     Function = { fg = color.orange }, --   Function name (also: methods for classes)
     Statement = { fg = color.purple }, -- (*) Any statement
     Conditional = { fg = color.purple }, --   if, then, else, endif, switch, etc.
-    Repeat = { fg = color.cambridge_blue }, --   for, do, while, etc.
+    Repeat = { fg = color.english_violet }, --   for, do, while, etc.
     Label = { fg = color.magenta }, --   case, default, etc.
     Operator = { fg = color.text }, --   "sizeof", "+", "*", etc.
     Keyword = { fg = color.purple }, --   any other keyword
@@ -27,7 +26,7 @@ function M.get(pallet)
     PreProc = { fg = color.magenta }, -- (*) Generic Preprocessor
     Include = { fg = color.blue, bold = true }, --   Preprocessor #include
     Define = { fg = color.brightBlue }, --   Preprocessor #define
-    Macro = { fg = color.orange }, --   Same as Define
+    Macro = { link = "Define" }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
     Type = { fg = color.cyan }, -- (*) int, long, char, etc.
@@ -39,7 +38,7 @@ function M.get(pallet)
     -- SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
     -- Delimiter      { }, --   Character that needs attention
-    -- SpecialComment { }, --   Special things inside a comment (e.g. '\n')
+    SpecialComment = { fg = color.strong_text }, --   Special things inside a comment (e.g. '\n')
     -- Debug          { }, --   Debugging statements
 
     Underlined = { underline = true }, -- Text that stands out, HTML links
@@ -49,10 +48,10 @@ function M.get(pallet)
 
     Conceal = { fg = color.faded_text }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor = { reverse = true }, -- Character under the cursor
-    -- lCursor      { }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
-    -- CursorIM     { }, -- Like Cursor, but used when in IME mode |CursorIM|
-    -- CursorColumn = { bg = Normal.bg.lighten(20) }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    -- CursorLine = { bg = Normal.bg.lighten(6) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+    lCursor = { link = "Cursor" }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
+    CursorIM = { link = "Cursor" }, -- Like Cursor, but used when in IME mode |CursorIM|
+    CursorColumn = { bg = color.lighter_gray }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+    CursorLine = { bg = color.lighter_gray }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     IblIndent = { fg = color.thin_line },
     VirtColumn = { fg = color.thin_line },
     ColorColumn = { fg = color.thin_line }, -- Columns set with 'colorcolumn'
@@ -67,7 +66,7 @@ function M.get(pallet)
     -- ["@comment.todo"] = { fg = color.cyan },
     -- ["@comment.warning"] = { fg = color.yellow },
     -- ["@constant"] = { link = "Constant" }, -- Constant
-    -- ["@macro"] = { link = "Macro" }, -- Macro
+    ["@macro"] = { link = "Macro" }, -- Macro
     -- ["@string"] = { link = "String" }, -- String
     -- ["@markup.emphasis"] = { italic = true },
     -- ["@markup.environment"] = { link = "Macro" },
@@ -83,7 +82,9 @@ function M.get(pallet)
     -- ["@markup.list.markdown"] = { fg = color.orange, bold = true },
     -- ["@markup.list.unchecked"] = { fg = color.blue }, -- For brackets and parens.
     -- ["@markup.math"] = { link = "Special" },
-    -- ["@markup.raw"] = { link = "String" },
+    ["@markup.raw"] = { link = "String" },
+    ["@markup.raw.block"] = { link = "String" },
+    ["@variable.parameter.builtin"] = { fg = color.teal },
     -- ["@markup.raw.markdown_inline"] = { bg = color.float_bg, fg = color.blue },
     -- ["@constructor"] = { link = "Special" }, -- Special
     -- ["@operator"] = { link = "Operator" }, -- Operator
@@ -137,8 +138,8 @@ function M.get(pallet)
     -- IncSearch    { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     -- Substitute   { }, -- |:substitute| replacement text highlighting
     LineNr = { fg = color.strong_faded_text }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    CursorLineNr = { fg = color.strong_faded_text, bold = true }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    MatchParen = { fg = color.white, bg = color.cyan }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    CursorLineNr = { fg = color.silver, bold = true }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    MatchParen = { fg = color.white, bold = true }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     MsgArea = { fg = color.strong_text }, -- Area for messages and cmdline
     ModeMsg = { link = "MsgArea" }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
@@ -166,7 +167,7 @@ function M.get(pallet)
     Title = { fg = color.magenta, bold = true }, -- Titles for output from ":set all", ":autocmd" etc.
     -- NB!: VertSplit is dynamic. See functions below.
     VertSplit = { fg = color.bg }, -- Vertical split line
-    Visual = { bg = color.english_violet, fg = color.silver }, -- Visual mode selection
+    Visual = { bg = color.lighter_gray, fg = color.silver }, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
     -- WarningMsg   { }, -- Warning messages
     Whitespace = { fg = color.faded_text }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
@@ -281,7 +282,7 @@ function M.get(pallet)
     CmpItemKindFunction = { link = "Function", force = true },
     CmpItemKindMethod = { link = "Function" },
     CmpItemKindClass = { link = "Type", force = true },
-    CmpItemKindSnippet = { link = "Normal" },
+    CmpItemKindSnippet = { fg = color.blue },
     CmpItemKindConstant = { link = "Constant" },
     CmpItemKindEnum = { link = "Constant" },
     CmpItemKindVariable = { link = "Variable" },

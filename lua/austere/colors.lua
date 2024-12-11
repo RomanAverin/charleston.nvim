@@ -17,6 +17,7 @@ M.palette = {
   orange = "#de935f",
   purple = "#b08cba",
   cambridge_blue = "#99C1B9",
+  english_violet = "#59546C",
   -- base
   bg = "#262B31",
   text = "#C5C8D3",
@@ -37,7 +38,7 @@ M.palette = {
   darker_gray = "#2c323c",
   medium_gray = "#3D3D3D",
   lighter_gray = "#3e4452",
-  english_violet = "#59546C",
+
   -- git
   diff_add_bg = "#3a413b",
   diff_delete_bg = "#443c3f",

@@ -18,7 +18,7 @@ function M.get(pallet)
     Statement = { fg = color.purple }, -- (*) Any statement
     Conditional = { fg = color.purple }, --   if, then, else, endif, switch, etc.
     Repeat = { fg = color.english_violet }, --   for, do, while, etc.
-    Label = { fg = color.magenta }, --   case, default, etc.
+    Label = { fg = color.text }, --   case, default, etc.
     Operator = { fg = color.text }, --   "sizeof", "+", "*", etc.
     Keyword = { fg = color.purple }, --   any other keyword
     Exception = { fg = color.purple }, --   try, catch, throw
@@ -35,7 +35,7 @@ function M.get(pallet)
     Structure = { fg = color.orange }, --   struct, union, enum, etc.
 
     Special = { fg = color.silver }, -- (*) Any special symbol
-    -- SpecialChar    { }, --   Special character in a constant
+    SpecialChar = { fg = color.silver }, -- Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
     -- Delimiter      { }, --   Character that needs attention
     SpecialComment = { fg = color.strong_text }, --   Special things inside a comment (e.g. '\n')

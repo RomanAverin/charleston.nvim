@@ -1,5 +1,7 @@
 # Austere Theme for neovim
 
+![Screenshot Austere theme with Rust](./screenshot.png)
+
 > [!WARNING]
 > The plugin is under deep development.
 > But it will be very useful to get feedback.

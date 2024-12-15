@@ -10,6 +10,16 @@
 
 - neovim > 0.9
 
+## Supported plugins
+
+- render-markdown.nvim
+- snacks.nvim
+- diffveiw.nvim
+- gitsings.nvim
+- telescope.nvim
+- fzf-lua
+- NeoTree
+
 ## Install
 
 Only use with lazy plugin manager:

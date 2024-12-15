@@ -20,7 +20,7 @@ function M.get(pallet)
     Repeat = { fg = color.english_violet }, --   for, do, while, etc.
     Label = { fg = color.text }, --   case, default, etc.
     Operator = { fg = color.text }, --   "sizeof", "+", "*", etc.
-    Keyword = { fg = color.purple }, --   any other keyword
+    Keyword = { fg = color.blue }, --   any other keyword
     Exception = { fg = color.purple }, --   try, catch, throw
 
     PreProc = { fg = color.magenta }, -- (*) Generic Preprocessor
@@ -56,82 +56,10 @@ function M.get(pallet)
     VirtColumn = { fg = color.thin_line },
     ColorColumn = { fg = color.thin_line }, -- Columns set with 'colorcolumn'
     Directory = { fg = color.text }, -- Directory names (and other special names in listings)
-
-    -- Tree-Sitter syntax groups.
-    --
-    -- ["@comment"] = { link = "Comment" }, -- Comment
-    -- ["@comment.hint"] = { fg = color.silver },
-    -- ["@comment.info"] = { fg = color.silver },
-    -- ["@comment.note"] = { fg = color.teal },
-    -- ["@comment.todo"] = { fg = color.cyan },
-    -- ["@comment.warning"] = { fg = color.yellow },
-    -- ["@constant"] = { link = "Constant" }, -- Constant
-    ["@macro"] = { link = "Macro" }, -- Macro
-    -- ["@string"] = { link = "String" }, -- String
-    -- ["@markup.emphasis"] = { italic = true },
-    -- ["@markup.environment"] = { link = "Macro" },
-    -- ["@markup.environment.name"] = { link = "Type" },
-    -- ["@markup.heading"] = { link = "Title" },
-    -- ["@markup.italic"] = { italic = true },
-    -- ["@markup.link"] = { fg = color.teal },
-    -- ["@markup.link.label"] = { link = "SpecialChar" },
-    -- ["@markup.link.label.symbol"] = { link = "Identifier" },
-    -- ["@markup.link.url"] = { link = "Underlined" },
-    -- ["@markup.list"] = { fg = color.blue }, -- For special punctutation that does not fall in the categories before.
-    -- ["@markup.list.checked"] = { fg = color.green }, -- For brackets and parens.
-    -- ["@markup.list.markdown"] = { fg = color.orange, bold = true },
-    -- ["@markup.list.unchecked"] = { fg = color.blue }, -- For brackets and parens.
-    -- ["@markup.math"] = { link = "Special" },
-    ["@markup.raw"] = { link = "String" },
-    ["@markup.raw.block"] = { link = "String" },
-    ["@variable.parameter.builtin"] = { fg = color.teal },
-    -- ["@markup.raw.markdown_inline"] = { bg = color.float_bg, fg = color.blue },
-    -- ["@constructor"] = { link = "Special" }, -- Special
-    -- ["@operator"] = { link = "Operator" }, -- Operator
-    -- ["@keyword"] = { link = "Keyword" }, -- Keyword
-    ["@variable"] = { link = "Identifier" }, -- Identifier
-    -- ["@tag"] = { link = "Label" },
-    -- ["@type"] = { link = "Type" }, -- Type
-    ["@type.definition"] = { link = "Typedef" }, -- Typedef
-    -- ["@structure"] = { link = "Structure" }, -- Structure
-    -- ["@include"] = { link = "Include" }, -- Include
-
-    --
-    -- Git
-    GitAdded = { fg = color.green },
-    GitChanged = { fg = color.blue },
-    GitDeleted = { fg = color.red },
-
-    diffAdded = { link = "GitAdded" },
-    diffChanged = { link = "GitChanged" },
-    diffDeleted = { link = "GitDeleted" },
-
-    DiffAdd = { bg = color.diff_add_bg }, -- Diff mode: Added line |diff.txt|
-    DiffChange = { bg = color.blue }, -- Diff mode: Changed line |diff.txt|
-    DiffDelete = { fg = color.faded_text, bg = color.bg }, -- Diff mode: Deleted line |diff.txt|
-    DiffText = { bg = color.cyan }, -- Diff mode: Changed text within a changed line |diff.txt|
-
-    -- Diffview
-    DiffviewDiffAdd = { bg = color.diff_add_bg },
-    DiffviewDiffAddText = { bg = color.diff_add_bg },
-    DiffviewDiffDelete = { bg = color.diff_delete_bg },
-    DiffviewDiffDeleteText = { bg = color.diff_delete_bg },
-    DiffviewDiffFill = { fg = color.faded_text, bg = color.bg },
-
-    -- Gitsigns
-    GitSignsAdd = { link = "GitAdded" },
-    GitSignsChange = { link = "GitChanged" },
-    GitSignsDelete = { link = "GitDeleted" },
-    GitSignsAddPreview = { link = "DiffviewDiffAdd" },
-    GitSignsDeletePreview = { link = "DiffviewDiffDelete" },
-    GitSignsAddInline = { link = "DiffviewDiffAddText" },
-    GitSignsDeleteInline = { link = "DiffviewDiffDeleteText" },
-
     -- EndOfBuffer  { }, -- Filler lines ~ after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     -- TermCursor   { }, -- Cursor in a focused terminal
     -- TermCursorNC { }, -- Cursor in an unfocused terminal
     -- ErrorMsg     { }, -- Error messages on the command line
-    -- VertSplit    { }, -- Column separating vertically split windows
     Folded = { fg = color.bg, bg = color.charcoal }, -- Line used for closed folds
     FoldColumn = { fg = color.charcoal, bg = color.bg }, -- 'foldcolumn'
     SignColumn = { fg = color.text, bg = color.bg }, -- Column where |signs| are displayed
@@ -166,7 +94,7 @@ function M.get(pallet)
     TabLineSel = { bg = color.bar_bg }, -- Tab pages line, active tab page label
     Title = { fg = color.magenta, bold = true }, -- Titles for output from ":set all", ":autocmd" etc.
     -- NB!: VertSplit is dynamic. See functions below.
-    VertSplit = { fg = color.bg }, -- Vertical split line
+    VertSplit = { fg = color.white }, -- Vertical split line
     Visual = { bg = color.lighter_gray, fg = color.silver }, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
     -- WarningMsg   { }, -- Warning messages
@@ -175,12 +103,107 @@ function M.get(pallet)
     -- WildMenu     { }, -- Current match in 'wildmenu' completion
     Winbar = { bg = color.bar_bg },
     WinbarNC = { bg = color.bar_bg },
-    -- These groups are for the native LSP client and diagnostic system. Some
-    -- other LSP clients may use these groups, or use their own. Consult your
-    -- LSP client's documentation.
-
-    -- See :h lsp-highlight, some groups may not be listed, submit a PR fix to lush-template!
+    -- Tree-Sitter syntax groups.
     --
+    -- ["@comment"] = { link = "Comment" }, -- Comment
+    -- ["@comment.hint"] = { fg = color.silver },
+    -- ["@comment.info"] = { fg = color.silver },
+    -- ["@comment.note"] = { fg = color.teal },
+    -- ["@comment.todo"] = { fg = color.cyan },
+    -- ["@comment.warning"] = { fg = color.yellow },
+    -- ["@constant"] = { link = "Constant" }, -- Constant
+    ["@macro"] = { link = "Macro" }, -- Macro
+    -- ["@string"] = { link = "String" }, -- String
+    -- ["@markup.emphasis"] = { italic = true },
+    -- ["@markup.environment"] = { link = "Macro" },
+    -- ["@markup.environment.name"] = { link = "Type" },
+    ["@markup.heading"] = { link = "Title" },
+    -- ["@markup.italic"] = { italic = true },
+    ["@markup.link"] = { fg = color.teal },
+    ["@markup.link.label"] = { link = "SpecialChar" },
+    ["@markup.link.label.symbol"] = { link = "Identifier" },
+    ["@markup.link.url"] = { link = "Underlined" },
+    -- ["@markup.list"] = { fg = color.blue }, -- For special punctutation that does not fall in the categories before.
+    -- ["@markup.list.checked"] = { fg = color.green }, -- For brackets and parens.
+    ["@markup.list.markdown"] = { fg = color.orange, bold = true },
+    -- ["@markup.list.unchecked"] = { fg = color.blue }, -- For brackets and parens.
+    -- ["@markup.math"] = { link = "Special" },
+    ["@markup.raw"] = { link = "String" },
+    ["@markup.raw.block"] = { link = "String" },
+    ["@markup.raw.block.markdown"] = { link = "Normal" },
+    ["@label.markdown"] = { link = "Normal" },
+
+    ["@variable.parameter.builtin"] = { fg = color.teal },
+    -- ["@markup.raw.markdown_inline"] = { bg = color.float_bg, fg = color.blue },
+    -- ["@constructor"] = { link = "Special" }, -- Special
+    -- ["@operator"] = { link = "Operator" }, -- Operator
+    -- ["@keyword"] = { link = "Keyword" }, -- Keyword
+    ["@variable"] = { link = "Identifier" }, -- Identifier
+    -- ["@tag"] = { link = "Label" },
+    -- ["@type"] = { link = "Type" }, -- Type
+    ["@type.definition"] = { link = "Typedef" }, -- Typedef
+    -- ["@structure"] = { link = "Structure" }, -- Structure
+    -- ["@include"] = { link = "Include" }, -- Include
+    --
+    --  highlights for a languages
+    ["@keyword.rust"] = { fg = color.magenta },
+    ["@keyword.lua"] = { fg = color.magenta },
+    --
+    -- Render-markdown.nvim
+    --
+    RenderMarkdownH1 = { fg = color.silver },
+    RenderMarkdownH2 = { fg = color.silver },
+    RenderMarkdownH3 = { fg = color.silver },
+    RenderMarkdownH4 = { fg = color.silver },
+    RenderMarkdownH5 = { fg = color.silver },
+    RenderMarkdownH6 = { fg = color.silver },
+    RenderMarkdownH1Bg = { bg = color.float_bg },
+    RenderMarkdownH2Bg = { bg = color.float_bg },
+    RenderMarkdownH3Bg = { bg = color.float_bg },
+    RenderMarkdownH4Bg = { bg = color.bg },
+    RenderMarkdownH5Bg = { bg = color.bg },
+    RenderMarkdownH6Bg = { bg = color.bg },
+    RenderMarkdownCode = { fg = color.green },
+    RenderMarkdownCodeInline = { fg = color.green },
+    RenderMarkdownInlineHighlight = { fg = color.cyan },
+    --
+    -- Snacks.nvim
+    --
+    SnacksIndentBlank = { fg = color.medium_gray },
+    SnacksIndentScope = { fg = color.medium_gray },
+    SnacksIndentChunk = { fg = color.medium_gray },
+
+    -- Git
+    GitAdded = { fg = color.green },
+    GitChanged = { fg = color.blue },
+    GitDeleted = { fg = color.red },
+
+    diffAdded = { link = "GitAdded" },
+    diffChanged = { link = "GitChanged" },
+    diffDeleted = { link = "GitDeleted" },
+
+    DiffAdd = { bg = color.diff_add_bg }, -- Diff mode: Added line |diff.txt|
+    DiffChange = { bg = color.blue }, -- Diff mode: Changed line |diff.txt|
+    DiffDelete = { fg = color.faded_text, bg = color.bg }, -- Diff mode: Deleted line |diff.txt|
+    DiffText = { bg = color.cyan }, -- Diff mode: Changed text within a changed line |diff.txt|
+
+    -- Diffview
+    DiffviewDiffAdd = { bg = color.diff_add_bg },
+    DiffviewDiffAddText = { bg = color.diff_add_bg },
+    DiffviewDiffDelete = { bg = color.diff_delete_bg },
+    DiffviewDiffDeleteText = { bg = color.diff_delete_bg },
+    DiffviewDiffFill = { fg = color.faded_text, bg = color.bg },
+
+    -- Gitsigns
+    GitSignsAdd = { link = "GitAdded" },
+    GitSignsChange = { link = "GitChanged" },
+    GitSignsDelete = { link = "GitDeleted" },
+    GitSignsAddPreview = { link = "DiffviewDiffAdd" },
+    GitSignsDeletePreview = { link = "DiffviewDiffDelete" },
+    GitSignsAddInline = { link = "DiffviewDiffAddText" },
+    GitSignsDeleteInline = { link = "DiffviewDiffDeleteText" },
+
+    -- LSP highlighting
     LspReferenceText = { underline = true }, -- Used for highlighting "text" references
     LspReferenceRead = { link = "LspReferenceText" }, -- Used for highlighting "read" references
     LspReferenceWrite = { link = "LspReferenceText" }, -- Used for highlighting "write" references
@@ -244,6 +267,8 @@ function M.get(pallet)
     FlashPromptIcon = { bg = color.bar_bg },
     MiniCursorword = { bg = color.bg },
     NvimSurroundHighlight = { fg = color.bg, bg = color.cyan },
+
+    -- Telescope
     TelescopeNormal = { bg = color.float_bg },
     TelescopeMatching = { fg = color.charcoal },
     TelescopeSelection = { bg = color.bg },
@@ -253,6 +278,11 @@ function M.get(pallet)
     TelescopeResultsDiffDelete = { link = "GitDeleted" },
     TelescopePromptCounter = { link = "Comment" },
 
+    -- Fzf lua
+    FzfLuaNormal = { bg = color.float_bg },
+    FzfLuaBorder = { fg = color.faded_text, bg = color.float_bg },
+
+    -- NeoTree
     NeoTreeRootName = { fg = color.strong_text, bold = true },
     NeoTreeDirectoryIcon = { fg = color.faded_text },
     NeoTreeFileIcon = { fg = color.faded_text },

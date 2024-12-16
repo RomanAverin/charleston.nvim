@@ -68,7 +68,7 @@ function M.get(pallet)
     LineNr = { fg = color.strong_faded_text }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr = { fg = color.silver, bold = true }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     MatchParen = { fg = color.white, bold = true, underline = true }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-    MsgArea = { fg = color.strong_text }, -- Area for messages and cmdline
+    MsgArea = { fg = color.silver }, -- Area for messages and cmdline
     ModeMsg = { link = "MsgArea" }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     -- MoreMsg      { }, -- |more-prompt|
@@ -112,6 +112,7 @@ function M.get(pallet)
     -- ["@comment.todo"] = { fg = color.cyan },
     -- ["@comment.warning"] = { fg = color.yellow },
     -- ["@constant"] = { link = "Constant" }, -- Constant
+    ["@keyword"] = { fg = color.magenta },
     ["@macro"] = { link = "Macro" }, -- Macro
     -- ["@string"] = { link = "String" }, -- String
     -- ["@markup.emphasis"] = { italic = true },
@@ -173,7 +174,21 @@ function M.get(pallet)
     SnacksIndentScope = { fg = color.medium_gray },
     SnacksIndentChunk = { fg = color.medium_gray },
 
+    --
+    -- Noice.nvim
+    --
+    NoiceCmdline = { fg = color.silver },
+    NoiceCmdlinePrompt = { fg = color.silver },
+    NoiceCmdlineIcon = { fg = color.silver },
+    NoiceCmdlineIconLua = { fg = color.silver },
+    NoiceCmdlinePopupTitleInpu = { fg = color.silver },
+    NoiceLspProgressTitle = { fg = color.bar_faded_text, bg = color.bar_bg },
+    NoiceLspProgressClient = { fg = color.silver, bg = color.bar_bg },
+    NoiceLspProgressSpinner = { fg = color.yellow, bg = color.bar_bg },
+
+    --
     -- Git
+    --
     GitAdded = { fg = color.green },
     GitChanged = { fg = color.blue },
     GitDeleted = { fg = color.red },
@@ -236,7 +251,7 @@ function M.get(pallet)
     -- DiagnosticFloatingHint     { } , -- Used to color "Hint" diagnostic messages in diagnostics float.
     -- DiagnosticSignError        { } , -- Used for "Error" signs in sign column.
     -- DiagnosticSignWarn         { } , -- Used for "Warn" signs in sign column.
-    -- DiagnosticSignInfo         { } , -- Used for "Info" signs in sign column.
+    -- DiagnosticSignInfo = { fg = color.silver }, -- Used for "Info" signs in sign column.
     -- DiagnosticSignHint         { } , -- Used for "Hint" signs in sign column.
     StatusBarSegmentNormal = { fg = color.bar_text, bg = color.bar_bg },
     StatusBarSegmentFaded = { fg = color.bar_faded_text, bg = color.bar_bg },
@@ -253,10 +268,6 @@ function M.get(pallet)
     PriorityComment = { fg = color.orange },
     MiniStarterSection = { fg = color.text, bg = color.bg, bold = true },
     MiniStarterFooter = { link = "Comment" },
-    NoiceCmdline = { bg = color.bar_bg },
-    NoiceLspProgressTitle = { fg = color.bar_faded_text, bg = color.bar_bg },
-    NoiceLspProgressClient = { fg = color.charcoal, bg = color.bar_bg },
-    NoiceLspProgressSpinner = { fg = color.yellow, bg = color.bar_bg },
     ZenBg = { fg = color.text, bg = color.bg },
     WinShiftMove = { bg = color.bg },
     TabsVsSpaces = { fg = color.faded_text, underline = true },
@@ -278,9 +289,15 @@ function M.get(pallet)
     TelescopeResultsDiffDelete = { link = "GitDeleted" },
     TelescopePromptCounter = { link = "Comment" },
 
-    -- Fzf lua
+    -- Fzf-lua
     FzfLuaNormal = { bg = color.float_bg },
     FzfLuaBorder = { fg = color.faded_text, bg = color.float_bg },
+    FzfLuaHelpNormal = { fg = color.yellow }, --
+    FzfLuaHeaderBind = { fg = color.yellow, bold = true }, -- header keybind
+    FzfLuaHeaderText = { fg = color.magenta }, -- keybind help text
+    FzfLuaDirPart = { fg = color.bar_faded_text },
+    FzfLuaSearch = { fg = color.orange, bold = true },
+    FzfLuaFzfMatch = { fg = color.orange, bold = true },
 
     -- NeoTree
     NeoTreeRootName = { fg = color.strong_text, bold = true },

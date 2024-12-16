@@ -19,6 +19,7 @@
 - telescope.nvim
 - fzf-lua
 - NeoTree
+- noice.nvim
 
 ## Install
 

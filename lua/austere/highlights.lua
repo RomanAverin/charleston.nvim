@@ -14,7 +14,7 @@ function M.get(pallet)
     Boolean = { fg = color.red }, --   A boolean constant: TRUE, false
     Float = { fg = color.yellow }, --   A floating point constant: 2.3e10
     Identifier = { fg = color.beige }, -- (*) Any variable name
-    Function = { fg = color.orange }, --   Function name (also: methods for classes)
+    Function = { fg = color.cyan }, --   Function name (also: methods for classes)
     Statement = { fg = color.purple }, -- (*) Any statement
     Conditional = { fg = color.purple }, --   if, then, else, endif, switch, etc.
     Repeat = { fg = color.english_violet }, --   for, do, while, etc.
@@ -135,6 +135,7 @@ function M.get(pallet)
     ["@label.markdown"] = { link = "Normal" },
 
     ["@variable.parameter.builtin"] = { fg = color.teal },
+    ["@lsp.type.parameter"] = { fg = color.charcoal },
     -- ["@markup.raw.markdown_inline"] = { bg = color.float_bg, fg = color.blue },
     -- ["@constructor"] = { link = "Special" }, -- Special
     -- ["@operator"] = { link = "Operator" }, -- Operator
@@ -147,8 +148,10 @@ function M.get(pallet)
     -- ["@include"] = { link = "Include" }, -- Include
     --
     --  highlights for a languages
+    --
     ["@keyword.rust"] = { fg = color.magenta },
-    ["@keyword.lua"] = { fg = color.magenta },
+    ["@keyword.python"] = { fg = color.magenta },
+    ["@keyword.lua"] = { fg = color.cyan },
     --
     -- Render-markdown.nvim
     --
@@ -185,6 +188,46 @@ function M.get(pallet)
     NoiceLspProgressTitle = { fg = color.bar_faded_text, bg = color.bar_bg },
     NoiceLspProgressClient = { fg = color.silver, bg = color.bar_bg },
     NoiceLspProgressSpinner = { fg = color.yellow, bg = color.bar_bg },
+
+    --
+    -- Blink.Cmp
+    --
+    BlinkCmpMenu = { bg = color.bar_bg, fg = color.bar_text },
+    BlinkCmpLabel = { bg = color.bar_bg, fg = color.bar_text },
+    BlinkCmpLabelDeprecated = { link = "BlinkCmpLabel" },
+
+    BlinkCmpMenuSelection = { bg = color.silver, fg = color.strong_faded_text },
+    BlinkCmpLabelMatch = { bold = true },
+    BlinkCmpGhostText = { fg = color.bar_faded_text },
+
+    BlinkCmpKind = { fg = color.bar_text },
+    BlinkCmpKindDefaul = { fg = color.bar_text },
+    BlinkCmpKindText = { fg = color.bar_text },
+    BlinkCmpKindIdentifier = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindMethod = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindFunction = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindConstructor = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindField = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindVariable = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindClass = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindInterface = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindModule = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindProperty = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindUnit = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindValue = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindEnum = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindKeyword = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindSnippet = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindColor = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindFile = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindReference = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindFolder = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindEnumMember = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindConstant = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindStruct = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindEvent = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindOperator = { link = "BlinkCmpKindText" },
+    -- BlinkCmpKindTypeParameter = { link = "BlinkCmpKindText" },
 
     --
     -- Git

@@ -22,18 +22,15 @@ function M.get(pallet)
     Operator = { fg = color.text }, --   "sizeof", "+", "*", etc.
     Keyword = { fg = color.blue }, --   any other keyword
     Exception = { fg = color.purple }, --   try, catch, throw
-
     PreProc = { fg = color.magenta }, -- (*) Generic Preprocessor
     Include = { fg = color.blue, bold = true }, --   Preprocessor #include
     Define = { fg = color.brightBlue }, --   Preprocessor #define
     Macro = { link = "Define" }, --   Same as Define
-    -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
-
+    PreCondit = { link = "Define" }, --   Preprocessor #if, #else, #endif, etc.
     Type = { fg = color.cyan }, -- (*) int, long, char, etc.
     Typedef = { link = "Type" }, --   A typedef
     StorageClass = { fg = color.orange }, --   static, register, volatile, etc.
     Structure = { fg = color.orange }, --   struct, union, enum, etc.
-
     Special = { fg = color.silver }, -- (*) Any special symbol
     SpecialChar = { fg = color.silver }, -- Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this

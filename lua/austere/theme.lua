@@ -5,14 +5,14 @@ function M.setup(opts)
 
   local palette = require("austere.colors").palette
 
+  vim.o.termguicolors = true
+  vim.g.colors_name = "austere"
+
   -- only needed to clear when not the default colorscheme
   if vim.g.colors_name then
     vim.cmd("hi clear")
     vim.cmd("syntax reset")
   end
-
-  vim.o.termguicolors = true
-  vim.g.colors_name = "austere"
 
   local highlights = require("austere.highlights").get(palette)
 

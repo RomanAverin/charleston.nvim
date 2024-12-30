@@ -1,6 +1,6 @@
 local M = {}
 
-M.version = "0.1"
+M.version = "1.0"
 
 M.defaults = {
   terminal_colors = true,

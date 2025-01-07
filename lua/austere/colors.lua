@@ -16,6 +16,7 @@ M.palette = {
   beige = "#EFC986",
   orange = "#de935f",
   purple = "#b08cba",
+  -- additional colors
   cambridge_blue = "#99C1B9",
   english_violet = "#59546C",
   -- base

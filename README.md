@@ -1,9 +1,15 @@
 # Austere Theme for neovim
 
+## Features
+
+- High contrast theme with a low saturation and smooth colors
+- Transparent supported
+- Many plugins supported
+
 ![Screenshot Austere theme with Rust](./screenshot.png)
 
 > [!WARNING]
-> The plugin is under deep development.
+> The color scheme is under deep development.
 > But it will be very useful to get feedback.
 
 ## Requirements
@@ -12,14 +18,15 @@
 
 ## Supported plugins
 
+- NeoTree
+- blink.cmp
+- diffveiw.nvim
+- fzf-lua
+- gitsings.nvim
+- noice.nvim
 - render-markdown.nvim
 - snacks.nvim
-- diffveiw.nvim
-- gitsings.nvim
 - telescope.nvim
-- fzf-lua
-- NeoTree
-- noice.nvim
 
 ## Install
 

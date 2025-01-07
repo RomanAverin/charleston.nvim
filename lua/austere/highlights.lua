@@ -92,7 +92,7 @@ function M.get(pallet)
     Title = { fg = color.magenta, bold = true }, -- Titles for output from ":set all", ":autocmd" etc.
     -- NB!: VertSplit is dynamic. See functions below.
     VertSplit = { fg = color.white }, -- Vertical split line
-    Visual = { bg = color.lighter_gray, fg = color.silver }, -- Visual mode selection
+    Visual = { bg = color.bar_text, fg = color.bg }, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
     -- WarningMsg   { }, -- Warning messages
     Whitespace = { fg = color.faded_text }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
@@ -100,55 +100,64 @@ function M.get(pallet)
     -- WildMenu     { }, -- Current match in 'wildmenu' completion
     Winbar = { bg = color.bar_bg },
     WinbarNC = { bg = color.bar_bg },
+
     -- Tree-Sitter syntax groups.
     --
-    -- ["@comment"] = { link = "Comment" }, -- Comment
-    -- ["@comment.hint"] = { fg = color.silver },
-    -- ["@comment.info"] = { fg = color.silver },
-    -- ["@comment.note"] = { fg = color.teal },
-    -- ["@comment.todo"] = { fg = color.cyan },
-    -- ["@comment.warning"] = { fg = color.yellow },
-    -- ["@constant"] = { link = "Constant" }, -- Constant
+    ["@comment"] = { link = "Comment" }, -- Comment
+    ["@comment.hint"] = { fg = color.silver },
+    ["@comment.info"] = { fg = color.silver },
+    ["@comment.note"] = { fg = color.teal },
+    ["@comment.todo"] = { fg = color.cyan },
+    ["@comment.warning"] = { fg = color.yellow },
+    ["@constant"] = { link = "Constant" }, -- Constant
     ["@keyword"] = { fg = color.magenta },
     ["@macro"] = { link = "Macro" }, -- Macro
-    -- ["@string"] = { link = "String" }, -- String
+    ["@string"] = { link = "String" }, -- String
+    ["@markup"] = { fg = color.faded_text }, -- Markup
+
     -- ["@markup.emphasis"] = { italic = true },
     -- ["@markup.environment"] = { link = "Macro" },
     -- ["@markup.environment.name"] = { link = "Type" },
-    ["@markup.heading"] = { link = "Title" },
+    -- ["@markup.heading"] = { link = "Title" },
     -- ["@markup.italic"] = { italic = true },
-    ["@markup.link"] = { fg = color.teal },
-    ["@markup.link.label"] = { link = "SpecialChar" },
-    ["@markup.link.label.symbol"] = { link = "Identifier" },
-    ["@markup.link.url"] = { link = "Underlined" },
+    -- ["@markup.link"] = { fg = color.teal },
+    -- ["@markup.link.label"] = { link = "SpecialChar" },
+    -- ["@markup.link.label.symbol"] = { link = "Identifier" },
+    -- ["@markup.link.url"] = { link = "Underlined" },
     -- ["@markup.list"] = { fg = color.blue }, -- For special punctutation that does not fall in the categories before.
     -- ["@markup.list.checked"] = { fg = color.green }, -- For brackets and parens.
-    ["@markup.list.markdown"] = { fg = color.orange, bold = true },
+    -- ["@markup.list.markdown"] = { fg = color.orange, bold = true },
     -- ["@markup.list.unchecked"] = { fg = color.blue }, -- For brackets and parens.
     -- ["@markup.math"] = { link = "Special" },
-    ["@markup.raw"] = { link = "String" },
-    ["@markup.raw.block"] = { link = "String" },
-    ["@markup.raw.block.markdown"] = { link = "Normal" },
+    -- ["@markup.raw"] = { link = "String" },
+    -- ["@markup.raw.block"] = { link = "String" },
+    -- ["@markup.raw.block.markdown"] = { link = "Normal" },
     ["@label.markdown"] = { link = "Normal" },
 
-    ["@variable.parameter.builtin"] = { fg = color.teal },
+    -- ["@variable.parameter.builtin"] = { fg = color.teal },
     ["@lsp.type.parameter"] = { fg = color.charcoal },
     -- ["@markup.raw.markdown_inline"] = { bg = color.float_bg, fg = color.blue },
     -- ["@constructor"] = { link = "Special" }, -- Special
     -- ["@operator"] = { link = "Operator" }, -- Operator
     -- ["@keyword"] = { link = "Keyword" }, -- Keyword
     ["@variable"] = { link = "Identifier" }, -- Identifier
-    -- ["@tag"] = { link = "Label" },
-    -- ["@type"] = { link = "Type" }, -- Type
+    ["@tag"] = { link = "Label" },
+    ["@type"] = { link = "Type" }, -- Type
     ["@type.definition"] = { link = "Typedef" }, -- Typedef
-    -- ["@structure"] = { link = "Structure" }, -- Structure
-    -- ["@include"] = { link = "Include" }, -- Include
+    ["@structure"] = { link = "Structure" }, -- Structure
+    ["@include"] = { link = "Include" }, -- Include
     --
     --  highlights for a languages
     --
+    ["@keyword.import"] = { link = "Include" },
     ["@keyword.rust"] = { fg = color.magenta },
     ["@keyword.python"] = { fg = color.magenta },
-    ["@keyword.lua"] = { fg = color.cyan },
+    -- ["@keyword.lua"] = { fg = color.cyan },
+
+    markdownCode = { fg = color.faded_text },
+    markdownCodeBlock = { fg = color.faded_text },
+    markdownLinkText = { fg = color.blue, underline = true },
+
     --
     -- Render-markdown.nvim
     --
@@ -165,8 +174,16 @@ function M.get(pallet)
     RenderMarkdownH5Bg = { bg = color.bg },
     RenderMarkdownH6Bg = { bg = color.bg },
     RenderMarkdownCode = { fg = color.green },
-    RenderMarkdownCodeInline = { fg = color.green },
-    RenderMarkdownInlineHighlight = { fg = color.cyan },
+    RenderMarkdownCodeInline = { fg = color.faded_text, bg = color.bg },
+    RenderMarkdownInlineHighlight = { fg = color.faded_text, bg = color.bg },
+    RenderMarkdownBullet = { fg = color.silver },
+    RenderMarkdownTableHead = { fg = color.blue },
+    RenderMarkdownTableRow = { fg = color.cyan },
+    RenderMarkdownSuccess = { fg = color.green },
+    RenderMarkdownInfo = { fg = color.silver },
+    RenderMarkdownHint = { fg = color.teal },
+    RenderMarkdownWarn = { fg = color.yellow },
+    RenderMarkdownError = { fg = color.red },
     --
     -- Snacks.nvim
     --
@@ -201,30 +218,30 @@ function M.get(pallet)
     BlinkCmpKindDefaul = { fg = color.bar_text },
     BlinkCmpKindText = { fg = color.bar_text },
     BlinkCmpKindIdentifier = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindMethod = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindFunction = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindConstructor = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindField = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindVariable = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindClass = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindInterface = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindModule = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindProperty = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindUnit = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindValue = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindEnum = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindKeyword = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindSnippet = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindColor = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindFile = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindReference = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindFolder = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindEnumMember = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindConstant = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindStruct = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindEvent = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindOperator = { link = "BlinkCmpKindText" },
-    -- BlinkCmpKindTypeParameter = { link = "BlinkCmpKindText" },
+    BlinkCmpKindMethod = { link = "BlinkCmpKindText" },
+    BlinkCmpKindFunction = { link = "BlinkCmpKindText" },
+    BlinkCmpKindConstructor = { link = "BlinkCmpKindText" },
+    BlinkCmpKindField = { link = "BlinkCmpKindText" },
+    BlinkCmpKindVariable = { link = "BlinkCmpKindText" },
+    BlinkCmpKindClass = { link = "BlinkCmpKindText" },
+    BlinkCmpKindInterface = { link = "BlinkCmpKindText" },
+    BlinkCmpKindModule = { link = "BlinkCmpKindText" },
+    BlinkCmpKindProperty = { link = "BlinkCmpKindText" },
+    BlinkCmpKindUnit = { link = "BlinkCmpKindText" },
+    BlinkCmpKindValue = { link = "BlinkCmpKindText" },
+    BlinkCmpKindEnum = { link = "BlinkCmpKindText" },
+    BlinkCmpKindKeyword = { link = "BlinkCmpKindText" },
+    BlinkCmpKindSnippet = { link = "BlinkCmpKindText" },
+    BlinkCmpKindColor = { link = "BlinkCmpKindText" },
+    BlinkCmpKindFile = { link = "BlinkCmpKindText" },
+    BlinkCmpKindReference = { link = "BlinkCmpKindText" },
+    BlinkCmpKindFolder = { link = "BlinkCmpKindText" },
+    BlinkCmpKindEnumMember = { link = "BlinkCmpKindText" },
+    BlinkCmpKindConstant = { link = "BlinkCmpKindText" },
+    BlinkCmpKindStruct = { link = "BlinkCmpKindText" },
+    BlinkCmpKindEvent = { link = "BlinkCmpKindText" },
+    BlinkCmpKindOperator = { link = "BlinkCmpKindText" },
+    BlinkCmpKindTypeParameter = { link = "BlinkCmpKindText" },
 
     --
     -- Git
@@ -349,6 +366,9 @@ function M.get(pallet)
     NeoTreeGitModified = { fg = color.blue },
     NeoTreeGitStaged = { fg = color.green },
     NeoTreeGitIgnored = { fg = color.faded_text },
+
+    -- NeoGit
+    NeogitSectionHeader = { fg = color.magenta },
 
     NotifyINFOIcon = { fg = color.blue },
     NotifyINFOTitle = { fg = color.blue },

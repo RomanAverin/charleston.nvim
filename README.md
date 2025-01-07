@@ -3,14 +3,18 @@
 ## Features
 
 - High contrast theme with a low saturation and smooth colors
-- Transparent supported
 - Many plugins supported
 
-![Screenshot Austere theme with Rust](./screenshot.png)
+  ![Screenshot Austere theme with Rust](./screenshot.png)
+  ![palette](./palette.png)
 
 > [!WARNING]
 > The color scheme is under deep development.
 > But it will be very useful to get feedback.
+
+## Roadmap
+
+- Transparent supported
 
 ## Requirements
 

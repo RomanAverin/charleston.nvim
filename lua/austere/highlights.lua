@@ -141,6 +141,8 @@ function M.get(pallet)
     -- ["@operator"] = { link = "Operator" }, -- Operator
     -- ["@keyword"] = { link = "Keyword" }, -- Keyword
     ["@variable"] = { link = "Identifier" }, -- Identifier
+    ["@variable"] = { fg = color.white }, -- Variable
+    ["@punctuation.bracket"] = { fg = color.beige },
     ["@tag"] = { link = "Label" },
     ["@type"] = { link = "Type" }, -- Type
     ["@type.definition"] = { link = "Typedef" }, -- Typedef

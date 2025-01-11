@@ -71,6 +71,7 @@ function M.get(pallet)
     -- MoreMsg      { }, -- |more-prompt|
     NonText = { fg = color.cyan }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     NormalFloat = { fg = color.text, bg = color.float_bg }, -- Normal text in floating windows.
+    FloatBorder = { fg = color.thick_line },
     -- NormalNC     { }, -- normal text in non-current windows
     Pmenu = { fg = color.text, bg = color.float_bg }, -- Popup menu: Normal item.
     -- PmenuSel = { Pmenu, bg = Pmenu.bg.lighten(10) }, -- Popup menu: Selected item.
@@ -135,7 +136,6 @@ function M.get(pallet)
     ["@label.markdown"] = { link = "Normal" },
 
     -- ["@variable.parameter.builtin"] = { fg = color.teal },
-    ["@lsp.type.parameter"] = { fg = color.charcoal },
     -- ["@markup.raw.markdown_inline"] = { bg = color.float_bg, fg = color.blue },
     -- ["@constructor"] = { link = "Special" }, -- Special
     -- ["@operator"] = { link = "Operator" }, -- Operator
@@ -153,6 +153,9 @@ function M.get(pallet)
     ["@keyword.rust"] = { fg = color.magenta },
     ["@keyword.python"] = { fg = color.magenta },
     -- ["@keyword.lua"] = { fg = color.cyan },
+    --  LSP
+    ["@lsp.type.parameter"] = { fg = color.orange },
+    ["@lsp.type.variable.lua"] = { link = "@lsp.type.parameter" },
 
     markdownCode = { fg = color.faded_text },
     markdownCodeBlock = { fg = color.faded_text },
@@ -194,14 +197,20 @@ function M.get(pallet)
     --
     -- Noice.nvim
     --
-    NoiceCmdline = { fg = color.silver },
-    NoiceCmdlinePrompt = { fg = color.silver },
-    NoiceCmdlineIcon = { fg = color.silver },
-    NoiceCmdlineIconLua = { fg = color.silver },
-    NoiceCmdlinePopupTitleInpu = { fg = color.silver },
-    NoiceLspProgressTitle = { fg = color.bar_faded_text, bg = color.bar_bg },
-    NoiceLspProgressClient = { fg = color.silver, bg = color.bar_bg },
-    NoiceLspProgressSpinner = { fg = color.yellow, bg = color.bar_bg },
+    NoiceCmdline = { fg = color.white }, -- Search prompt
+    NoiceCmdlinePopup = { fg = color.white, bg = color.bar_bg },
+    NoiceCmdlinePopupBorder = { fg = color.faded_text }, -- Cmd window boarder
+    NoiceCmdlinePopupTitle = { fg = color.white },
+    NoiceCmdlineIcon = { fg = color.white }, -- Prompt begin icon
+    NoiceCmdlineIconCalculator = { fg = color.blue },
+    NoiceCmdlineIconCmdLine = { fg = color.white },
+    NoiceCmdlineIconFilter = { fg = color.magenta },
+    NoiceCmdlineIconHelp = { fg = color.cyan },
+    NoiceCmdlineIconInput = { fg = color.red },
+    NoiceCmdlineIconLua = { fg = color.blue },
+    NoiceCmdlineIconSearch = { fg = color.yellow },
+
+    NoiceConfirmBorder = { fg = color.blue },
 
     --
     -- Blink.Cmp
@@ -290,10 +299,10 @@ function M.get(pallet)
     DiagnosticWarn = { fg = color.yellow }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticInfo = { fg = color.blue }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticHint = { fg = color.silver }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
-    -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
-    -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
-    -- DiagnosticVirtualTextHint  { } , -- Used for "Hint" diagnostic virtual text.
+    DiagnosticVirtualTextError = { link = "DiagnosticError" }, -- Used for "Error" diagnostic virtual text.
+    DiagnosticVirtualTextWarn = { link = "DiagnosticWarn" }, -- Used for "Warn" diagnostic virtual text.
+    DiagnosticVirtualTextInfo = { link = "DiagnosticInfo" }, -- Used for "Info" diagnostic virtual text.
+    DiagnosticVirtualTextHint = { link = "DiagnosticHint" }, -- Used for "Hint" diagnostic virtual text.
     DiagnosticUnderlineError = { link = "DiagnosticError", undercurl = true }, -- Used to underline "Error" diagnostics.
     DiagnosticUnderlineWarn = { link = "DiagnosticWarn", undercurl = true }, -- Used to underline "Warn" diagnostics.
     DiagnosticUnderlineInfo = { link = "DiagnosticInfo", undercurl = true }, -- Used to underline "Info" diagnostics.
@@ -302,14 +311,14 @@ function M.get(pallet)
     DiagnosticFloatingWarnLabel = { fg = color.float_bg, bg = color.yellow },
     DiagnosticFloatingInfoLabel = { fg = color.float_bg, bg = color.blue },
     DiagnosticFloatingHintLabel = { fg = color.float_bg, bg = color.silver },
-    -- DiagnosticFloatingError    { } , -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
-    -- DiagnosticFloatingWarn     { } , -- Used to color "Warn" diagnostic messages in diagnostics float.
-    -- DiagnosticFloatingInfo     { } , -- Used to color "Info" diagnostic messages in diagnostics float.
-    -- DiagnosticFloatingHint     { } , -- Used to color "Hint" diagnostic messages in diagnostics float.
-    -- DiagnosticSignError        { } , -- Used for "Error" signs in sign column.
-    -- DiagnosticSignWarn         { } , -- Used for "Warn" signs in sign column.
-    -- DiagnosticSignInfo = { fg = color.silver }, -- Used for "Info" signs in sign column.
-    -- DiagnosticSignHint         { } , -- Used for "Hint" signs in sign column.
+    DiagnosticFloatingError = { fg = color.red }, -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
+    DiagnosticFloatingWarn = { fg = color.yellow }, -- Used to color "Warn" diagnostic messages in diagnostics float.
+    DiagnosticFloatingInfo = { fg = color.blue }, -- Used to color "Info" diagnostic messages in diagnostics float.
+    DiagnosticFloatingHint = { fg = color.silver }, -- Used to color "Hint" diagnostic messages in diagnostics float.
+    DiagnosticSignError = { fg = color.red }, -- Used for "Error" signs in sign column.
+    DiagnosticSignWarn = { fg = color.yellow }, -- Used for "Warn" signs in sign column.
+    DiagnosticSignInfo = { fg = color.blue }, -- Used for "Info" signs in sign column.
+    DiagnosticSignHint = { fg = color.silver }, -- Used for "Hint" signs in sign column.
     StatusBarSegmentNormal = { fg = color.bar_text, bg = color.bar_bg },
     StatusBarSegmentFaded = { fg = color.bar_faded_text, bg = color.bar_bg },
     StatusBarDiagnosticError = { fg = color.red, bg = color.bar_bg },

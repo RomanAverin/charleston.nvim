@@ -7,16 +7,18 @@ M.palette = {
   red = "#cc6666",
   green = "#A9C476",
   yellow = "#D0AB3C",
-  blue = "#8DB4D5",
+  -- blue = "#8DB4D5", -- first
+  -- blue = "#7AA6DA", -- second more saturated
+  blue = "#88ABDC",
   magenta = "#B689BC",
   cyan = "#7fb2c8",
-  silver = "#acbcc3",
   charcoal = "#708499",
   teal = "#749689",
   beige = "#EFC986",
   orange = "#de935f",
   purple = "#b08cba",
   -- additional colors
+  silver = "#acbcc3",
   cambridge_blue = "#99C1B9",
   english_violet = "#59546C",
   -- base

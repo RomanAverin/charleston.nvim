@@ -140,8 +140,7 @@ function M.get(pallet)
     -- ["@constructor"] = { link = "Special" }, -- Special
     -- ["@operator"] = { link = "Operator" }, -- Operator
     -- ["@keyword"] = { link = "Keyword" }, -- Keyword
-    ["@variable"] = { link = "Identifier" }, -- Identifier
-    ["@variable"] = { fg = color.white }, -- Variable
+    ["@variable"] = { link = "Identifier" }, -- Variable
     ["@punctuation.bracket"] = { fg = color.beige },
     ["@tag"] = { link = "Label" },
     ["@type"] = { link = "Type" }, -- Type

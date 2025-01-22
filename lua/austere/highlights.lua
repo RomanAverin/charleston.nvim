@@ -7,10 +7,10 @@ function M.get(pallet)
   local ret = {
     Normal = { fg = color.text, bg = color.bg }, -- Normal text
     Comment = { fg = color.faded_text, italic = true }, -- Any comment
-    Constant = { fg = color.beige }, -- (*) Any constant
+    Constant = { fg = color.cyan }, -- (*) Any constant
     String = { fg = color.green }, --   A string constant: "this is a string"
     Character = { fg = color.teal }, --   A character constant: 'c', '\n'
-    Number = { fg = color.yellow }, --   A number constant: 234, 0xff
+    Number = { fg = color.cyan }, --   A number constant: 234, 0xff
     Boolean = { fg = color.red }, --   A boolean constant: TRUE, false
     Float = { fg = color.yellow }, --   A floating point constant: 2.3e10
     Identifier = { fg = color.beige }, -- (*) Any variable name
@@ -19,7 +19,7 @@ function M.get(pallet)
     Conditional = { fg = color.purple }, --   if, then, else, endif, switch, etc.
     Repeat = { fg = color.english_violet }, --   for, do, while, etc.
     Label = { fg = color.text }, --   case, default, etc.
-    Operator = { fg = color.text }, --   "sizeof", "+", "*", etc.
+    Operator = { fg = color.orange }, --   "sizeof", "+", "*", etc.
     Keyword = { fg = color.blue }, --   any other keyword
     Exception = { fg = color.purple }, --   try, catch, throw
     PreProc = { fg = color.magenta }, -- (*) Generic Preprocessor
@@ -90,7 +90,7 @@ function M.get(pallet)
     TabLine = { bg = color.bar_bg }, -- Tab pages line, not active tab page label
     TabLineFill = { bg = color.bar_bg }, -- Tab pages line, where there are no labels
     TabLineSel = { bg = color.bar_bg }, -- Tab pages line, active tab page label
-    Title = { fg = color.magenta, bold = true }, -- Titles for output from ":set all", ":autocmd" etc.
+    Title = { fg = color.magenta }, -- Titles for output from ":set all", ":autocmd" etc.
     -- NB!: VertSplit is dynamic. See functions below.
     VertSplit = { fg = color.white }, -- Vertical split line
     Visual = { bg = color.bar_text, fg = color.bg }, -- Visual mode selection
@@ -194,7 +194,9 @@ function M.get(pallet)
     SnacksIndentBlank = { fg = color.medium_gray },
     SnacksIndentScope = { fg = color.medium_gray },
     SnacksIndentChunk = { fg = color.medium_gray },
-
+    SnacksDashboardDesc = { fg = color.white },
+    SnacksDashboardDir = { fg = color.blue },
+    SnacksDashboardHeader = { fg = color.green },
     --
     -- Noice.nvim
     --
@@ -296,14 +298,14 @@ function M.get(pallet)
 
     -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
-    DiagnosticError = { fg = color.red }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticWarn = { fg = color.yellow }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticInfo = { fg = color.blue }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticHint = { fg = color.silver }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticVirtualTextError = { link = "DiagnosticError" }, -- Used for "Error" diagnostic virtual text.
-    DiagnosticVirtualTextWarn = { link = "DiagnosticWarn" }, -- Used for "Warn" diagnostic virtual text.
-    DiagnosticVirtualTextInfo = { link = "DiagnosticInfo" }, -- Used for "Info" diagnostic virtual text.
-    DiagnosticVirtualTextHint = { link = "DiagnosticHint" }, -- Used for "Hint" diagnostic virtual text.
+    DiagnosticError = { fg = color.red, bold = true }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticWarn = { fg = color.yellow, bold = true }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo = { fg = color.blue, bold = true }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint = { fg = color.silver, bold = true }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticVirtualTextError = { fg = color.red }, -- Used for "Error" diagnostic virtual text.
+    DiagnosticVirtualTextWarn = { fg = color.yellow }, -- Used for "Warn" diagnostic virtual text.
+    DiagnosticVirtualTextInfo = { fg = color.blue }, -- Used for "Info" diagnostic virtual text.
+    DiagnosticVirtualTextHint = { fg = color.silver }, -- Used for "Hint" diagnostic virtual text.
     DiagnosticUnderlineError = { link = "DiagnosticError", undercurl = true }, -- Used to underline "Error" diagnostics.
     DiagnosticUnderlineWarn = { link = "DiagnosticWarn", undercurl = true }, -- Used to underline "Warn" diagnostics.
     DiagnosticUnderlineInfo = { link = "DiagnosticInfo", undercurl = true }, -- Used to underline "Info" diagnostics.

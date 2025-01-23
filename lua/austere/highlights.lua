@@ -381,6 +381,8 @@ function M.get(pallet)
 
     -- NeoGit
     NeogitSectionHeader = { fg = color.magenta },
+    gitcommitFirstLine = { fg = color.text },
+    gitcommitSummary = { fg = color.text },
 
     NotifyINFOIcon = { fg = color.blue },
     NotifyINFOTitle = { fg = color.blue },

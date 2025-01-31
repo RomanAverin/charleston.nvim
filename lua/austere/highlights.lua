@@ -255,7 +255,10 @@ function M.get(pallet)
     BlinkCmpKindOperator = { link = "BlinkCmpKindText" },
     BlinkCmpKindTypeParameter = { link = "BlinkCmpKindText" },
 
-    --
+    -- Mason
+    MasonHighlight = { fg = color.magenta },
+    MasonHighlightBlockBold = { fg = color.magenta },
+
     -- Git
     --
     GitAdded = { fg = color.green },

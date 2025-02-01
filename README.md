@@ -5,6 +5,7 @@
 - High contrast theme with a low saturation and smooth colors
 - Many plugins supported
 
+  ![Dashboard screenshot](./dashboard_screenshot.png)
   ![Screenshot Austere theme with Rust](./screenshot.png)
   ![palette](./palette.png)
 

@@ -74,9 +74,9 @@ function M.get(pallet)
     FloatBorder = { fg = color.thick_line },
     -- NormalNC     { }, -- normal text in non-current windows
     Pmenu = { fg = color.text, bg = color.float_bg }, -- Popup menu: Normal item.
-    -- PmenuSel = { Pmenu, bg = Pmenu.bg.lighten(10) }, -- Popup menu: Selected item.
-    -- PmenuSbar = { bg = Pmenu.bg.lighten(5) }, -- Popup menu: Scrollbar.d
-    -- PmenuThumb = { bg = Pmenu.bg.lighten(15) }, -- Popup menu: Thumb of the scrollbar.
+    -- PmenuSel = { }, -- Popup menu: Selected item.
+    -- PmenuSbar = {  }, -- Popup menu: Scrollbar.d
+    -- PmenuThumb = { }, -- Popup menu: Thumb of the scrollbar.
     -- Question     { }, -- |hit-enter| prompt and yes/no questions
     -- QuickFixLine { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search = { fg = color.bg, bg = color.cyan }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
@@ -93,7 +93,7 @@ function M.get(pallet)
     Title = { fg = color.magenta }, -- Titles for output from ":set all", ":autocmd" etc.
     -- NB!: VertSplit is dynamic. See functions below.
     VertSplit = { fg = color.white }, -- Vertical split line
-    Visual = { bg = color.bar_text, fg = color.bg }, -- Visual mode selection
+    Visual = { bg = color.medium_gray }, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
     -- WarningMsg   { }, -- Warning messages
     Whitespace = { fg = color.faded_text }, -- "nbsp", "space", "tab" and "trail" in 'listchars'

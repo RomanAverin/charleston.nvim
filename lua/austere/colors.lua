@@ -39,7 +39,7 @@ M.palette = {
   -- shades
   white = "#ffffff",
   darker_gray = "#2c323c",
-  medium_gray = "#3D3D3D",
+  medium_gray = "#505050",
   lighter_gray = "#3e4452",
 
   -- git

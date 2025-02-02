@@ -93,7 +93,7 @@ function M.get(pallet)
     Title = { fg = color.magenta }, -- Titles for output from ":set all", ":autocmd" etc.
     -- NB!: VertSplit is dynamic. See functions below.
     VertSplit = { fg = color.white }, -- Vertical split line
-    Visual = { bg = color.medium_gray }, -- Visual mode selection
+    Visual = { bg = color.medium_backgroud }, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
     -- WarningMsg   { }, -- Warning messages
     Whitespace = { fg = color.faded_text }, -- "nbsp", "space", "tab" and "trail" in 'listchars'

@@ -6,7 +6,8 @@
 - Many plugins supported
 
   ![Dashboard screenshot](./dashboard_screenshot.png)
-  ![Screenshot Austere theme with Rust](./screenshot.png)
+  ![Screenshot Austere theme with Rust](./screenshot1.png)
+  ![Screenshot Austere theme with fzf-lua](./screenshot2.png)
   ![palette](./palette.png)
 
 > [!WARNING]

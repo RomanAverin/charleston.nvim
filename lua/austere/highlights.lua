@@ -1,4 +1,5 @@
 local M = {}
+local options = require("austere.config").options
 
 ---@param pallet Palette
 ---@return table
@@ -6,11 +7,11 @@ function M.get(pallet)
   local color = pallet
   local ret = {
     Normal = { fg = color.text, bg = color.bg }, -- Normal text
-    Comment = { fg = color.faded_text, italic = true }, -- Any comment
+    Comment = { fg = color.faded_text, italic = options.italic == true }, -- Any comment
     Constant = { fg = color.cyan }, -- (*) Any constant
     String = { fg = color.green }, --   A string constant: "this is a string"
     Character = { fg = color.teal }, --   A character constant: 'c', '\n'
-    Number = { fg = color.cyan }, --   A number constant: 234, 0xff
+    Number = { fg = color.charcoal }, --   A number constant: 234, 0xff
     Boolean = { fg = color.red }, --   A boolean constant: TRUE, false
     Float = { fg = color.yellow }, --   A floating point constant: 2.3e10
     Identifier = { fg = color.beige }, -- (*) Any variable name
@@ -140,7 +141,7 @@ function M.get(pallet)
     -- ["@constructor"] = { link = "Special" }, -- Special
     -- ["@operator"] = { link = "Operator" }, -- Operator
     -- ["@keyword"] = { link = "Keyword" }, -- Keyword
-    ["@variable"] = { link = "Identifier" }, -- Variable
+    ["@variable"] = { fg = color.beige, italic = options.italic == true }, -- Variable
     ["@punctuation.bracket"] = { fg = color.beige },
     ["@tag"] = { link = "Label" },
     ["@type"] = { link = "Type" }, -- Type
@@ -155,7 +156,7 @@ function M.get(pallet)
     ["@keyword.python"] = { fg = color.magenta },
     -- ["@keyword.lua"] = { fg = color.cyan },
     --  LSP
-    ["@lsp.type.parameter"] = { fg = color.orange },
+    ["@lsp.type.parameter"] = { fg = color.cyan },
     ["@lsp.type.variable.lua"] = { link = "@lsp.type.parameter" },
 
     markdownCode = { fg = color.faded_text },
@@ -363,6 +364,7 @@ function M.get(pallet)
 
     -- Fzf-lua
     FzfLuaNormal = { bg = color.float_bg },
+    FzfLuaTitle = { bg = color.english_violet },
     FzfLuaBorder = { fg = color.faded_text, bg = color.float_bg },
     FzfLuaHelpNormal = { fg = color.yellow }, --
     FzfLuaHeaderBind = { fg = color.yellow, bold = true }, -- header keybind

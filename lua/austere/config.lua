@@ -4,6 +4,7 @@ M.version = "1.0"
 
 M.defaults = {
   terminal_colors = true,
+  italic = true,
 }
 
 M.options = nil

@@ -20,7 +20,7 @@
 
 ## Requirements
 
-- neovim > 0.9
+- neovim >= 0.8
 
 ## Supported plugins
 

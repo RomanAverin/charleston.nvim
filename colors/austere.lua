@@ -1,1 +1,1 @@
-require("austere").load({})
+require("austere").load()

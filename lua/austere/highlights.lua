@@ -1,13 +1,15 @@
 local M = {}
-local options = require("austere.config").options
 
 ---@param pallet Palette
 ---@return table
-function M.get(pallet)
+function M.get(pallet, opts)
   local color = pallet
-  local ret = {
+  -- setup options
+  color.bg = opts.dimmed_background and color.bg_dimmed or color.bg
+
+  local hl = {
     Normal = { fg = color.text, bg = color.bg }, -- Normal text
-    Comment = { fg = color.faded_text, italic = options.italic == true }, -- Any comment
+    Comment = { fg = color.faded_text, italic = opts.italic == true }, -- Any comment
     Constant = { fg = color.cyan }, -- (*) Any constant
     String = { fg = color.green }, --   A string constant: "this is a string"
     Character = { fg = color.teal }, --   A character constant: 'c', '\n'
@@ -141,7 +143,7 @@ function M.get(pallet)
     -- ["@constructor"] = { link = "Special" }, -- Special
     -- ["@operator"] = { link = "Operator" }, -- Operator
     -- ["@keyword"] = { link = "Keyword" }, -- Keyword
-    ["@variable"] = { fg = color.beige, italic = options.italic == true }, -- Variable
+    ["@variable"] = { fg = color.beige, italic = opts.italic == true }, -- Variable
     ["@punctuation.bracket"] = { fg = color.beige },
     ["@tag"] = { link = "Label" },
     ["@type"] = { link = "Type" }, -- Type
@@ -416,7 +418,7 @@ function M.get(pallet)
     CmpItemKindFolder = { link = "Directory" },
   }
 
-  return ret
+  return hl
 end
 
 return M

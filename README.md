@@ -1,8 +1,8 @@
-# Austere Theme for neovim
+# "Austere" dark theme for neovim
 
 ## Features
 
-- High contrast theme with a low saturation and smooth colors
+- High contrast color theme with a low saturation and smooth colors
 - Many plugins supported
 
   ![Dashboard screenshot](./dashboard.png)
@@ -51,5 +51,28 @@ Only use with lazy plugin manager:
       colorscheme = "austere",
     },
   },
+}
+```
+
+## Options
+
+To configure options, add `opts` to the plugin declaration:
+
+```bash
+opts = {
+  terminal_colors = true, -- sets terminal colors
+  italic = true, -- use italic font style
+  dimmed_background = false, -- use more dim background
+}
+```
+
+For the lualine add this
+
+```bash
+require('lualine').setup {
+    options = {
+        theme = "austere"
+        -- ... the rest of your lualine config
+    }
 }
 ```

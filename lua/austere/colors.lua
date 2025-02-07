@@ -1,6 +1,5 @@
 local M = {}
 
--- Color palette dark
 ---@class Palette
 M.palette = {
   -- palette
@@ -22,8 +21,8 @@ M.palette = {
   cambridge_blue = "#99C1B9",
   english_violet = "#59546C",
   -- base
-  -- bg = "#262B31",
   bg = "#1D2024",
+  bg_dimmed = "#262B31",
   text = "#C5C8D3",
   strong_text = "#80838f",
   faded_text = "#686d75",

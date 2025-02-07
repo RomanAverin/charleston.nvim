@@ -1,20 +1,9 @@
 local M = {}
 
 function M.setup(opts)
-  opts = require("austere.config").extend(opts)
+  local colors = require("austere.colors")
 
-  local palette = require("austere.colors").palette
-
-  vim.o.termguicolors = true
-  vim.g.colors_name = "austere"
-
-  -- only needed to clear when not the default colorscheme
-  if vim.g.colors_name then
-    vim.cmd("hi clear")
-    vim.cmd("syntax reset")
-  end
-
-  local highlights = require("austere.highlights").get(palette)
+  local highlights = require("austere.highlights").get(colors.palette, opts)
 
   for group, hl in pairs(highlights) do
     hl = type(hl) == "string" and { link = hl } or hl
@@ -22,7 +11,7 @@ function M.setup(opts)
   end
 
   if opts.terminal_color then
-    M.apply_terminal_colors(palette)
+    M.apply_terminal_colors(colors.palette)
   end
 end
 

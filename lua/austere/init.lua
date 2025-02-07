@@ -2,7 +2,7 @@ local colors = require("austere.colors")
 local theme = require("austere.theme")
 
 local M = {}
-M.version = "1.0"
+M.version = "1.0.0"
 
 M.defaults_opts = {
   terminal_colors = true,

@@ -63,8 +63,8 @@ Lazy:
 
 Or:
 
-```vim.cmd.colorscheme "charleston"
-
+```bash
+vim.cmd.colorscheme "charleston"
 ```
 
 ## Options

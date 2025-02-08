@@ -45,13 +45,26 @@ Only use with lazy plugin manager:
     priority = 1000,
     opts = {},
   },
+}
+```
+
+## Usage
+
+Lazy:
+
+```bash
   {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "charleston",
     },
   },
-}
+```
+
+Or:
+
+```vim.cmd.colorscheme "charleston"
+
 ```
 
 ## Options

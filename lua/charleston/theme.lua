@@ -1,9 +1,9 @@
 local M = {}
 
 function M.setup(opts)
-  local colors = require("austere.colors")
+  local colors = require("charleston.colors")
 
-  local highlights = require("austere.highlights").get(colors.palette, opts)
+  local highlights = require("charleston.highlights").get(colors.palette, opts)
 
   for group, hl in pairs(highlights) do
     hl = type(hl) == "string" and { link = hl } or hl

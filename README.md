@@ -1,4 +1,4 @@
-# "Austere" dark theme for neovim
+# "Charleston" dark theme for neovim
 
 ## Features
 
@@ -40,15 +40,15 @@ Only use with lazy plugin manager:
 
 ```bash
 {
-    "romanaverin/austere.nvim",
-    name = "austere",
+    "romanaverin/charleston.nvim",
+    name = "charleston",
     priority = 1000,
     opts = {},
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "austere",
+      colorscheme = "charleston",
     },
   },
 }
@@ -71,7 +71,7 @@ For the lualine add this
 ```bash
 require('lualine').setup {
     options = {
-        theme = "austere"
+        theme = "charleston"
         -- ... the rest of your lualine config
     }
 }

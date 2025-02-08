@@ -1,8 +1,8 @@
-local colors = require("austere.colors")
-local theme = require("austere.theme")
+local colors = require("charleston.colors")
+local theme = require("charleston.theme")
 
 local M = {}
-M.version = "1.0.0"
+M.version = "1.1.0"
 
 M.defaults_opts = {
   terminal_colors = true,
@@ -35,7 +35,11 @@ end
 
 function M.load()
   if vim.version().minor < 8 then
-    vim.notify("Neovim 0.8+ is required for this colorscheme", vim.log.levels.ERROR, { title = "Austere colorscheme" })
+    vim.notify(
+      "Neovim 0.8+ is required for this colorscheme",
+      vim.log.levels.ERROR,
+      { title = "Charleston colorscheme" }
+    )
     return
   end
 
@@ -44,7 +48,7 @@ function M.load()
     vim.api.nvim_command("syntax reset")
   end
 
-  vim.g.colors_name = "austere"
+  vim.g.colors_name = "charleston"
   vim.g.palette = colors.palette
 
   return theme.setup(M.opts)

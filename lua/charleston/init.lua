@@ -7,7 +7,7 @@ M.version = "1.1.0"
 M.defaults_opts = {
   terminal_colors = true,
   italic = true,
-  dimmed_background = false,
+  dimmed_background = true,
 }
 
 function M.setup(custom_opts)

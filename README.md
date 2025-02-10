@@ -5,10 +5,10 @@
 - High contrast color theme with a low saturation and smooth colors
 - Many plugins supported
 
-  ![Dashboard screenshot](./dashboard.png)
-  ![Screenshot Austere theme with Rust](./screenshot1.png)
-  ![Screenshot Austere theme with fzf-lua](./screenshot2.png)
-  ![palette](./palette.png)
+  ![Dashboard screenshot](./assets/images/dashboard.png)
+  ![Screenshot Austere theme with Rust](./assets/images/screenshot1.png)
+  ![Screenshot Austere theme with fzf-lua](./assets/images/screenshot2.png)
+  ![palette](./assets/images/palette.png)
 
 > [!WARNING]
 > The color scheme is under deep development.

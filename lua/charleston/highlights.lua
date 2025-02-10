@@ -198,7 +198,7 @@ function M.get(pallet, opts)
     SnacksIndentScope = { fg = color.medium_gray },
     SnacksIndentChunk = { fg = color.medium_gray },
     SnacksDashboardDesc = { fg = color.white },
-    SnacksDashboardDir = { fg = color.blue },
+    SnacksDashboardDir = { fg = color.green },
     SnacksDashboardHeader = { fg = color.green },
     --
     -- Noice.nvim

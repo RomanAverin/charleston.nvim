@@ -37,7 +37,7 @@ function M.get(pallet, opts)
     Special = { fg = color.silver }, -- (*) Any special symbol
     SpecialChar = { fg = color.silver }, -- Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
-    -- Delimiter      { }, --   Character that needs attention
+    -- Delimiter = { link = "Normal" }, --   Character that needs attention
     SpecialComment = { fg = color.strong_text }, --   Special things inside a comment (e.g. '\n')
     -- Debug          { }, --   Debugging statements
 
@@ -180,9 +180,9 @@ function M.get(pallet, opts)
     RenderMarkdownH4Bg = { bg = color.bg },
     RenderMarkdownH5Bg = { bg = color.bg },
     RenderMarkdownH6Bg = { bg = color.bg },
-    RenderMarkdownCode = { fg = color.green },
-    RenderMarkdownCodeInline = { fg = color.faded_text, bg = color.bg },
-    RenderMarkdownInlineHighlight = { fg = color.faded_text, bg = color.bg },
+    RenderMarkdownCode = { fg = color.green, bg = color.float_bg },
+    RenderMarkdownCodeInline = { fg = color.faded_text, bg = color.float_bg },
+    RenderMarkdownInlineHighlight = { fg = color.faded_text, bg = color.float_bg },
     RenderMarkdownBullet = { fg = color.silver },
     RenderMarkdownTableHead = { fg = color.blue },
     RenderMarkdownTableRow = { fg = color.cyan },

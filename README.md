@@ -38,7 +38,7 @@
 
 Only use with lazy plugin manager:
 
-```bash
+```lua
 {
     "romanaverin/charleston.nvim",
     name = "charleston",
@@ -52,7 +52,7 @@ Only use with lazy plugin manager:
 
 Lazy:
 
-```bash
+```lua
   {
     "LazyVim/LazyVim",
     opts = {
@@ -63,7 +63,7 @@ Lazy:
 
 Or:
 
-```bash
+```lua
 vim.cmd.colorscheme "charleston"
 ```
 
@@ -71,7 +71,7 @@ vim.cmd.colorscheme "charleston"
 
 To configure options, add `opts` to the plugin declaration:
 
-```bash
+```lua
 opts = {
   terminal_colors = true, -- sets terminal colors
   italic = true, -- use italic font style
@@ -81,7 +81,7 @@ opts = {
 
 For the lualine add this
 
-```bash
+```lua
 require('lualine').setup {
     options = {
         theme = "charleston"

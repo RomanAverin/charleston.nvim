@@ -204,7 +204,7 @@ function M.get(pallet, opts)
     -- Noice.nvim
     --
     NoiceCmdline = { fg = color.white }, -- Search prompt
-    NoiceCmdlinePopup = { fg = color.white, bg = color.bar_bg },
+    NoiceCmdlinePopup = { fg = color.white, bg = color.bg },
     NoiceCmdlinePopupBorder = { fg = color.faded_text }, -- Cmd window boarder
     NoiceCmdlinePopupTitle = { fg = color.white },
     NoiceCmdlineIcon = { fg = color.white }, -- Prompt begin icon

@@ -13,7 +13,7 @@ function M.get(pallet, opts)
     Constant = { fg = color.cyan }, -- (*) Any constant
     String = { fg = color.green }, --   A string constant: "this is a string"
     Character = { fg = color.teal }, --   A character constant: 'c', '\n'
-    Number = { fg = color.charcoal }, --   A number constant: 234, 0xff
+    Number = { fg = color.yellow }, --   A number constant: 234, 0xff
     Boolean = { fg = color.red }, --   A boolean constant: TRUE, false
     Float = { fg = color.yellow }, --   A floating point constant: 2.3e10
     Identifier = { fg = color.beige }, -- (*) Any variable name

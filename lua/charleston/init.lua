@@ -2,7 +2,7 @@ local colors = require("charleston.colors")
 local theme = require("charleston.theme")
 
 local M = {}
-M.version = "1.1.0"
+M.version = "1.2.0"
 
 M.defaults_opts = {
   terminal_colors = true,
@@ -50,6 +50,10 @@ function M.load()
 
   vim.g.colors_name = "charleston"
   vim.g.palette = colors.palette
+
+  if M.opts == nil then
+    M.opts = M.defaults_opts
+  end
 
   return theme.setup(M.opts)
 end

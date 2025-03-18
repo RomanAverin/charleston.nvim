@@ -1,4 +1,7 @@
 # "Charleston" dark theme for neovim
+![Screenshot From 2025-03-18 23-34-44](https://github.com/user-attachments/assets/8986ee3a-7fe7-48ec-a27e-3d15602f80a5)
+![Screenshot From 2025-03-18 23-35-16](https://github.com/user-attachments/assets/6a6ea35e-596f-4556-aa0f-e7eee42c91c8)
+![Screenshot From 2025-03-18 23-35-34](https://github.com/user-attachments/assets/7ccb9bc7-6514-4b53-962c-42a574258946)
 
 ## Features
 

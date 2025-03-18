@@ -7,7 +7,7 @@
 
 - High contrast color theme with a low saturation and smooth colors
 - Many plugins supported
-- Italic
+- Italic font style option
   
 
 > [!WARNING]
@@ -43,7 +43,6 @@ Only use with lazy plugin manager:
     "romanaverin/charleston.nvim",
     name = "charleston",
     priority = 1000,
-    opts = {},
   },
 }
 ```

@@ -7,6 +7,8 @@
 
 - High contrast color theme with a low saturation and smooth colors
 - Many plugins supported
+- Italic
+  
 
 > [!WARNING]
 > The color scheme is under deep development.

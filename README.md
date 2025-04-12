@@ -1,4 +1,5 @@
 # "Charleston" dark theme for neovim
+
 ![Screenshot From 2025-03-18 23-34-44](https://github.com/user-attachments/assets/8986ee3a-7fe7-48ec-a27e-3d15602f80a5)
 ![Screenshot From 2025-03-18 23-35-16](https://github.com/user-attachments/assets/6a6ea35e-596f-4556-aa0f-e7eee42c91c8)
 ![Screenshot From 2025-03-18 23-35-34](https://github.com/user-attachments/assets/7ccb9bc7-6514-4b53-962c-42a574258946)
@@ -8,7 +9,6 @@
 - High contrast color theme with a low saturation and smooth colors
 - Many plugins supported
 - Italic font style option
-  
 
 > [!WARNING]
 > The color scheme is under deep development.
@@ -74,7 +74,7 @@ To configure options, add `opts` to the plugin declaration:
 opts = {
   terminal_colors = true, -- sets terminal colors
   italic = true, -- use italic font style
-  dimmed_background = false, -- use more dim background
+  darken_background = false, -- use more darker background
 }
 ```
 

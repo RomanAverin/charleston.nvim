@@ -5,7 +5,7 @@ local M = {}
 function M.get(pallet, opts)
   local color = pallet
   -- setup options
-  color.bg = opts.dimmed_background and color.bg_dimmed or color.bg
+  color.bg = opts.darker_background and color.bg or color.bg_dimmed
 
   local hl = {
     Normal = { fg = color.text, bg = color.bg }, -- Normal text

@@ -1,9 +1,16 @@
 local M = {}
+local colors = require("charleston.colors")
+local utils = require("charleston.utils")
 
 function M.setup(opts)
-  local colors = require("charleston.colors")
+  -- change saturation
+  local palette = {}
+  for color_name, color_value in pairs(colors.palette) do
+    color_value = type(color_value) == "string" and utils.changeSaturation(color_value, opts.colors_saturation)
+    palette[color_name] = color_value
+  end
 
-  local highlights = require("charleston.highlights").get(colors.palette, opts)
+  local highlights = require("charleston.highlights").get(palette, opts)
 
   for group, hl in pairs(highlights) do
     hl = type(hl) == "string" and { link = hl } or hl

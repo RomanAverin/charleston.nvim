@@ -2,12 +2,14 @@ local colors = require("charleston.colors")
 local theme = require("charleston.theme")
 
 local M = {}
-M.version = "1.2.0"
+
+M.version = "1.4.0"
 
 M.defaults_opts = {
   terminal_colors = true,
   italic = true,
   darker_background = false,
+  colors_saturation = 0,
 }
 
 function M.setup(custom_opts)

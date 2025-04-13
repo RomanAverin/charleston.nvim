@@ -16,7 +16,7 @@ return {
     a = { fg = colors.bg, bg = colors.purple, gui = "bold" },
   },
   replace = {
-    a = { fg = colors.bg, bg = colors.magenta, gui = "bold" },
+    a = { fg = colors.bg, bg = colors.red, gui = "bold" },
   },
   command = {
     a = { bg = colors.darkorange, fg = colors.bg, gui = "bold" },

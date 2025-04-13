@@ -75,7 +75,7 @@ opts = {
   terminal_colors = true, -- sets terminal colors
   italic = true, -- use italic font style
   darken_background = false, -- use more darker background
-  colors_saturation = 0, -- change in overall color saturation, can be set from --10 to 10
+  colors_saturation = 0, -- change in overall color saturation, can be set from -10 to 10
 }
 ```
 

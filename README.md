@@ -43,8 +43,7 @@ Only use with lazy plugin manager:
     "romanaverin/charleston.nvim",
     name = "charleston",
     priority = 1000,
-  },
-}
+},
 ```
 
 ## Usage

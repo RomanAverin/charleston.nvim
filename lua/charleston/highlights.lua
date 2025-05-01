@@ -311,10 +311,10 @@ function M.get(pallet, opts)
 
     -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
-    DiagnosticError = { fg = color.red, bold = true }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticWarn = { fg = color.yellow, bold = true }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticInfo = { fg = color.blue, bold = true }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticHint = { fg = color.silver, bold = true }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticError = { fg = color.red }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticWarn = { fg = color.yellow }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo = { fg = color.blue }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint = { fg = color.silver }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticVirtualTextError = { fg = color.red }, -- Used for "Error" diagnostic virtual text.
     DiagnosticVirtualTextWarn = { fg = color.yellow }, -- Used for "Warn" diagnostic virtual text.
     DiagnosticVirtualTextInfo = { fg = color.blue }, -- Used for "Info" diagnostic virtual text.

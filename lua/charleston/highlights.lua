@@ -118,31 +118,8 @@ function M.get(pallet, opts)
     ["@macro"] = { link = "Macro" }, -- Macro
     ["@string"] = { link = "String" }, -- String
     ["@markup"] = { fg = color.faded_text }, -- Markup
-
-    -- ["@markup.emphasis"] = { italic = true },
-    -- ["@markup.environment"] = { link = "Macro" },
-    -- ["@markup.environment.name"] = { link = "Type" },
-    -- ["@markup.heading"] = { link = "Title" },
-    -- ["@markup.italic"] = { italic = true },
-    -- ["@markup.link"] = { fg = color.teal },
-    -- ["@markup.link.label"] = { link = "SpecialChar" },
-    -- ["@markup.link.label.symbol"] = { link = "Identifier" },
-    -- ["@markup.link.url"] = { link = "Underlined" },
-    -- ["@markup.list"] = { fg = color.blue }, -- For special punctutation that does not fall in the categories before.
-    -- ["@markup.list.checked"] = { fg = color.green }, -- For brackets and parens.
-    -- ["@markup.list.markdown"] = { fg = color.orange, bold = true },
-    -- ["@markup.list.unchecked"] = { fg = color.blue }, -- For brackets and parens.
-    -- ["@markup.math"] = { link = "Special" },
-    -- ["@markup.raw"] = { link = "String" },
-    -- ["@markup.raw.block"] = { link = "String" },
-    -- ["@markup.raw.block.markdown"] = { link = "Normal" },
     ["@label.markdown"] = { link = "Normal" },
 
-    -- ["@variable.parameter.builtin"] = { fg = color.teal },
-    -- ["@markup.raw.markdown_inline"] = { bg = color.float_bg, fg = color.blue },
-    -- ["@constructor"] = { link = "Special" }, -- Special
-    -- ["@operator"] = { link = "Operator" }, -- Operator
-    -- ["@keyword"] = { link = "Keyword" }, -- Keyword
     ["@variable"] = { fg = color.beige, italic = opts.italic == true }, -- Variable
     ["@punctuation.bracket"] = { fg = color.beige },
     ["@tag"] = { link = "Label" },
@@ -156,10 +133,12 @@ function M.get(pallet, opts)
     ["@keyword.import"] = { link = "Include" },
     ["@keyword.rust"] = { fg = color.magenta },
     ["@keyword.python"] = { fg = color.magenta },
-    -- ["@keyword.lua"] = { fg = color.cyan },
-    --  LSP
+
+    --  LSP syntax groups
+    --
     ["@lsp.type.parameter"] = { fg = color.cyan },
     ["@lsp.type.variable.lua"] = { link = "@lsp.type.parameter" },
+    ["@lsp.type.parameter.rust"] = { link = "@variable" },
 
     markdownCode = { fg = color.faded_text },
     markdownCodeBlock = { fg = color.faded_text },

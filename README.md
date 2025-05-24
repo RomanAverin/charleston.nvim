@@ -87,3 +87,7 @@ require('lualine').setup {
     }
 }
 ```
+
+## 🍭 Extras
+
+Themes for other app. In the extras folder.

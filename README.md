@@ -33,6 +33,7 @@
 - render-markdown.nvim
 - snacks.nvim
 - telescope.nvim
+- neogit
 
 ## Install
 

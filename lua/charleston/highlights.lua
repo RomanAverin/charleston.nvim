@@ -285,6 +285,8 @@ function M.get(pallet, opts)
     LspReferenceWrite = { link = "LspReferenceText" }, -- Used for highlighting "write" references
     LspInlayHint = { link = "Comment", bold = true },
     LspCodeLens = { link = "LspInlayHint" }, -- Used to color the virtual text of the codelens. See |nvim_buf_set_extmark()|.
+    LspInlayHint = { fg = color.faded_text, italic = opts.italic == true, underdashed = true },
+    LspCodeLens = { link = "Comment" }, -- Used to color the virtual text of the codelens. See |nvim_buf_set_extmark()|.
     -- LspCodeLensSeparator        { } , -- Used to color the seperator between two or more code lens.
     -- LspSignatureActiveParameter { } , -- Used to highlight the active parameter in the signature help. See |vim.lsp.handlers.signature_help()|.
 

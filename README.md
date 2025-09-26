@@ -79,7 +79,6 @@ opts = {
   terminal_colors = true, -- sets terminal colors
   italic = true, -- use italic font style
   darken_background = false, -- use more darker background
-  transparent = false, -- enables transparent background (with full terminal compatibility)
 }
 ```
 
@@ -93,33 +92,6 @@ require('lualine').setup {
     }
 }
 ```
-
-## 🔍 Transparency
-
-The Charleston colorscheme now includes enhanced transparency support with full terminal compatibility:
-
-```lua
-require("charleston").setup({
-  transparent = true,
-})
-```
-
-### Features
-
-- ✅ **Full Terminal Compatibility**: Works in GUI and terminal modes
-- ✅ **Automatic Processing**: All transparent groups receive proper `guibg=NONE` and `ctermbg=NONE` attributes
-- ✅ **Backward Compatibility**: Works with older Neovim/Vim versions
-- ✅ **Terminal Independence**: Consistent behavior across different terminal emulators
-
-### Testing
-
-Run the included test to verify transparency works correctly:
-
-```vim
-:source test_transparency.lua
-```
-
-See `TRANSPARENCY_FIX.md` for technical details about the transparency implementation.
 
 ## 🍭 Extras
 

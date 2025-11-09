@@ -194,7 +194,6 @@ function M.get(pallet, opts)
     NoiceCmdlineIconInput = { fg = color.red },
     NoiceCmdlineIconLua = { fg = color.blue },
     NoiceCmdlineIconSearch = { fg = color.yellow },
-
     NoiceConfirmBorder = { fg = color.blue },
 
     --
@@ -204,13 +203,11 @@ function M.get(pallet, opts)
     BlinkCmpLabel = { bg = color.bar_bg, fg = color.cyan },
     BlinkCmpLabelDeprecated = { link = "BlinkCmpLabel" },
     BlinkCmpSource = { fg = color.teal },
-    BlinkCmpMenuSelection = { bg = color.silver, fg = color.strong_faded_text },
-    BlinkCmpLabelMatch = { bold = true, fg = color.beige },
+    BlinkCmpMenuSelection = { bg = color.strong_faded_text },
+    BlinkCmpLabelMatch = { bold = true, fg = color.yellow },
     BlinkCmpGhostText = { fg = color.bar_faded_text },
-
     BlinkCmpKind = { fg = color.bar_text },
     BlinkCmpKindDefaul = { fg = color.bar_text },
-
     BlinkCmpKindArray = { link = "BlinkCmpKindText" },
     BlinkCmpKindBoolean = { link = "BlinkCmpKindText" },
     BlinkCmpKindClass = { link = "BlinkCmpKindText" },
@@ -283,8 +280,6 @@ function M.get(pallet, opts)
     LspReferenceText = { underline = true }, -- Used for highlighting "text" references
     LspReferenceRead = { link = "LspReferenceText" }, -- Used for highlighting "read" references
     LspReferenceWrite = { link = "LspReferenceText" }, -- Used for highlighting "write" references
-    LspInlayHint = { link = "Comment", bold = true },
-    LspCodeLens = { link = "LspInlayHint" }, -- Used to color the virtual text of the codelens. See |nvim_buf_set_extmark()|.
     LspInlayHint = { fg = color.faded_text, italic = opts.italic == true, underdashed = true },
     LspCodeLens = { link = "Comment" }, -- Used to color the virtual text of the codelens. See |nvim_buf_set_extmark()|.
     -- LspCodeLensSeparator        { } , -- Used to color the seperator between two or more code lens.

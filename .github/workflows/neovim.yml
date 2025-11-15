@@ -2,9 +2,19 @@
 name: Neovim
 on:
   pull_request:
+    paths-ignore:
+      - "*.md"
+      - ".github/**"
+      - "extras/**"
+      - ".editorconfig"
+      - ".gitignore"
   push:
     paths-ignore:
       - "*.md"
+      - ".github/**"
+      - "extras/**"
+      - ".editorconfig"
+      - ".gitignore"
     branches:
       - main
 

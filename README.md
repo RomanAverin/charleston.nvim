@@ -1,6 +1,6 @@
 # "Charleston" dark theme for neovim
 
-[![Create Release](https://github.com/RomanAverin/charleston.nvim/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/RomanAverin/charleston.nvim/actions/workflows/release.yml)
+[![Create Release](https://github.com/RomanAverin/charleston.nvim/actions/workflows/release.yml/badge.svg)](https://github.com/RomanAverin/charleston.nvim/actions/workflows/release.yml)
 
 ![Screenshot From 2025-10-16 20-56-45 (Edit)](https://github.com/user-attachments/assets/c5a89833-15d4-40d2-8286-7fb715a5579f)
 ![Screenshot From 2025-10-16 20-58-16 (Edit)](https://github.com/user-attachments/assets/d922f452-9d0a-4fe8-99ab-6e623deac06c)

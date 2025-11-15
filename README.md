@@ -49,6 +49,17 @@ Only use with lazy plugin manager:
 },
 ```
 
+To use a specific version:
+
+```lua
+{
+    "romanaverin/charleston.nvim",
+    name = "charleston",
+    version = "1.5.0", -- or use "*" for the latest release
+    priority = 1000,
+},
+```
+
 ## Usage
 
 Lazy:

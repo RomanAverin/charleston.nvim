@@ -10,7 +10,7 @@ function M.setup(opts)
     vim.api.nvim_set_hl(0, group, hl)
   end
 
-  if opts.terminal_color then
+  if opts.terminal_colors then
     M.apply_terminal_colors(colors.palette)
   end
 end

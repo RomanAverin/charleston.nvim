@@ -7,8 +7,13 @@ function M.get(pallet, opts)
   -- setup options
   color.bg = opts.darker_background and color.bg or color.bg_dimmed
 
+  -- setup transparent backgrounds
+  local bg = opts.transparent and "NONE" or color.bg
+  local float_bg = opts.transparent and "NONE" or color.float_bg
+  local bar_bg = opts.transparent and "NONE" or color.bar_bg
+
   local hl = {
-    Normal = { fg = color.text, bg = color.bg }, -- Normal text
+    Normal = { fg = color.text, bg = bg }, -- Normal text
     Comment = { fg = color.faded_text, italic = opts.italic == true }, -- Any comment
     Constant = { fg = color.cyan }, -- (*) Any constant
     String = { fg = color.green }, --   A string constant: "this is a string"
@@ -56,13 +61,13 @@ function M.get(pallet, opts)
     VirtColumn = { fg = color.thin_line },
     ColorColumn = { fg = color.thin_line }, -- Columns set with 'colorcolumn'
     Directory = { fg = color.text }, -- Directory names (and other special names in listings)
-    -- EndOfBuffer  { }, -- Filler lines ~ after the end of the buffer. By default, this is highlighted like |hl-NonText|.
+    EndOfBuffer = { fg = color.faded_text, bg = bg }, -- Filler lines ~ after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     -- TermCursor   { }, -- Cursor in a focused terminal
     -- TermCursorNC { }, -- Cursor in an unfocused terminal
     -- ErrorMsg     { }, -- Error messages on the command line
     Folded = { fg = color.bg, bg = color.charcoal }, -- Line used for closed folds
-    FoldColumn = { fg = color.charcoal, bg = color.bg }, -- 'foldcolumn'
-    SignColumn = { fg = color.text, bg = color.bg }, -- Column where |signs| are displayed
+    FoldColumn = { fg = color.charcoal, bg = bg }, -- 'foldcolumn'
+    SignColumn = { fg = color.text, bg = bg }, -- Column where |signs| are displayed
     -- IncSearch    { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     -- Substitute   { }, -- |:substitute| replacement text highlighting
     LineNr = { fg = color.strong_faded_text }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
@@ -73,10 +78,10 @@ function M.get(pallet, opts)
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     -- MoreMsg      { }, -- |more-prompt|
     NonText = { fg = color.cyan }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    NormalFloat = { fg = color.text, bg = color.float_bg }, -- Normal text in floating windows.
+    NormalFloat = { fg = color.text, bg = float_bg }, -- Normal text in floating windows.
     FloatBorder = { fg = color.thick_line },
-    -- NormalNC     { }, -- normal text in non-current windows
-    Pmenu = { fg = color.text, bg = color.float_bg }, -- Popup menu: Normal item.
+    NormalNC = { fg = color.text, bg = bg }, -- normal text in non-current windows
+    Pmenu = { fg = color.text, bg = float_bg }, -- Popup menu: Normal item.
     -- PmenuSel = { }, -- Popup menu: Selected item.
     -- PmenuSbar = {  }, -- Popup menu: Scrollbar.d
     -- PmenuThumb = { }, -- Popup menu: Thumb of the scrollbar.
@@ -88,11 +93,11 @@ function M.get(pallet, opts)
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     -- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
-    StatusLine = { bg = color.bar_bg }, -- Status line of current window
-    StatusLineNC = { bg = color.bar_bg }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-    TabLine = { bg = color.bar_bg }, -- Tab pages line, not active tab page label
-    TabLineFill = { bg = color.bar_bg }, -- Tab pages line, where there are no labels
-    TabLineSel = { bg = color.bar_bg }, -- Tab pages line, active tab page label
+    StatusLine = { bg = bar_bg }, -- Status line of current window
+    StatusLineNC = { bg = bar_bg }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    TabLine = { bg = bar_bg }, -- Tab pages line, not active tab page label
+    TabLineFill = { bg = bar_bg }, -- Tab pages line, where there are no labels
+    TabLineSel = { bg = bar_bg }, -- Tab pages line, active tab page label
     Title = { fg = color.magenta }, -- Titles for output from ":set all", ":autocmd" etc.
     -- NB!: VertSplit is dynamic. See functions below.
     VertSplit = { fg = color.white }, -- Vertical split line
@@ -102,8 +107,8 @@ function M.get(pallet, opts)
     Whitespace = { fg = color.faded_text }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     Winseparator = { link = "VertSplit" }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
     -- WildMenu     { }, -- Current match in 'wildmenu' completion
-    Winbar = { bg = color.bar_bg },
-    WinbarNC = { bg = color.bar_bg },
+    Winbar = { bg = bar_bg },
+    WinbarNC = { bg = bar_bg },
 
     -- Tree-Sitter syntax groups.
     --
@@ -153,15 +158,15 @@ function M.get(pallet, opts)
     RenderMarkdownH4 = { fg = color.silver },
     RenderMarkdownH5 = { fg = color.silver },
     RenderMarkdownH6 = { fg = color.silver },
-    RenderMarkdownH1Bg = { bg = color.float_bg },
-    RenderMarkdownH2Bg = { bg = color.float_bg },
-    RenderMarkdownH3Bg = { bg = color.float_bg },
-    RenderMarkdownH4Bg = { bg = color.bg },
-    RenderMarkdownH5Bg = { bg = color.bg },
-    RenderMarkdownH6Bg = { bg = color.bg },
-    RenderMarkdownCode = { fg = color.green, bg = color.float_bg },
-    RenderMarkdownCodeInline = { fg = color.faded_text, bg = color.float_bg },
-    RenderMarkdownInlineHighlight = { fg = color.faded_text, bg = color.float_bg },
+    RenderMarkdownH1Bg = { bg = float_bg },
+    RenderMarkdownH2Bg = { bg = float_bg },
+    RenderMarkdownH3Bg = { bg = float_bg },
+    RenderMarkdownH4Bg = { bg = bg },
+    RenderMarkdownH5Bg = { bg = bg },
+    RenderMarkdownH6Bg = { bg = bg },
+    RenderMarkdownCode = { fg = color.green, bg = float_bg },
+    RenderMarkdownCodeInline = { fg = color.faded_text, bg = float_bg },
+    RenderMarkdownInlineHighlight = { fg = color.faded_text, bg = float_bg },
     RenderMarkdownBullet = { fg = color.silver },
     RenderMarkdownTableHead = { fg = color.blue },
     RenderMarkdownTableRow = { fg = color.cyan },
@@ -183,7 +188,7 @@ function M.get(pallet, opts)
     -- Noice.nvim
     --
     NoiceCmdline = { fg = color.white }, -- Search prompt
-    NoiceCmdlinePopup = { fg = color.white, bg = color.bg },
+    NoiceCmdlinePopup = { fg = color.white, bg = bg },
     NoiceCmdlinePopupBorder = { fg = color.faded_text }, -- Cmd window boarder
     NoiceCmdlinePopupTitle = { fg = color.white },
     NoiceCmdlineIcon = { fg = color.white }, -- Prompt begin icon
@@ -199,8 +204,8 @@ function M.get(pallet, opts)
     --
     -- Blink.Cmp
     --
-    BlinkCmpMenu = { bg = color.bar_bg, fg = color.bar_text },
-    BlinkCmpLabel = { bg = color.bar_bg, fg = color.cyan },
+    BlinkCmpMenu = { bg = bar_bg, fg = color.bar_text },
+    BlinkCmpLabel = { bg = bar_bg, fg = color.cyan },
     BlinkCmpLabelDeprecated = { link = "BlinkCmpLabel" },
     BlinkCmpSource = { fg = color.teal },
     BlinkCmpMenuSelection = { bg = color.strong_faded_text },
@@ -257,7 +262,7 @@ function M.get(pallet, opts)
 
     DiffAdd = { bg = color.diff_add_bg }, -- Diff mode: Added line |diff.txt|
     DiffChange = { bg = color.blue }, -- Diff mode: Changed line |diff.txt|
-    DiffDelete = { fg = color.faded_text, bg = color.bg }, -- Diff mode: Deleted line |diff.txt|
+    DiffDelete = { fg = color.faded_text, bg = bg }, -- Diff mode: Deleted line |diff.txt|
     DiffText = { bg = color.cyan }, -- Diff mode: Changed text within a changed line |diff.txt|
 
     -- Diffview
@@ -265,7 +270,7 @@ function M.get(pallet, opts)
     DiffviewDiffAddText = { bg = color.diff_add_bg },
     DiffviewDiffDelete = { bg = color.diff_delete_bg },
     DiffviewDiffDeleteText = { bg = color.diff_delete_bg },
-    DiffviewDiffFill = { fg = color.faded_text, bg = color.bg },
+    DiffviewDiffFill = { fg = color.faded_text, bg = bg },
 
     -- Gitsigns
     GitSignsAdd = { link = "GitAdded" },
@@ -311,12 +316,12 @@ function M.get(pallet, opts)
     DiagnosticSignWarn = { fg = color.yellow }, -- Used for "Warn" signs in sign column.
     DiagnosticSignInfo = { fg = color.blue }, -- Used for "Info" signs in sign column.
     DiagnosticSignHint = { fg = color.silver }, -- Used for "Hint" signs in sign column.
-    StatusBarSegmentNormal = { fg = color.bar_text, bg = color.bar_bg },
-    StatusBarSegmentFaded = { fg = color.bar_faded_text, bg = color.bar_bg },
-    StatusBarDiagnosticError = { fg = color.red, bg = color.bar_bg },
-    StatusBarDiagnosticWarn = { fg = color.yellow, bg = color.bar_bg },
-    StatusBarDiagnosticInfo = { fg = color.blue, bg = color.bar_bg },
-    StatusBarDiagnosticHint = { fg = color.silver, bg = color.bar_bg },
+    StatusBarSegmentNormal = { fg = color.bar_text, bg = bar_bg },
+    StatusBarSegmentFaded = { fg = color.bar_faded_text, bg = bar_bg },
+    StatusBarDiagnosticError = { fg = color.red, bg = bar_bg },
+    StatusBarDiagnosticWarn = { fg = color.yellow, bg = bar_bg },
+    StatusBarDiagnosticInfo = { fg = color.blue, bg = bar_bg },
+    StatusBarDiagnosticHint = { fg = color.silver, bg = bar_bg },
     FloatTitle = { fg = color.bg, bg = color.cyan, bold = true },
     IndentBlanklineChar = { fg = color.thin_line },
     IndentBlanklineContextChar = { fg = color.thin_line },
@@ -324,33 +329,33 @@ function M.get(pallet, opts)
     FixmeComment = { fg = color.purple },
     HackComment = { fg = color.yellow },
     PriorityComment = { fg = color.orange },
-    MiniStarterSection = { fg = color.text, bg = color.bg, bold = true },
+    MiniStarterSection = { fg = color.text, bg = bg, bold = true },
     MiniStarterFooter = { link = "Comment" },
-    ZenBg = { fg = color.text, bg = color.bg },
-    WinShiftMove = { bg = color.bg },
+    ZenBg = { fg = color.text, bg = bg },
+    WinShiftMove = { bg = bg },
     TabsVsSpaces = { fg = color.faded_text, underline = true },
     FlashCurrent = { fg = color.bg, bg = color.green, bold = true },
     FlashMatch = { fg = color.bg, bg = color.cyan },
     FlashLabel = { fg = color.bg, bg = color.purple, bold = true },
-    FlashPrompt = { bg = color.bar_bg },
-    FlashPromptIcon = { bg = color.bar_bg },
-    MiniCursorword = { bg = color.bg },
+    FlashPrompt = { bg = bar_bg },
+    FlashPromptIcon = { bg = bar_bg },
+    MiniCursorword = { bg = bg },
     NvimSurroundHighlight = { fg = color.bg, bg = color.cyan },
 
     -- Telescope
-    TelescopeNormal = { bg = color.float_bg },
+    TelescopeNormal = { bg = float_bg },
     TelescopeMatching = { fg = color.charcoal },
-    TelescopeSelection = { bg = color.bg },
-    TelescopeBorder = { fg = color.faded_text, bg = color.float_bg }, -- this is used for telescope titles
+    TelescopeSelection = { bg = bg },
+    TelescopeBorder = { fg = color.faded_text, bg = float_bg }, -- this is used for telescope titles
     TelescopeResultsDiffAdd = { link = "GitAdded" },
     TelescopeResultsDiffChange = { link = "GitChanged" },
     TelescopeResultsDiffDelete = { link = "GitDeleted" },
     TelescopePromptCounter = { link = "Comment" },
 
     -- Fzf-lua
-    FzfLuaNormal = { bg = color.float_bg },
+    FzfLuaNormal = { bg = float_bg },
     FzfLuaTitle = { bg = color.english_violet },
-    FzfLuaBorder = { fg = color.faded_text, bg = color.float_bg },
+    FzfLuaBorder = { fg = color.faded_text, bg = float_bg },
     FzfLuaHelpNormal = { fg = color.yellow }, --
     FzfLuaHeaderBind = { fg = color.yellow, bold = true }, -- header keybind
     FzfLuaHeaderText = { fg = color.magenta }, -- keybind help text
@@ -376,16 +381,16 @@ function M.get(pallet, opts)
 
     NotifyINFOIcon = { fg = color.blue },
     NotifyINFOTitle = { fg = color.blue },
-    NotifyINFOBody = { fg = color.text, bg = color.float_bg },
-    NotifyINFOBorder = { fg = color.float_bg, bg = color.float_bg },
+    NotifyINFOBody = { fg = color.text, bg = float_bg },
+    NotifyINFOBorder = { fg = color.float_bg, bg = float_bg },
     NotifyWARNIcon = { fg = color.yellow },
     NotifyWARNTitle = { fg = color.yellow },
-    NotifyWARNBody = { fg = color.text, bg = color.float_bg },
-    NotifyWARNBorder = { fg = color.float_bg, bg = color.float_bg },
+    NotifyWARNBody = { fg = color.text, bg = float_bg },
+    NotifyWARNBorder = { fg = color.float_bg, bg = float_bg },
     NotifyERRORIcon = { fg = color.red },
     NotifyERRORTitle = { fg = color.red },
-    NotifyERRORBody = { fg = color.red, bg = color.float_bg },
-    NotifyERRORBorder = { fg = color.float_bg, bg = color.float_bg },
+    NotifyERRORBody = { fg = color.red, bg = float_bg },
+    NotifyERRORBorder = { fg = color.float_bg, bg = float_bg },
 
     --- Cmp
     CmpItemMenu = { fg = color.blue },

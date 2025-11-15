@@ -8,6 +8,7 @@ M.defaults_opts = {
   terminal_colors = true,
   italic = true,
   darker_background = false,
+  transparent = false,
 }
 
 function M.setup(custom_opts)

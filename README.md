@@ -28,16 +28,16 @@
 
 ## Supported plugins
 
-- NeoTree
-- blink.cmp
-- diffveiw.nvim
-- fzf-lua
-- gitsings.nvim
-- noice.nvim
-- render-markdown.nvim
-- snacks.nvim
-- telescope.nvim
-- neogit
+- [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
+- [blink.cmp](https://github.com/Saghen/blink.cmp)
+- [diffview.nvim](https://github.com/sindrets/diffview.nvim)
+- [fzf-lua](https://github.com/ibhagwan/fzf-lua)
+- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- [noice.nvim](https://github.com/folke/noice.nvim)
+- [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
+- [snacks.nvim](https://github.com/folke/snacks.nvim)
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [neogit](https://github.com/NeogitOrg/neogit)
 
 ## Install
 

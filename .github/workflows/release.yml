@@ -1,0 +1,101 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+' # Matches v1.4.0, v2.0.0, etc. (stable releases only)
+
+jobs:
+  validate-and-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to create releases
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for changelog generation
+
+      - name: Extract version from tag
+        id: tag_version
+        run: |
+          TAG=${GITHUB_REF#refs/tags/}
+          VERSION=${TAG#v}
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "📌 Tag: $TAG"
+          echo "📌 Version: $VERSION"
+
+      - name: Extract version from code
+        id: code_version
+        run: |
+          CODE_VERSION=$(grep -oP 'M\.version = "\K[^"]+' lua/charleston/init.lua)
+          echo "version=$CODE_VERSION" >> $GITHUB_OUTPUT
+          echo "📦 Code version: $CODE_VERSION"
+
+      - name: Validate version match
+        run: |
+          TAG_VERSION="${{ steps.tag_version.outputs.version }}"
+          CODE_VERSION="${{ steps.code_version.outputs.version }}"
+
+          echo "Comparing versions:"
+          echo "  Tag version:  $TAG_VERSION"
+          echo "  Code version: $CODE_VERSION"
+
+          if [ "$TAG_VERSION" != "$CODE_VERSION" ]; then
+            echo "❌ ERROR: Version mismatch!"
+            echo "Git tag version ($TAG_VERSION) does not match code version ($CODE_VERSION)"
+            echo "Please update lua/charleston/init.lua to version $TAG_VERSION before creating this tag"
+            exit 1
+          fi
+
+          echo "✅ Version validation passed"
+
+      - name: Create extras archive
+        run: |
+          cd extras
+          zip -r ../charleston-extras-${{ steps.tag_version.outputs.tag }}.zip .
+          cd ..
+          echo "📦 Created charleston-extras-${{ steps.tag_version.outputs.tag }}.zip"
+          ls -lh charleston-extras-*.zip
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          # Get the previous tag
+          PREV_TAG=$(git describe --tags --abbrev=0 ${{ steps.tag_version.outputs.tag }}^ 2>/dev/null || echo "")
+
+          if [ -z "$PREV_TAG" ]; then
+            echo "📝 First release - no previous tag found"
+            echo "changelog=First release of Charleston colorscheme" >> $GITHUB_OUTPUT
+          else
+            echo "📝 Generating changelog from $PREV_TAG to ${{ steps.tag_version.outputs.tag }}"
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag_version.outputs.tag }}
+          name: Charleston ${{ steps.tag_version.outputs.version }}
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+          files: |
+            charleston-extras-${{ steps.tag_version.outputs.tag }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Release summary
+        run: |
+          echo "## 🎉 Release Created Successfully!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Version:** ${{ steps.tag_version.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Tag:** ${{ steps.tag_version.outputs.tag }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📦 Release Assets:" >> $GITHUB_STEP_SUMMARY
+          echo "- Source code (zip)" >> $GITHUB_STEP_SUMMARY
+          echo "- Source code (tar.gz)" >> $GITHUB_STEP_SUMMARY
+          echo "- charleston-extras-${{ steps.tag_version.outputs.tag }}.zip" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🔗 [View Release](https://github.com/${{ github.repository }}/releases/tag/${{ steps.tag_version.outputs.tag }})" >> $GITHUB_STEP_SUMMARY

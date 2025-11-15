@@ -68,18 +68,29 @@ jobs:
 
           if [ -z "$PREV_TAG" ]; then
             echo "📝 First release - no previous tag found"
-            echo "changelog=First release of Charleston colorscheme" >> $GITHUB_OUTPUT
+            CHANGELOG="First release of Charleston colorscheme"
           else
             echo "📝 Generating changelog from $PREV_TAG to ${{ steps.tag_version.outputs.tag }}"
+            CHANGELOG=$(git log $PREV_TAG..${{ steps.tag_version.outputs.tag }} --pretty=format:"- %s (%h)" --reverse)
           fi
+
+          # Save changelog to output (multiline)
+          {
+            echo 'body<<EOF'
+            echo "$CHANGELOG"
+            echo EOF
+          } >> $GITHUB_OUTPUT
+
+          echo "Generated changelog:"
+          echo "$CHANGELOG"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.tag_version.outputs.tag }}
           name: ${{ steps.tag_version.outputs.tag }}
-          generate_release_notes: true
-          draft: false
+          body: ${{ steps.changelog.outputs.body }}
+          draft: true
           prerelease: false
           files: |
             charleston-extras-${{ steps.tag_version.outputs.tag }}.zip
@@ -88,14 +99,19 @@ jobs:
 
       - name: Release summary
         run: |
-          echo "## 🎉 Release Created Successfully!" >> $GITHUB_STEP_SUMMARY
+          echo "## 🎉 Draft Release Created Successfully!" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Version:** ${{ steps.tag_version.outputs.version }}" >> $GITHUB_STEP_SUMMARY
           echo "**Tag:** ${{ steps.tag_version.outputs.tag }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Status:** Draft (ready for review)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### 📦 Release Assets:" >> $GITHUB_STEP_SUMMARY
           echo "- Source code (zip)" >> $GITHUB_STEP_SUMMARY
           echo "- Source code (tar.gz)" >> $GITHUB_STEP_SUMMARY
           echo "- charleston-extras-${{ steps.tag_version.outputs.tag }}.zip" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "🔗 [View Release](https://github.com/${{ github.repository }}/releases/tag/${{ steps.tag_version.outputs.tag }})" >> $GITHUB_STEP_SUMMARY
+          echo "### ✏️ Next Steps:" >> $GITHUB_STEP_SUMMARY
+          echo "1. Review and edit release notes if needed" >> $GITHUB_STEP_SUMMARY
+          echo "2. Publish the release when ready" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🔗 [View Draft Release](https://github.com/${{ github.repository }}/releases/tag/${{ steps.tag_version.outputs.tag }})" >> $GITHUB_STEP_SUMMARY

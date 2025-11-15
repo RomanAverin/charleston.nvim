@@ -71,7 +71,41 @@ jobs:
             CHANGELOG="First release of Charleston colorscheme"
           else
             echo "📝 Generating changelog from $PREV_TAG to ${{ steps.tag_version.outputs.tag }}"
-            CHANGELOG=$(git log $PREV_TAG..${{ steps.tag_version.outputs.tag }} --pretty=format:"- %s (%h)" --reverse)
+
+            # Get feat, hl and fix commits
+            FEATURES=$(git log $PREV_TAG..${{ steps.tag_version.outputs.tag }} --pretty=format:"%s (%h)" --reverse --grep="^feat\|^hl" --regexp-ignore-case)
+            FIXES=$(git log $PREV_TAG..${{ steps.tag_version.outputs.tag }} --pretty=format:"%s (%h)" --reverse --grep="^fix" --regexp-ignore-case)
+
+            # Build changelog
+            CHANGELOG=""
+
+            if [ -n "$FEATURES" ]; then
+              CHANGELOG+="## Features"
+              CHANGELOG+=$'\n'
+              while IFS= read -r line; do
+                # Remove "feat:", "feat(scope):", "hl:", or "hl(scope):" prefix
+                CLEAN_LINE=$(echo "$line" | sed -E 's/^(feat|hl)(\([^)]+\))?:\s*//')
+                CHANGELOG+="- $CLEAN_LINE"
+                CHANGELOG+=$'\n'
+              done <<< "$FEATURES"
+              CHANGELOG+=$'\n'
+            fi
+
+            if [ -n "$FIXES" ]; then
+              CHANGELOG+="## Fixes"
+              CHANGELOG+=$'\n'
+              while IFS= read -r line; do
+                # Remove "fix:" or "fix(scope):" prefix
+                CLEAN_LINE=$(echo "$line" | sed -E 's/^fix(\([^)]+\))?:\s*//')
+                CHANGELOG+="- $CLEAN_LINE"
+                CHANGELOG+=$'\n'
+              done <<< "$FIXES"
+            fi
+
+            # If no feat/hl or fix commits found, show a note
+            if [ -z "$FEATURES" ] && [ -z "$FIXES" ]; then
+              CHANGELOG="No notable changes (no feat, hl or fix commits found)"
+            fi
           fi
 
           # Save changelog to output (multiline)

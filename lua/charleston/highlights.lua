@@ -78,10 +78,10 @@ function M.get(pallet, opts)
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     -- MoreMsg      { }, -- |more-prompt|
     NonText = { fg = color.cyan }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    NormalFloat = { fg = color.text, bg = float_bg }, -- Normal text in floating windows.
+    NormalFloat = { fg = color.text, bg = color.float_bg }, -- Normal text in floating windows.
     FloatBorder = { fg = color.thick_line },
     NormalNC = { fg = color.text, bg = bg }, -- normal text in non-current windows
-    Pmenu = { fg = color.text, bg = float_bg }, -- Popup menu: Normal item.
+    Pmenu = { fg = color.text, bg = color.float_bg }, -- Popup menu: Normal item.
     -- PmenuSel = { }, -- Popup menu: Selected item.
     -- PmenuSbar = {  }, -- Popup menu: Scrollbar.d
     -- PmenuThumb = { }, -- Popup menu: Thumb of the scrollbar.
@@ -97,8 +97,9 @@ function M.get(pallet, opts)
     StatusLineNC = { bg = bar_bg }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     TabLine = { bg = bar_bg }, -- Tab pages line, not active tab page label
     TabLineFill = { bg = bar_bg }, -- Tab pages line, where there are no labels
-    TabLineSel = { bg = bar_bg }, -- Tab pages line, active tab page label
+    TabLineSel = { fg = color.magenta, bg = bar_bg }, -- Tab pages line, active tab page label
     Title = { fg = color.magenta }, -- Titles for output from ":set all", ":autocmd" etc.
+
     -- NB!: VertSplit is dynamic. See functions below.
     VertSplit = { fg = color.white }, -- Vertical split line
     Visual = { bg = color.medium_backgroud }, -- Visual mode selection
@@ -148,6 +149,30 @@ function M.get(pallet, opts)
     markdownCode = { fg = color.faded_text },
     markdownCodeBlock = { fg = color.faded_text },
     markdownLinkText = { fg = color.blue, underline = true },
+
+    --
+    -- Bufferline
+    --
+    BufferlineBackground = { fg = color.bar_faded_text, bg = bar_bg },
+    BufferlineBufferVisible = { fg = color.bar_text, bg = bar_bg },
+    BufferlineBufferSelected = { fg = color.white, bg = bar_bg, bold = true },
+    BufferlineFill = { bg = bar_bg },
+    BufferlineTab = { bg = bar_bg },
+    BufferlineTabSelected = { fg = color.magenta, bg = bar_bg },
+    BufferlineSeparator = { fg = color.bg, bg = bar_bg },
+    BufferlineSeparatorVisible = { fg = color.bg, bg = bar_bg },
+    BufferlineSeparatorSelected = { fg = color.bg, bg = bar_bg },
+    BufferlineOffsetSeparator = { fg = color.bg, bg = bar_bg },
+    BufferlineIndicatorSelected = { fg = color.magenta, bg = bar_bg },
+    BufferlineModified = { fg = color.cyan, bg = bar_bg },
+    BufferlineModifiedVisible = { fg = color.cyan, bg = bar_bg },
+    BufferlineModifiedSelected = { fg = color.cyan, bg = bar_bg },
+    BufferlineDuplicate = { fg = color.faded_text, bg = bar_bg },
+    BufferlineDuplicateVisible = { fg = color.faded_text, bg = bar_bg },
+    BufferlineDuplicateSelected = { fg = color.text, bg = bar_bg },
+    BufferlineCloseButton = { fg = color.faded_text, bg = bar_bg },
+    BufferlineCloseButtonVisible = { fg = color.faded_text, bg = bar_bg },
+    BufferlineCloseButtonSelected = { fg = color.red, bg = bar_bg },
 
     --
     -- Render-markdown.nvim
@@ -204,8 +229,8 @@ function M.get(pallet, opts)
     --
     -- Blink.Cmp
     --
-    BlinkCmpMenu = { bg = bar_bg, fg = color.bar_text },
-    BlinkCmpLabel = { bg = bar_bg, fg = color.cyan },
+    BlinkCmpMenu = { bg = color.bar_bg, fg = color.bar_text },
+    BlinkCmpLabel = { bg = color.bar_bg, fg = color.cyan },
     BlinkCmpLabelDeprecated = { link = "BlinkCmpLabel" },
     BlinkCmpSource = { fg = color.teal },
     BlinkCmpMenuSelection = { bg = color.strong_faded_text },
@@ -343,7 +368,7 @@ function M.get(pallet, opts)
     NvimSurroundHighlight = { fg = color.bg, bg = color.cyan },
 
     -- Telescope
-    TelescopeNormal = { bg = float_bg },
+    TelescopeNormal = { bg = color.float_bg },
     TelescopeMatching = { fg = color.charcoal },
     TelescopeSelection = { bg = bg },
     TelescopeBorder = { fg = color.faded_text, bg = float_bg }, -- this is used for telescope titles
@@ -353,7 +378,7 @@ function M.get(pallet, opts)
     TelescopePromptCounter = { link = "Comment" },
 
     -- Fzf-lua
-    FzfLuaNormal = { bg = float_bg },
+    FzfLuaNormal = { bg = color.float_bg },
     FzfLuaTitle = { bg = color.english_violet },
     FzfLuaBorder = { fg = color.faded_text, bg = float_bg },
     FzfLuaHelpNormal = { fg = color.yellow }, --

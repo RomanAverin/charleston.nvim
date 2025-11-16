@@ -30,6 +30,7 @@
 
 - [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - [blink.cmp](https://github.com/Saghen/blink.cmp)
+- [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [diffview.nvim](https://github.com/sindrets/diffview.nvim)
 - [fzf-lua](https://github.com/ibhagwan/fzf-lua)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)

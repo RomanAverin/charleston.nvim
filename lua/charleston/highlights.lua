@@ -157,13 +157,22 @@ function M.get(pallet, opts)
     BufferlineBufferVisible = { fg = color.bar_text, bg = bar_bg },
     BufferlineBufferSelected = { fg = color.white, bg = bar_bg, bold = true },
     BufferlineFill = { bg = bar_bg },
+    -- tabs
     BufferlineTab = { bg = bar_bg },
-    BufferlineTabSelected = { fg = color.magenta, bg = bar_bg },
+    BufferlineTabSelected = { fg = color.white, bg = bar_bg },
+    BufferlineTabSeparator = { fg = color.bg, bg = bar_bg },
+    BufferlineTabSeparatorVisible = { fg = color.bg, bg = bar_bg },
+    BufferlineTabSeparatorSelected = { fg = color.bg, bg = bar_bg },
+
+    BufferlineTabClose = { fg = color.red, bg = bar_bg },
+    BufferlineIndicatorVisible = { fg = color.magenta, bg = bar_bg },
+    BufferlineIndicatorSelected = { fg = color.magenta, bg = bar_bg },
+    -- separators
     BufferlineSeparator = { fg = color.bg, bg = bar_bg },
     BufferlineSeparatorVisible = { fg = color.bg, bg = bar_bg },
     BufferlineSeparatorSelected = { fg = color.bg, bg = bar_bg },
     BufferlineOffsetSeparator = { fg = color.bg, bg = bar_bg },
-    BufferlineIndicatorSelected = { fg = color.magenta, bg = bar_bg },
+
     BufferlineModified = { fg = color.cyan, bg = bar_bg },
     BufferlineModifiedVisible = { fg = color.cyan, bg = bar_bg },
     BufferlineModifiedSelected = { fg = color.cyan, bg = bar_bg },
@@ -380,7 +389,7 @@ function M.get(pallet, opts)
     -- Fzf-lua
     FzfLuaNormal = { bg = color.float_bg },
     FzfLuaTitle = { bg = color.english_violet },
-    FzfLuaBorder = { fg = color.faded_text, bg = float_bg },
+    FzfLuaBorder = { fg = color.faded_text, bg = color.float_bg },
     FzfLuaHelpNormal = { fg = color.yellow }, --
     FzfLuaHeaderBind = { fg = color.yellow, bold = true }, -- header keybind
     FzfLuaHeaderText = { fg = color.magenta }, -- keybind help text

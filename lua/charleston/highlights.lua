@@ -324,8 +324,7 @@ function M.get(pallet, opts)
     -- LspCodeLensSeparator        { } , -- Used to color the seperator between two or more code lens.
     -- LspSignatureActiveParameter { } , -- Used to highlight the active parameter in the signature help. See |vim.lsp.handlers.signature_help()|.
 
-    -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
-    --
+    -- Diagnostic
     DiagnosticError = { fg = color.red }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticWarn = { fg = color.yellow }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticInfo = { fg = color.blue }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
@@ -334,10 +333,10 @@ function M.get(pallet, opts)
     DiagnosticVirtualTextWarn = { fg = color.yellow }, -- Used for "Warn" diagnostic virtual text.
     DiagnosticVirtualTextInfo = { fg = color.blue }, -- Used for "Info" diagnostic virtual text.
     DiagnosticVirtualTextHint = { fg = color.silver }, -- Used for "Hint" diagnostic virtual text.
-    DiagnosticUnderlineError = { link = "DiagnosticError", undercurl = true }, -- Used to underline "Error" diagnostics.
-    DiagnosticUnderlineWarn = { link = "DiagnosticWarn", undercurl = true }, -- Used to underline "Warn" diagnostics.
-    DiagnosticUnderlineInfo = { link = "DiagnosticInfo", undercurl = true }, -- Used to underline "Info" diagnostics.
-    DiagnosticUnderlineHint = { link = "DiagnosticHint", undercurl = true }, -- Used to underline "Hint" diagnostics.
+    DiagnosticUnderlineError = { sp = color.red, undercurl = true }, -- Used to underline "Error" diagnostics.
+    DiagnosticUnderlineWarn = { sp = color.yellow, undercurl = true }, -- Used to underline "Warn" diagnostics.
+    DiagnosticUnderlineInfo = { sp = color.blue, undercurl = true }, -- Used to underline "Info" diagnostics.
+    DiagnosticUnderlineHint = { sp = color.silver, undercurl = true }, -- Used to underline "Hint" diagnostics.
     DiagnosticFloatingErrorLabel = { fg = color.float_bg, bg = color.red },
     DiagnosticFloatingWarnLabel = { fg = color.float_bg, bg = color.yellow },
     DiagnosticFloatingInfoLabel = { fg = color.float_bg, bg = color.blue },
@@ -350,6 +349,7 @@ function M.get(pallet, opts)
     DiagnosticSignWarn = { fg = color.yellow }, -- Used for "Warn" signs in sign column.
     DiagnosticSignInfo = { fg = color.blue }, -- Used for "Info" signs in sign column.
     DiagnosticSignHint = { fg = color.silver }, -- Used for "Hint" signs in sign column.
+
     StatusBarSegmentNormal = { fg = color.bar_text, bg = bar_bg },
     StatusBarSegmentFaded = { fg = color.bar_faded_text, bg = bar_bg },
     StatusBarDiagnosticError = { fg = color.red, bg = bar_bg },

@@ -316,7 +316,7 @@ function M.get(pallet, opts)
     GitSignsDeleteInline = { link = "DiffviewDiffDeleteText" },
 
     -- LSP highlighting
-    LspReferenceText = { underline = true }, -- Used for highlighting "text" references
+    LspReferenceText = { bg = color.medium_backgroud }, -- Used for highlighting "text" references
     LspReferenceRead = { link = "LspReferenceText" }, -- Used for highlighting "read" references
     LspReferenceWrite = { link = "LspReferenceText" }, -- Used for highlighting "write" references
     LspInlayHint = { fg = color.faded_text, italic = opts.italic == true, underdashed = true },

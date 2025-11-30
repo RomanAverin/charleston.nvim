@@ -26,7 +26,7 @@ Charleston color theme for neovim
 
 ## Requirements
 
-- neovim >= 0.8
+- neovim >= 0.9
 
 ## Supported plugins
 
@@ -82,7 +82,11 @@ Or:
 
 ```lua
 vim.cmd.colorscheme "charleston"
+
 ```
+
+Force compile cache
+`: CharlestonCompile`
 
 ## Options
 

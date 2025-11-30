@@ -35,9 +35,9 @@ function M.setup(custom_opts)
 end
 
 function M.load()
-  if vim.version().minor < 8 then
+  if vim.version().minor < 9 then
     vim.notify(
-      "Neovim 0.8+ is required for this colorscheme",
+      "Neovim 0.9+ is required for this colorscheme",
       vim.log.levels.ERROR,
       { title = "Charleston colorscheme" }
     )

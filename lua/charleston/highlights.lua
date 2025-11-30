@@ -48,7 +48,7 @@ function M.get(pallete, opts)
 
     Underlined = { underline = true }, -- Text that stands out, HTML links
     -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE May be invisible here in template)
-    -- Error          { }, -- Any erroneous construct
+    Error = { fg = color.red }, -- Any erroneous construct
     -- Todo           { }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     Conceal = { fg = color.faded_text }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
@@ -64,7 +64,7 @@ function M.get(pallete, opts)
     EndOfBuffer = { fg = color.faded_text, bg = bg }, -- Filler lines ~ after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     -- TermCursor   { }, -- Cursor in a focused terminal
     -- TermCursorNC { }, -- Cursor in an unfocused terminal
-    -- ErrorMsg     { }, -- Error messages on the command line
+    ErrorMsg = { fg = color.red }, -- Error messages on the command line
     Folded = { fg = color.bg, bg = color.charcoal }, -- Line used for closed folds
     FoldColumn = { fg = color.charcoal, bg = bg }, -- 'foldcolumn'
     SignColumn = { fg = color.text, bg = bg }, -- Column where |signs| are displayed
@@ -95,6 +95,32 @@ function M.get(pallete, opts)
     -- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
     StatusLine = { bg = bar_bg }, -- Status line of current window
     StatusLineNC = { bg = bar_bg }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    StatusBarSegmentNormal = { fg = color.bar_text, bg = bar_bg },
+    StatusBarSegmentFaded = { fg = color.bar_faded_text, bg = bar_bg },
+    StatusBarDiagnosticError = { fg = color.red, bg = bar_bg },
+    StatusBarDiagnosticWarn = { fg = color.yellow, bg = bar_bg },
+    StatusBarDiagnosticInfo = { fg = color.blue, bg = bar_bg },
+    StatusBarDiagnosticHint = { fg = color.silver, bg = bar_bg },
+    FloatTitle = { fg = color.bg, bg = color.cyan, bold = true },
+    IndentBlanklineChar = { fg = color.thin_line },
+    IndentBlanklineContextChar = { fg = color.thin_line },
+    TodoComment = { fg = color.purple },
+    FixmeComment = { fg = color.purple },
+    HackComment = { fg = color.yellow },
+    PriorityComment = { fg = color.orange },
+    MiniStarterSection = { fg = color.text, bg = bg, bold = true },
+    MiniStarterFooter = { link = "Comment" },
+    ZenBg = { fg = color.text, bg = bg },
+    WinShiftMove = { bg = bg },
+    TabsVsSpaces = { fg = color.faded_text, underline = true },
+    FlashCurrent = { fg = color.bg, bg = color.green, bold = true },
+    FlashMatch = { fg = color.bg, bg = color.cyan },
+    FlashLabel = { fg = color.bg, bg = color.purple, bold = true },
+    FlashPrompt = { bg = bar_bg },
+    FlashPromptIcon = { bg = bar_bg },
+    MiniCursorword = { bg = bg },
+    NvimSurroundHighlight = { fg = color.bg, bg = color.cyan },
+
     TabLine = { bg = bar_bg }, -- Tab pages line, not active tab page label
     TabLineFill = { bg = bar_bg }, -- Tab pages line, where there are no labels
     TabLineSel = { fg = color.magenta, bg = bar_bg }, -- Tab pages line, active tab page label
@@ -111,6 +137,7 @@ function M.get(pallete, opts)
     Winbar = { bg = bar_bg },
     WinbarNC = { bg = bar_bg },
 
+    --
     -- Tree-Sitter syntax groups.
     --
     ["@comment"] = { link = "Comment" }, -- Comment
@@ -212,6 +239,7 @@ function M.get(pallete, opts)
     RenderMarkdownHint = { fg = color.teal },
     RenderMarkdownWarn = { fg = color.yellow },
     RenderMarkdownError = { fg = color.red },
+
     --
     -- Snacks.nvim
     --
@@ -221,6 +249,7 @@ function M.get(pallete, opts)
     SnacksDashboardDesc = { fg = color.white },
     SnacksDashboardDir = { fg = color.cyan },
     SnacksDashboardHeader = { fg = color.green },
+
     --
     -- Noice.nvim
     --
@@ -283,7 +312,9 @@ function M.get(pallete, opts)
     BlinkCmpKindValue = { link = "BlinkCmpKindText" },
     BlinkCmpKindVariable = { link = "BlinkCmpKindText" },
 
+    --
     -- Mason
+    --
     MasonHighlight = { fg = color.magenta },
     MasonHighlightBlockBold = { fg = color.magenta },
 
@@ -332,7 +363,9 @@ function M.get(pallete, opts)
     -- LspCodeLensSeparator        { } , -- Used to color the seperator between two or more code lens.
     -- LspSignatureActiveParameter { } , -- Used to highlight the active parameter in the signature help. See |vim.lsp.handlers.signature_help()|.
 
+    --
     -- Diagnostic
+    --
     DiagnosticError = { fg = color.red }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticWarn = { fg = color.yellow }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticInfo = { fg = color.blue }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
@@ -357,32 +390,6 @@ function M.get(pallete, opts)
     DiagnosticSignWarn = { fg = color.yellow }, -- Used for "Warn" signs in sign column.
     DiagnosticSignInfo = { fg = color.blue }, -- Used for "Info" signs in sign column.
     DiagnosticSignHint = { fg = color.silver }, -- Used for "Hint" signs in sign column.
-
-    StatusBarSegmentNormal = { fg = color.bar_text, bg = bar_bg },
-    StatusBarSegmentFaded = { fg = color.bar_faded_text, bg = bar_bg },
-    StatusBarDiagnosticError = { fg = color.red, bg = bar_bg },
-    StatusBarDiagnosticWarn = { fg = color.yellow, bg = bar_bg },
-    StatusBarDiagnosticInfo = { fg = color.blue, bg = bar_bg },
-    StatusBarDiagnosticHint = { fg = color.silver, bg = bar_bg },
-    FloatTitle = { fg = color.bg, bg = color.cyan, bold = true },
-    IndentBlanklineChar = { fg = color.thin_line },
-    IndentBlanklineContextChar = { fg = color.thin_line },
-    TodoComment = { fg = color.purple },
-    FixmeComment = { fg = color.purple },
-    HackComment = { fg = color.yellow },
-    PriorityComment = { fg = color.orange },
-    MiniStarterSection = { fg = color.text, bg = bg, bold = true },
-    MiniStarterFooter = { link = "Comment" },
-    ZenBg = { fg = color.text, bg = bg },
-    WinShiftMove = { bg = bg },
-    TabsVsSpaces = { fg = color.faded_text, underline = true },
-    FlashCurrent = { fg = color.bg, bg = color.green, bold = true },
-    FlashMatch = { fg = color.bg, bg = color.cyan },
-    FlashLabel = { fg = color.bg, bg = color.purple, bold = true },
-    FlashPrompt = { bg = bar_bg },
-    FlashPromptIcon = { bg = bar_bg },
-    MiniCursorword = { bg = bg },
-    NvimSurroundHighlight = { fg = color.bg, bg = color.cyan },
 
     --
     -- Telescope

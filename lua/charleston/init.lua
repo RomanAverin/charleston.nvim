@@ -57,7 +57,10 @@ function M.load()
   end
 
   -- Generate hash for cache invalidation
-  local hash = require("charleston.lib.hashing").hash(M.opts)
+  local hash = require("charleston.lib.hashing").hash({
+    version = M.version,
+    opts = M.opts
+  })
 
   local path_sep = package.config:sub(1, 1)
   local cache_path = vim.fn.stdpath("cache") .. path_sep .. "charleston"
@@ -116,9 +119,27 @@ end
 
 -- User command for manual recompilation
 vim.api.nvim_create_user_command("CharlestonCompile", function()
+  -- Clear module cache to ensure fresh compilation
+  package.loaded["charleston.colors"] = nil
+  package.loaded["charleston.highlights"] = nil
+  package.loaded["charleston.lib.compiler"] = nil
+
   local opts = M.opts or M.defaults_opts
   local success, err = pcall(require("charleston.lib.compiler").compile, opts)
   if success then
+    -- Update the cached hash after successful compilation
+    local hash = require("charleston.lib.hashing").hash({
+      version = M.version,
+      opts = M.opts
+    })
+    local path_sep = package.config:sub(1, 1)
+    local hash_path = vim.fn.stdpath("cache") .. path_sep .. "charleston" .. path_sep .. "cached_hash"
+    local hash_file = io.open(hash_path, "w")
+    if hash_file then
+      hash_file:write(tostring(hash))
+      hash_file:close()
+    end
+
     vim.notify("Charleston theme recompiled successfully", vim.log.levels.INFO, { title = "Charleston" })
     -- Reload the colorscheme
     vim.cmd("colorscheme charleston")

@@ -384,7 +384,9 @@ function M.get(pallete, opts)
     MiniCursorword = { bg = bg },
     NvimSurroundHighlight = { fg = color.bg, bg = color.cyan },
 
+    --
     -- Telescope
+    --
     TelescopeNormal = { bg = color.float_bg },
     TelescopeMatching = { fg = color.charcoal },
     TelescopeSelection = { bg = bg },
@@ -394,7 +396,9 @@ function M.get(pallete, opts)
     TelescopeResultsDiffDelete = { link = "GitDeleted" },
     TelescopePromptCounter = { link = "Comment" },
 
+    --
     -- Fzf-lua
+    --
     FzfLuaNormal = { bg = color.float_bg },
     FzfLuaTitle = { bg = color.english_violet },
     FzfLuaBorder = { fg = color.faded_text, bg = color.float_bg },
@@ -405,7 +409,9 @@ function M.get(pallete, opts)
     FzfLuaSearch = { fg = color.orange, bold = true },
     FzfLuaFzfMatch = { fg = color.orange, bold = true },
 
+    --
     -- NeoTree
+    --
     NeoTreeRootName = { fg = color.strong_text, bold = true },
     NeoTreeDirectoryIcon = { fg = color.faded_text },
     NeoTreeFileIcon = { fg = color.faded_text },
@@ -416,10 +422,20 @@ function M.get(pallete, opts)
     NeoTreeGitStaged = { fg = color.green },
     NeoTreeGitIgnored = { fg = color.faded_text },
 
+    --
     -- NeoGit
+    --
     NeogitSectionHeader = { fg = color.magenta },
     gitcommitFirstLine = { fg = color.text },
     gitcommitSummary = { fg = color.text },
+    NeogitDiffDelete = { bg = color.red },
+    NeogitDiffDeleteHighlight = { link = "NeogitDiffDelete" },
+    NeogitDiffDeletions = { link = "NeogitDiffDelete" },
+    NeogitChangeDeleted = { link = "NeogitDiffDelete" },
+    NeogitHunkHeader = { fg = color.bar_text, bg = color.strong_faded_text },
+    NeogitHunkHeaderHighlight = { link = "NeogitHunkHeader" },
+    NeogitHunkHeaderCursor = { link = "NeogitHunkHeader" },
+    NeogitDiffHeader = { link = "NeogitHunkHeader" },
 
     NotifyINFOIcon = { fg = color.blue },
     NotifyINFOTitle = { fg = color.blue },
@@ -434,7 +450,9 @@ function M.get(pallete, opts)
     NotifyERRORBody = { fg = color.red, bg = float_bg },
     NotifyERRORBorder = { fg = color.float_bg, bg = float_bg },
 
+    ---
     --- Cmp
+    ---
     CmpItemMenu = { fg = color.blue },
     CmpItemAbbrMatch = { fg = color.orange, bold = true, force = true },
     CmpItemKindFunction = { link = "Function", force = true },

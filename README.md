@@ -14,6 +14,7 @@ Charleston color theme for neovim
 - Many plugins supported
 - Italic font style option
 - Transparent supported
+- Mainly designed for use with lazyvim
 
 > [!WARNING]
 > The color scheme is under deep development.

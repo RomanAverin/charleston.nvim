@@ -1,9 +1,9 @@
 local M = {}
 
----@param pallet Palette
+---@param pallete Palette
 ---@return table
-function M.get(pallet, opts)
-  local color = pallet
+function M.get(pallete, opts)
+  local color = pallete
   -- setup options
   color.bg = opts.darker_background and color.bg or color.bg_dimmed
 

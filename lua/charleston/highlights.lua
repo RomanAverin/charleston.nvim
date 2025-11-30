@@ -35,7 +35,7 @@ function M.get(pallete, opts)
     Define = { fg = color.brightBlue }, --   Preprocessor #define
     Macro = { link = "Define" }, --   Same as Define
     PreCondit = { link = "Define" }, --   Preprocessor #if, #else, #endif, etc.
-    Type = { fg = color.cyan }, -- (*) int, long, char, etc.
+    Type = { fg = color.beige }, -- (*) int, long, char, etc.
     Typedef = { link = "Type" }, --   A typedef
     StorageClass = { fg = color.orange }, --   static, register, volatile, etc.
     Structure = { fg = color.orange }, --   struct, union, enum, etc.
@@ -98,7 +98,7 @@ function M.get(pallete, opts)
     TabLine = { bg = bar_bg }, -- Tab pages line, not active tab page label
     TabLineFill = { bg = bar_bg }, -- Tab pages line, where there are no labels
     TabLineSel = { fg = color.magenta, bg = bar_bg }, -- Tab pages line, active tab page label
-    Title = { fg = color.magenta }, -- Titles for output from ":set all", ":autocmd" etc.
+    Title = { fg = color.magenta, bold = true }, -- Titles for output from ":set all", ":autocmd" etc.
 
     -- NB!: VertSplit is dynamic. See functions below.
     VertSplit = { fg = color.white }, -- Vertical split line
@@ -133,18 +133,21 @@ function M.get(pallete, opts)
     ["@type.definition"] = { link = "Typedef" }, -- Typedef
     ["@structure"] = { link = "Structure" }, -- Structure
     ["@include"] = { link = "Include" }, -- Include
+
     --
     --  highlights for a languages
     --
     ["@keyword.import"] = { link = "Include" },
     ["@keyword.rust"] = { fg = color.magenta },
     ["@keyword.python"] = { fg = color.magenta },
+    ["@lsp.type.struct.rust"] = { fg = color.cyan },
+    ["@lsp.type.variable.lua"] = { link = "@lsp.type.parameter" },
+    ["@lsp.type.parameter.rust"] = { link = "@variable" },
 
+    --
     --  LSP syntax groups
     --
     ["@lsp.type.parameter"] = { fg = color.cyan },
-    ["@lsp.type.variable.lua"] = { link = "@lsp.type.parameter" },
-    ["@lsp.type.parameter.rust"] = { link = "@variable" },
 
     markdownCode = { fg = color.faded_text },
     markdownCodeBlock = { fg = color.faded_text },
@@ -186,18 +189,18 @@ function M.get(pallete, opts)
     --
     -- Render-markdown.nvim
     --
-    RenderMarkdownH1 = { fg = color.silver },
-    RenderMarkdownH2 = { fg = color.silver },
-    RenderMarkdownH3 = { fg = color.silver },
-    RenderMarkdownH4 = { fg = color.silver },
-    RenderMarkdownH5 = { fg = color.silver },
-    RenderMarkdownH6 = { fg = color.silver },
-    RenderMarkdownH1Bg = { bg = float_bg },
-    RenderMarkdownH2Bg = { bg = float_bg },
-    RenderMarkdownH3Bg = { bg = float_bg },
-    RenderMarkdownH4Bg = { bg = bg },
-    RenderMarkdownH5Bg = { bg = bg },
-    RenderMarkdownH6Bg = { bg = bg },
+    RenderMarkdownH1 = { fg = color.silver, bold = true },
+    RenderMarkdownH2 = { fg = color.silver, bold = true },
+    RenderMarkdownH3 = { fg = color.silver, bold = true },
+    RenderMarkdownH4 = { fg = color.silver, bold = true },
+    RenderMarkdownH5 = { fg = color.silver, bold = true },
+    RenderMarkdownH6 = { fg = color.silver, bold = true },
+    RenderMarkdownH1Bg = { bg = bg },
+    RenderMarkdownH2Bg = { link = "RenderMarkdownH1Bg" },
+    RenderMarkdownH3Bg = { link = "RenderMarkdownH1Bg" },
+    RenderMarkdownH4Bg = { link = "RenderMarkdownH1Bg" },
+    RenderMarkdownH5Bg = { link = "RenderMarkdownH1Bg" },
+    RenderMarkdownH6Bg = { link = "RenderMarkdownH1Bg" },
     RenderMarkdownCode = { fg = color.green, bg = float_bg },
     RenderMarkdownCodeInline = { fg = color.faded_text, bg = float_bg },
     RenderMarkdownInlineHighlight = { fg = color.faded_text, bg = float_bg },
@@ -284,6 +287,7 @@ function M.get(pallete, opts)
     MasonHighlight = { fg = color.magenta },
     MasonHighlightBlockBold = { fg = color.magenta },
 
+    --
     -- Git
     --
     GitAdded = { fg = color.green },
@@ -295,18 +299,22 @@ function M.get(pallete, opts)
     diffDeleted = { link = "GitDeleted" },
 
     DiffAdd = { bg = color.diff_add_bg }, -- Diff mode: Added line |diff.txt|
-    DiffChange = { bg = color.blue }, -- Diff mode: Changed line |diff.txt|
+    DiffChange = { bg = color.beige }, -- Diff mode: Changed line |diff.txt|
     DiffDelete = { fg = color.faded_text, bg = bg }, -- Diff mode: Deleted line |diff.txt|
     DiffText = { bg = color.cyan }, -- Diff mode: Changed text within a changed line |diff.txt|
 
+    --
     -- Diffview
+    --
     DiffviewDiffAdd = { bg = color.diff_add_bg },
     DiffviewDiffAddText = { bg = color.diff_add_bg },
     DiffviewDiffDelete = { bg = color.diff_delete_bg },
     DiffviewDiffDeleteText = { bg = color.diff_delete_bg },
     DiffviewDiffFill = { fg = color.faded_text, bg = bg },
 
+    --
     -- Gitsigns
+    --
     GitSignsAdd = { link = "GitAdded" },
     GitSignsChange = { link = "GitChanged" },
     GitSignsDelete = { link = "GitDeleted" },
@@ -316,7 +324,7 @@ function M.get(pallete, opts)
     GitSignsDeleteInline = { link = "DiffviewDiffDeleteText" },
 
     -- LSP highlighting
-    LspReferenceText = { bg = color.medium_backgroud }, -- Used for highlighting "text" references
+    LspReferenceText = { sp = color.beige, underline = true }, -- Used for highlighting "text" references
     LspReferenceRead = { link = "LspReferenceText" }, -- Used for highlighting "read" references
     LspReferenceWrite = { link = "LspReferenceText" }, -- Used for highlighting "write" references
     LspInlayHint = { fg = color.faded_text, italic = opts.italic == true, underdashed = true },

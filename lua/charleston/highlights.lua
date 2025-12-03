@@ -42,7 +42,7 @@ function M.get(pallete, opts)
     Special = { fg = color.silver }, -- (*) Any special symbol
     SpecialChar = { fg = color.silver }, -- Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
-    -- Delimiter = { link = "Normal" }, --   Character that needs attention
+    Delimiter = { link = "Normal" }, --   Character that needs attention
     SpecialComment = { fg = color.strong_text }, --   Special things inside a comment (e.g. '\n')
     -- Debug          { }, --   Debugging statements
 

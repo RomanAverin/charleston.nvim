@@ -42,7 +42,7 @@ function M.get(pallete, opts)
     Special = { fg = color.silver }, -- (*) Any special symbol
     SpecialChar = { fg = color.silver }, -- Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
-    -- Delimiter = { link = "Normal" }, --   Character that needs attention
+    Delimiter = { link = "Normal" }, --   Character that needs attention
     SpecialComment = { fg = color.strong_text }, --   Special things inside a comment (e.g. '\n')
     -- Debug          { }, --   Debugging statements
 
@@ -76,7 +76,7 @@ function M.get(pallete, opts)
     MsgArea = { fg = color.silver }, -- Area for messages and cmdline
     ModeMsg = { link = "MsgArea" }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
-    -- MoreMsg      { }, -- |more-prompt|
+    MoreMsg = { fg = color.silver, bg = float_bg }, -- |more-prompt|
     NonText = { fg = color.cyan }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     NormalFloat = { fg = color.text, bg = color.float_bg }, -- Normal text in floating windows.
     FloatBorder = { fg = color.thick_line },

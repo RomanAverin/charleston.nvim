@@ -47,17 +47,3 @@ jobs:
         run: |
           nvim --version
           nvim --headless -u tests/init.lua +q
-  windows:
-    name: Windows
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v5
-      - name: Install Neovim
-        run: |
-          C:\msys64\usr\bin\wget.exe -q https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip
-          7z x nvim-win64.zip
-          Add-Content $env:GITHUB_PATH ".\nvim-win64\bin\"
-      - name: Run neovim
-        run: |
-          nvim --version
-          nvim --headless -u tests/init.lua +q

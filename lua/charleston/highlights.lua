@@ -22,6 +22,7 @@ function M.get(pallete, opts)
     Boolean = { fg = color.red }, --   A boolean constant: TRUE, false
     Float = { fg = color.yellow }, --   A floating point constant: 2.3e10
     Identifier = { fg = color.beige }, -- (*) Any variable name
+    Variable = { link = "Identifier" }, -- Variable name
     Function = { fg = color.cyan }, --   Function name (also: methods for classes)
     Statement = { fg = color.purple }, -- (*) Any statement
     Conditional = { fg = color.purple }, --   if, then, else, endif, switch, etc.
@@ -77,7 +78,7 @@ function M.get(pallete, opts)
     ModeMsg = { link = "MsgArea" }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg = { fg = color.silver, bg = float_bg }, -- |more-prompt|
-    NonText = { fg = color.cyan }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    NonText = { fg = color.beige }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     NormalFloat = { fg = color.text, bg = color.float_bg }, -- Normal text in floating windows.
     FloatBorder = { fg = color.thick_line },
     NormalNC = { fg = color.text, bg = bg }, -- normal text in non-current windows
@@ -85,7 +86,7 @@ function M.get(pallete, opts)
     -- PmenuSel = { }, -- Popup menu: Selected item.
     -- PmenuSbar = {  }, -- Popup menu: Scrollbar.d
     -- PmenuThumb = { }, -- Popup menu: Thumb of the scrollbar.
-    -- Question     { }, -- |hit-enter| prompt and yes/no questions
+    Question = { fg = color.silver }, -- |hit-enter| prompt and yes/no questions
     -- QuickFixLine { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search = { fg = color.bg, bg = color.cyan }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
     SpecialKey = { fg = color.faded_text }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
@@ -133,7 +134,7 @@ function M.get(pallete, opts)
     WarningMsg = { fg = color.yellow }, -- Warning messages
     Whitespace = { fg = color.faded_text }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     Winseparator = { link = "VertSplit" }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
-    -- WildMenu     { }, -- Current match in 'wildmenu' completion
+    WildMenu = { fg = color.white, bg = color.medium_backgroud }, -- Current match in 'wildmenu' completion
     Winbar = { bg = bar_bg },
     WinbarNC = { bg = bar_bg },
 
@@ -249,7 +250,7 @@ function M.get(pallete, opts)
     SnacksDashboardDesc = { fg = color.white },
     SnacksDashboardDir = { fg = color.cyan },
     SnacksDashboardHeader = { fg = color.green },
-
+    SnacksPickerGitStatusUntracked = { fg = color.bar_faded_text },
     --
     -- Noice.nvim
     --

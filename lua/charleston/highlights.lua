@@ -80,7 +80,7 @@ function M.get(pallete, opts)
     MoreMsg = { fg = color.silver, bg = float_bg }, -- |more-prompt|
     NonText = { fg = color.beige }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     NormalFloat = { fg = color.text, bg = color.float_bg }, -- Normal text in floating windows.
-    FloatBorder = { fg = color.thick_line },
+    FloatBorder = { fg = color.thick_line, bg = color.float_bg },
     NormalNC = { fg = color.text, bg = bg }, -- normal text in non-current windows
     Pmenu = { fg = color.text, bg = color.float_bg }, -- Popup menu: Normal item.
     -- PmenuSel = { }, -- Popup menu: Selected item.
@@ -102,7 +102,7 @@ function M.get(pallete, opts)
     StatusBarDiagnosticWarn = { fg = color.yellow, bg = bar_bg },
     StatusBarDiagnosticInfo = { fg = color.blue, bg = bar_bg },
     StatusBarDiagnosticHint = { fg = color.silver, bg = bar_bg },
-    FloatTitle = { fg = color.bg, bg = color.cyan, bold = true },
+    FloatTitle = { fg = color.bg, bg = color.yellow, bold = true },
     IndentBlanklineChar = { fg = color.thin_line },
     IndentBlanklineContextChar = { fg = color.thin_line },
     TodoComment = { fg = color.purple },

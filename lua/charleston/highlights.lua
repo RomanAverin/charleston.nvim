@@ -47,7 +47,7 @@ function M.get(pallete, opts)
     SpecialComment = { fg = color.strong_text }, --   Special things inside a comment (e.g. '\n')
     -- Debug          { }, --   Debugging statements
 
-    Underlined = { underline = true }, -- Text that stands out, HTML links
+    Underlined = { bg = float_bg, underline = true }, -- Text that stands out, HTML links
     -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE May be invisible here in template)
     Error = { fg = color.red }, -- Any erroneous construct
     -- Todo           { }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX

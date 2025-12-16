@@ -434,8 +434,8 @@ function M.get(pallete, opts)
     -- NeoGit
     --
     NeogitSectionHeader = { fg = color.magenta },
-    gitcommitFirstLine = { fg = color.text },
-    gitcommitSummary = { fg = color.text },
+    gitcommitFirstLine = { fg = color.text, bg = bg },
+    gitcommitSummary = { fg = color.text, bg = bg },
     NeogitDiffAdd = { fg = color.green, bg = color.diff_add_bg },
     NeogitDiffDelete = { fg = color.red, bg = color.diff_delete_bg },
     NeogitDiffDeleteHighlight = { link = "NeogitDiffDelete" },

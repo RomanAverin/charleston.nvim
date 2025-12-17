@@ -34,8 +34,18 @@ describe("Highlights", function()
     it("should have valid highlight definitions", function()
       local hl_groups = highlights.get(palette, opts)
       local valid_keys = {
-        "fg", "bg", "sp", "bold", "italic", "underline", "undercurl", "underdashed",
-        "strikethrough", "reverse", "link", "force"
+        "fg",
+        "bg",
+        "sp",
+        "bold",
+        "italic",
+        "underline",
+        "undercurl",
+        "underdashed",
+        "strikethrough",
+        "reverse",
+        "link",
+        "force",
       }
 
       for group_name, definition in pairs(hl_groups) do
@@ -57,7 +67,15 @@ describe("Highlights", function()
             assert(type(value) == "string", "Link value should be string in group: " .. group_name)
           elseif key == "force" then
             assert(type(value) == "boolean", "Force value should be boolean in group: " .. group_name)
-          elseif key == "bold" or key == "italic" or key == "underline" or key == "undercurl" or key == "underdashed" or key == "strikethrough" or key == "reverse" then
+          elseif
+            key == "bold"
+            or key == "italic"
+            or key == "underline"
+            or key == "undercurl"
+            or key == "underdashed"
+            or key == "strikethrough"
+            or key == "reverse"
+          then
             assert(type(value) == "boolean", key .. " should be boolean in group: " .. group_name)
           elseif key == "fg" or key == "bg" or key == "sp" then
             -- Color values can be strings (hex colors) or references to palette
@@ -70,18 +88,77 @@ describe("Highlights", function()
     it("should have required base highlight groups", function()
       local hl_groups = highlights.get(palette, opts)
       local required_groups = {
-        "Normal", "Comment", "Constant", "String", "Character", "Number", "Boolean",
-        "Identifier", "Function", "Statement", "Conditional", "Repeat", "Label",
-        "Operator", "Keyword", "Exception", "PreProc", "Include", "Define", "Macro",
-        "PreCondit", "Type", "Typedef", "StorageClass", "Structure", "Special",
-        "SpecialChar", "Delimiter", "SpecialComment", "Underlined", "Error",
-        "Conceal", "Cursor", "lCursor", "CursorIM", "CursorColumn", "CursorLine",
-        "ColorColumn", "Directory", "EndOfBuffer", "ErrorMsg", "Folded", "FoldColumn",
-        "SignColumn", "LineNr", "CursorLineNr", "MatchParen", "ModeMsg", "MoreMsg",
-        "NonText", "NormalFloat", "FloatBorder", "NormalNC", "Pmenu", "Question",
-        "Search", "SpecialKey", "StatusLine", "StatusLineNC", "TabLine", "TabLineFill",
-        "TabLineSel", "Title", "VertSplit", "Visual", "WarningMsg", "Whitespace",
-        "Winseparator", "WildMenu", "Winbar", "WinbarNC"
+        "Normal",
+        "Comment",
+        "Constant",
+        "String",
+        "Character",
+        "Number",
+        "Boolean",
+        "Identifier",
+        "Function",
+        "Statement",
+        "Conditional",
+        "Repeat",
+        "Label",
+        "Operator",
+        "Keyword",
+        "Exception",
+        "PreProc",
+        "Include",
+        "Define",
+        "Macro",
+        "PreCondit",
+        "Type",
+        "Typedef",
+        "StorageClass",
+        "Structure",
+        "Special",
+        "SpecialChar",
+        "Delimiter",
+        "SpecialComment",
+        "Underlined",
+        "Error",
+        "Conceal",
+        "Cursor",
+        "lCursor",
+        "CursorIM",
+        "CursorColumn",
+        "CursorLine",
+        "ColorColumn",
+        "Directory",
+        "EndOfBuffer",
+        "ErrorMsg",
+        "Folded",
+        "FoldColumn",
+        "SignColumn",
+        "LineNr",
+        "CursorLineNr",
+        "MatchParen",
+        "ModeMsg",
+        "MoreMsg",
+        "NonText",
+        "NormalFloat",
+        "FloatBorder",
+        "NormalNC",
+        "Pmenu",
+        "Question",
+        "Search",
+        "SpecialKey",
+        "StatusLine",
+        "StatusLineNC",
+        "TabLine",
+        "TabLineFill",
+        "TabLineSel",
+        "Title",
+        "VertSplit",
+        "Visual",
+        "WarningMsg",
+        "Whitespace",
+        "WinSeparator",
+        "WildMenu",
+        "Winbar",
+        "WinbarNC",
       }
 
       for _, group in ipairs(required_groups) do
@@ -95,8 +172,10 @@ describe("Highlights", function()
       local hl_groups = highlights.get(palette, opts)
       for group_name, definition in pairs(hl_groups) do
         if definition.link then
-          assert(hl_groups[definition.link] ~= nil,
-            "Group '" .. group_name .. "' links to non-existent group '" .. definition.link .. "'")
+          assert(
+            hl_groups[definition.link] ~= nil,
+            "Group '" .. group_name .. "' links to non-existent group '" .. definition.link .. "'"
+          )
         end
       end
     end)
@@ -138,8 +217,10 @@ describe("Highlights", function()
               -- Check if it's "NONE"
               local is_none = value == "NONE"
 
-              assert(is_hex or is_palette_ref or is_none,
-                "Invalid color value '" .. value .. "' in group '" .. group_name .. "' for key '" .. key .. "'")
+              assert(
+                is_hex or is_palette_ref or is_none,
+                "Invalid color value '" .. value .. "' in group '" .. group_name .. "' for key '" .. key .. "'"
+              )
             end
           end
         end
@@ -173,3 +254,4 @@ describe("Highlights", function()
     end)
   end)
 end)
+

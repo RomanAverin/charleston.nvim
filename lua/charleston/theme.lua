@@ -1,13 +1,19 @@
 local M = {}
 
 function M.setup(opts)
-  local colors = require("charleston.colors")
-  local highlights = require("charleston.highlights").get(colors.palette, opts)
+  local base_colors = require("charleston.colors")
+  local customization = require("charleston.lib.customization")
+
+  -- Apply palette customizations
+  local palette = customization.apply_palette_customizations(base_colors.palette, opts)
+
+  -- Get highlights with customized palette
+  local highlights = require("charleston.highlights").get(palette, opts)
 
   require("charleston.lib.apply_highlights").apply(highlights)
 
   if opts.terminal_colors then
-    M.apply_terminal_colors(colors.palette)
+    M.apply_terminal_colors(palette)
   end
 end
 

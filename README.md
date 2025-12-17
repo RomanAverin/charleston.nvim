@@ -27,7 +27,7 @@ Charleston color theme for neovim
 ## Roadmap
 
 - ✅ ~~Transparent supported (with enhanced terminal compatibility)~~
-- Customization colors
+- ✅ ~~Customization colors~~
 
 ## Requirements
 
@@ -103,8 +103,141 @@ opts = {
   italic = true, -- use italic font style
   darker_background = false, -- use more darker background
   transparent = false, -- enable transparent background
+  palette_overrides = {}, -- override palette colors
 }
 ```
+
+## Customization
+
+Charleston supports customization of the color palette through `palette_overrides`.
+
+### Palette Customization
+
+You can override any color from the palette or add custom colors:
+
+```lua
+{
+  "romanaverin/charleston.nvim",
+  name = "charleston",
+  priority = 1000,
+  opts = {
+    palette_overrides = {
+      -- Override existing colors
+      red = "#ff0000",
+      bg = "#000000",
+      bg_dimmed = "#0a0a0a",
+
+      -- Add custom colors
+      my_custom_color = "#abcdef",
+    }
+  }
+}
+```
+
+All overrides are fully cached for maximum performance.
+
+### Integration with Other Plugins
+
+You can use `get_palette()` to access the customized palette in other plugins:
+
+```lua
+{
+  "romanaverin/charleston.nvim",
+  name = "charleston",
+  priority = 1000,
+  opts = {
+    palette_overrides = {
+      statusline_bg = "#2a2a2a",
+    }
+  }
+}
+
+-- In your lualine config
+local colors = require("charleston").get_palette()
+
+require("lualine").setup({
+  options = {
+    theme = {
+      normal = {
+        a = { bg = colors.blue, fg = colors.bg },
+        b = { bg = colors.statusline_bg, fg = colors.text },
+      }
+    }
+  }
+})
+```
+
+### Available Colors
+
+<details>
+<summary>Click to see the full color palette</summary>
+
+#### Main Palette Colors
+| Color Name | Hex Value | Preview |
+|------------|-----------|---------|
+| `red` | `#cc6666` | ![#cc6666](https://img.shields.io/badge/-cc6666-cc6666?style=flat-square) |
+| `green` | `#A9C476` | ![#A9C476](https://img.shields.io/badge/-A9C476-A9C476?style=flat-square) |
+| `yellow` | `#D0AB3C` | ![#D0AB3C](https://img.shields.io/badge/-D0AB3C-D0AB3C?style=flat-square) |
+| `blue` | `#88ABDC` | ![#88ABDC](https://img.shields.io/badge/-88ABDC-88ABDC?style=flat-square) |
+| `magenta` | `#B689BC` | ![#B689BC](https://img.shields.io/badge/-B689BC-B689BC?style=flat-square) |
+| `cyan` | `#7fb2c8` | ![#7fb2c8](https://img.shields.io/badge/-7fb2c8-7fb2c8?style=flat-square) |
+| `charcoal` | `#708499` | ![#708499](https://img.shields.io/badge/-708499-708499?style=flat-square) |
+| `teal` | `#749689` | ![#749689](https://img.shields.io/badge/-749689-749689?style=flat-square) |
+| `beige` | `#EFC986` | ![#EFC986](https://img.shields.io/badge/-EFC986-EFC986?style=flat-square) |
+| `orange` | `#de935f` | ![#de935f](https://img.shields.io/badge/-de935f-de935f?style=flat-square) |
+| `purple` | `#b08cba` | ![#b08cba](https://img.shields.io/badge/-b08cba-b08cba?style=flat-square) |
+| `silver` | `#acbcc3` | ![#acbcc3](https://img.shields.io/badge/-acbcc3-acbcc3?style=flat-square) |
+| `cambridge_blue` | `#99C1B9` | ![#99C1B9](https://img.shields.io/badge/-99C1B9-99C1B9?style=flat-square) |
+| `english_violet` | `#59546C` | ![#59546C](https://img.shields.io/badge/-59546C-59546C?style=flat-square) |
+
+#### Base Colors
+| Color Name | Hex Value | Preview |
+|------------|-----------|---------|
+| `bg` | `#1D2024` | ![#1D2024](https://img.shields.io/badge/-1D2024-1D2024?style=flat-square) |
+| `bg_dimmed` | `#262B31` | ![#262B31](https://img.shields.io/badge/-262B31-262B31?style=flat-square) |
+| `text` | `#C5C8D3` | ![#C5C8D3](https://img.shields.io/badge/-C5C8D3-C5C8D3?style=flat-square) |
+| `strong_text` | `#80838f` | ![#80838f](https://img.shields.io/badge/-80838f-80838f?style=flat-square) |
+| `faded_text` | `#686d75` | ![#686d75](https://img.shields.io/badge/-686d75-686d75?style=flat-square) |
+| `strong_faded_text` | `#464b50` | ![#464b50](https://img.shields.io/badge/-464b50-464b50?style=flat-square) |
+| `medium_backgroud` | `#51545C` | ![#51545C](https://img.shields.io/badge/-51545C-51545C?style=flat-square) |
+
+#### UI Elements
+| Color Name | Hex Value | Preview |
+|------------|-----------|---------|
+| `thin_line` | `#363E47` | ![#363E47](https://img.shields.io/badge/-363E47-363E47?style=flat-square) |
+| `thick_line` | `#5F6366` | ![#5F6366](https://img.shields.io/badge/-5F6366-5F6366?style=flat-square) |
+| `float_bg` | `#30353b` | ![#30353b](https://img.shields.io/badge/-30353b-30353b?style=flat-square) |
+| `bar_bg` | `#2c323c` | ![#2c323c](https://img.shields.io/badge/-2c323c-2c323c?style=flat-square) |
+| `bar_text` | `#b5bac8` | ![#b5bac8](https://img.shields.io/badge/-b5bac8-b5bac8?style=flat-square) |
+| `bar_faded_text` | `#70757d` | ![#70757d](https://img.shields.io/badge/-70757d-70757d?style=flat-square) |
+| `white` | `#ffffff` | ![#ffffff](https://img.shields.io/badge/-ffffff-ffffff?style=flat-square) |
+| `darker_gray` | `#2c323c` | ![#2c323c](https://img.shields.io/badge/-2c323c-2c323c?style=flat-square) |
+| `medium_gray` | `#515151` | ![#515151](https://img.shields.io/badge/-515151-515151?style=flat-square) |
+| `lighter_gray` | `#3e4452` | ![#3e4452](https://img.shields.io/badge/-3e4452-3e4452?style=flat-square) |
+
+#### Git Colors
+| Color Name | Hex Value | Preview |
+|------------|-----------|---------|
+| `diff_add_bg` | `#3a413b` | ![#3a413b](https://img.shields.io/badge/-3a413b-3a413b?style=flat-square) |
+| `diff_delete_bg` | `#443c3f` | ![#443c3f](https://img.shields.io/badge/-443c3f-443c3f?style=flat-square) |
+
+#### Terminal Colors
+| Color Name | Hex Value | Preview |
+|------------|-----------|---------|
+| `brightBlack` | `#636363` | ![#636363](https://img.shields.io/badge/-636363-636363?style=flat-square) |
+| `brightRed` | `#a04041` | ![#a04041](https://img.shields.io/badge/-a04041-a04041?style=flat-square) |
+| `brightGreen` | `#8b9440` | ![#8b9440](https://img.shields.io/badge/-8b9440-8b9440?style=flat-square) |
+| `brightYellow` | `#ec9c62` | ![#ec9c62](https://img.shields.io/badge/-ec9c62-ec9c62?style=flat-square) |
+| `brightBlue` | `#5d7f9a` | ![#5d7f9a](https://img.shields.io/badge/-5d7f9a-5d7f9a?style=flat-square) |
+| `brightMagenta` | `#b689bC` | ![#b689bC](https://img.shields.io/badge/-b689bC-b689bC?style=flat-square) |
+| `brightCyan` | `#5e8d87` | ![#5e8d87](https://img.shields.io/badge/-5e8d87-5e8d87?style=flat-square) |
+| `brightWhite` | `#6d757d` | ![#6d757d](https://img.shields.io/badge/-6d757d-6d757d?style=flat-square) |
+
+</details>
+
+See `lua/charleston/colors.lua` for the complete reference.
+
+## Lualine
 
 For the lualine add this
 

@@ -133,7 +133,7 @@ function M.get(pallete, opts)
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg = { fg = color.yellow }, -- Warning messages
     Whitespace = { fg = color.faded_text }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
-    Winseparator = { link = "VertSplit" }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
+    WinSeparator = { link = "VertSplit" }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
     WildMenu = { fg = color.white, bg = color.medium_backgroud }, -- Current match in 'wildmenu' completion
     Winbar = { bg = bar_bg },
     WinbarNC = { bg = bar_bg },

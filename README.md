@@ -66,7 +66,7 @@ To use a specific version:
 {
     "romanaverin/charleston.nvim",
     name = "charleston",
-    version = "1.7.1", -- or use "*" for the latest in the main branch
+    version = "1.8.0", -- or use "*" for the latest in the main branch
     priority = 1000,
 },
 ```

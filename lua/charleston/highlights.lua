@@ -76,7 +76,7 @@ function M.get(pallete, opts)
     MatchParen = { fg = color.white, bold = true, underline = true }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     MsgArea = { fg = color.silver }, -- Area for messages and cmdline
     ModeMsg = { link = "MsgArea" }, -- 'showmode' message (e.g., "-- INSERT -- ")
-    -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
+    MsgSeparator = { link = "MsgArea" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg = { fg = color.silver, bg = float_bg }, -- |more-prompt|
     NonText = { fg = color.beige }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     NormalFloat = { fg = color.text, bg = color.float_bg }, -- Normal text in floating windows.
@@ -89,6 +89,7 @@ function M.get(pallete, opts)
     Question = { fg = color.silver }, -- |hit-enter| prompt and yes/no questions
     -- QuickFixLine { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search = { fg = color.bg, bg = color.cyan }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
+    Scrollbar = { fg = bar_bg }, -- Current background and foreground of the main window's scrollbars
     SpecialKey = { fg = color.faded_text }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
     -- SpellBad     { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
@@ -130,7 +131,7 @@ function M.get(pallete, opts)
     -- NB!: VertSplit is dynamic. See functions below.
     VertSplit = { fg = color.white }, -- Vertical split line
     Visual = { bg = color.medium_backgroud }, -- Visual mode selection
-    -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
+    VisualNOS = { link = "Visual" }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg = { fg = color.yellow }, -- Warning messages
     Whitespace = { fg = color.faded_text }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     WinSeparator = { link = "VertSplit" }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
@@ -416,6 +417,7 @@ function M.get(pallete, opts)
     FzfLuaDirPart = { fg = color.bar_faded_text },
     FzfLuaSearch = { fg = color.orange, bold = true },
     FzfLuaFzfMatch = { fg = color.orange, bold = true },
+    FzfLuaBackdrop = { bg = bar_bg },
 
     --
     -- NeoTree

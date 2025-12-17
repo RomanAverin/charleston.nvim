@@ -3,7 +3,7 @@ Charleston color theme for neovim
 <img width="512" height="512" alt="charleston_logo" src="https://github.com/user-attachments/assets/cb96efe8-aed0-4ef3-8cdb-07bde9a361af" />
 </h3>
 
-## Screenshots
+## 📸 Screenshots
 
 <details>
 <p align="center">
@@ -13,7 +13,7 @@ Charleston color theme for neovim
 </p>
 </details>
 
-## Features
+## ✨ Features
 
 - High contrast color theme with a low saturation and smooth colors
 - Many plugins supported
@@ -25,16 +25,16 @@ Charleston color theme for neovim
 > The color scheme is under deep development.
 > But it will be very useful to get feedback.
 
-## Roadmap
+## 🗺️ Roadmap
 
 - ✅ ~~Transparent supported (with enhanced terminal compatibility)~~
 - ✅ ~~Customization colors~~
 
-## Requirements
+## 📋 Requirements
 
 - neovim >= 0.9
 
-## Supported plugins
+## 🔌 Supported plugins
 
 - [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - [blink.cmp](https://github.com/Saghen/blink.cmp)
@@ -48,7 +48,7 @@ Charleston color theme for neovim
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [neogit](https://github.com/NeogitOrg/neogit)
 
-## Install
+## 📦 Install
 
 Only use with lazy plugin manager:
 
@@ -71,7 +71,7 @@ To use a specific version:
 },
 ```
 
-## Usage
+## 🚀 Usage
 
 Lazy:
 
@@ -94,7 +94,7 @@ vim.cmd.colorscheme "charleston"
 Force compile cache
 `: CharlestonCompile`
 
-## Options
+## ⚙️ Options
 
 To configure options, add `opts` to the plugin declaration:
 
@@ -108,7 +108,7 @@ opts = {
 }
 ```
 
-## Customization
+## 🎨 Customization
 
 Charleston supports customization of the color palette through `palette_overrides`.
 
@@ -243,7 +243,7 @@ require("lualine").setup({
 
 See `lua/charleston/colors.lua` for the complete reference.
 
-## Lualine
+## 🎯 Lualine
 
 For the lualine add this
 

@@ -9,13 +9,20 @@ M.defaults_opts = {
   italic = true,
   darker_background = false,
   transparent = false,
+  palette_overrides = {},
 }
 
 function M.setup(custom_opts)
   M.opts = vim.tbl_deep_extend("keep", custom_opts or {}, M.defaults_opts)
 
+  -- Validate palette_overrides
+  if M.opts.palette_overrides and type(M.opts.palette_overrides) ~= "table" then
+    vim.notify("palette_overrides must be a table", vim.log.levels.WARN, { title = "Charleston" })
+    M.opts.palette_overrides = {}
+  end
+
   -- show debug information about custom_opts
-  if custom_opts.debug then
+  if custom_opts and custom_opts.debug then
     local function dump(o)
       if type(o) == "table" then
         local s = "{ "
@@ -117,12 +124,22 @@ function M.load()
   return colors.palette
 end
 
+---Get the final color palette with customizations applied
+---@return table The customized palette
+function M.get_palette()
+  local base_colors = require("charleston.colors")
+  local customization = require("charleston.lib.customization")
+  local opts = M.opts or M.defaults_opts
+  return customization.apply_palette_customizations(base_colors.palette, opts)
+end
+
 -- User command for manual recompilation
 vim.api.nvim_create_user_command("CharlestonCompile", function()
   -- Clear module cache to ensure fresh compilation
   package.loaded["charleston.colors"] = nil
   package.loaded["charleston.highlights"] = nil
   package.loaded["charleston.lib.compiler"] = nil
+  package.loaded["charleston.lib.customization"] = nil
 
   local opts = M.opts or M.defaults_opts
   local success, err = pcall(require("charleston.lib.compiler").compile, opts)

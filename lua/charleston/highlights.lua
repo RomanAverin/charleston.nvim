@@ -409,7 +409,7 @@ function M.get(pallete, opts)
     -- Fzf-lua
     --
     FzfLuaNormal = { bg = color.float_bg },
-    FzfLuaTitle = { bg = color.english_violet },
+    FzfLuaTitle = { link = "FloatTitle" },
     FzfLuaBorder = { fg = color.faded_text, bg = color.float_bg },
     FzfLuaHelpNormal = { fg = color.yellow }, --
     FzfLuaHeaderBind = { fg = color.yellow, bold = true }, -- header keybind

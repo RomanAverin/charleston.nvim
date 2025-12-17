@@ -17,6 +17,7 @@ on:
       - ".gitignore"
     branches:
       - main
+      - feature/**
 
 jobs:
   ubuntu:

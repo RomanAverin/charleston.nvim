@@ -168,15 +168,15 @@ require("lualine").setup({
 })
 ```
 
-### Available Colors
+### Default Colors
 
 <details>
 <summary>Click to see the full color palette</summary>
 
 #### Main Palette Colors
 
-| Color Name       | Hex Value | Preview                                                                   |
-| ---------------- | --------- | ------------------------------------------------------------------------- |
+| Color Name       | Hex Value | Preview                                                 |
+| ---------------- | --------- | ------------------------------------------------------- |
 | `red`            | `#cc6666` | ![#cc6666](https://img.shields.io/badge/-cc6666-cc6666) |
 | `green`          | `#A9C476` | ![#A9C476](https://img.shields.io/badge/-A9C476-A9C476) |
 | `yellow`         | `#D0AB3C` | ![#D0AB3C](https://img.shields.io/badge/-D0AB3C-D0AB3C) |
@@ -194,8 +194,8 @@ require("lualine").setup({
 
 #### Base Colors
 
-| Color Name          | Hex Value | Preview                                                                   |
-| ------------------- | --------- | ------------------------------------------------------------------------- |
+| Color Name          | Hex Value | Preview                                                 |
+| ------------------- | --------- | ------------------------------------------------------- |
 | `bg`                | `#1D2024` | ![#1D2024](https://img.shields.io/badge/-1D2024-1D2024) |
 | `bg_dimmed`         | `#262B31` | ![#262B31](https://img.shields.io/badge/-262B31-262B31) |
 | `text`              | `#C5C8D3` | ![#C5C8D3](https://img.shields.io/badge/-C5C8D3-C5C8D3) |
@@ -206,8 +206,8 @@ require("lualine").setup({
 
 #### UI Elements
 
-| Color Name       | Hex Value | Preview                                                                   |
-| ---------------- | --------- | ------------------------------------------------------------------------- |
+| Color Name       | Hex Value | Preview                                                 |
+| ---------------- | --------- | ------------------------------------------------------- |
 | `thin_line`      | `#363E47` | ![#363E47](https://img.shields.io/badge/-363E47-363E47) |
 | `thick_line`     | `#5F6366` | ![#5F6366](https://img.shields.io/badge/-5F6366-5F6366) |
 | `float_bg`       | `#30353b` | ![#30353b](https://img.shields.io/badge/-30353b-30353b) |
@@ -221,15 +221,15 @@ require("lualine").setup({
 
 #### Git Colors
 
-| Color Name       | Hex Value | Preview                                                                   |
-| ---------------- | --------- | ------------------------------------------------------------------------- |
+| Color Name       | Hex Value | Preview                                                 |
+| ---------------- | --------- | ------------------------------------------------------- |
 | `diff_add_bg`    | `#3a413b` | ![#3a413b](https://img.shields.io/badge/-3a413b-3a413b) |
 | `diff_delete_bg` | `#443c3f` | ![#443c3f](https://img.shields.io/badge/-443c3f-443c3f) |
 
 #### Terminal Colors
 
-| Color Name      | Hex Value | Preview                                                                   |
-| --------------- | --------- | ------------------------------------------------------------------------- |
+| Color Name      | Hex Value | Preview                                                 |
+| --------------- | --------- | ------------------------------------------------------- |
 | `brightBlack`   | `#636363` | ![#636363](https://img.shields.io/badge/-636363-636363) |
 | `brightRed`     | `#a04041` | ![#a04041](https://img.shields.io/badge/-a04041-a04041) |
 | `brightGreen`   | `#8b9440` | ![#8b9440](https://img.shields.io/badge/-8b9440-8b9440) |

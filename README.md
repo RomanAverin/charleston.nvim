@@ -16,10 +16,11 @@ Charleston color theme for neovim
 ## ✨ Features
 
 - High contrast color theme with a low saturation and smooth colors
-- Many plugins supported
+- Many plugins supported(write if no support is available)
 - Italic font style option
 - Transparent supported
 - Mainly designed for use with lazyvim
+  Customization colors
 
 > [!WARNING]
 > The color scheme is under deep development.
@@ -36,17 +37,18 @@ Charleston color theme for neovim
 
 ## 🔌 Supported plugins
 
-- [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - [blink.cmp](https://github.com/Saghen/blink.cmp)
 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [diffview.nvim](https://github.com/sindrets/diffview.nvim)
 - [fzf-lua](https://github.com/ibhagwan/fzf-lua)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- [mason.nvim](https://github.com/mason-org/mason.nvim)
+- [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
+- [neogit](https://github.com/NeogitOrg/neogit)
 - [noice.nvim](https://github.com/folke/noice.nvim)
 - [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
 - [snacks.nvim](https://github.com/folke/snacks.nvim)
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- [neogit](https://github.com/NeogitOrg/neogit)
 
 ## 📦 Install
 
@@ -91,6 +93,7 @@ vim.cmd.colorscheme "charleston"
 
 ```
 
+A cache is used for compilation and fast loading. The average user does not need to know about it. But if you have made any changes, you can see them without restarting neovim.
 Force compile cache
 `: CharlestonCompile`
 
@@ -108,12 +111,9 @@ opts = {
 }
 ```
 
-## 🎨 Customization
+## 🎨 Palette Customization
 
 Charleston supports customization of the color palette through `palette_overrides`.
-
-### Palette Customization
-
 You can override any color from the palette or add custom colors:
 
 ```lua

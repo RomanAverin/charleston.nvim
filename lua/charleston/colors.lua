@@ -13,7 +13,7 @@ M.palette = {
   teal = "#749689",
   beige = "#EFC986",
   orange = "#de935f",
-  purple = "#b08cba",
+  purple = "#95739C",
   -- additional colors
   silver = "#acbcc3",
   cambridge_blue = "#99C1B9",

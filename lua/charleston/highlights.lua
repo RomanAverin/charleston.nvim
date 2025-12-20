@@ -332,18 +332,72 @@ function M.get(pallete, opts)
     diffDeleted = { link = "GitDeleted" },
 
     DiffAdd = { bg = color.diff_add_bg }, -- Diff mode: Added line |diff.txt|
-    DiffChange = { bg = color.beige }, -- Diff mode: Changed line |diff.txt|
+    DiffChange = { bg = color.bg_dimmed }, -- Diff mode: Changed line |diff.txt|
     DiffDelete = { fg = color.faded_text, bg = bg }, -- Diff mode: Deleted line |diff.txt|
-    DiffText = { bg = color.cyan }, -- Diff mode: Changed text within a changed line |diff.txt|
+    DiffText = { bg = color.medium_backgroud }, -- Diff mode: Changed text within a changed line |diff.txt|
 
     --
     -- Diffview
     --
+    -- Diff content
     DiffviewDiffAdd = { bg = color.diff_add_bg },
-    DiffviewDiffAddText = { bg = color.diff_add_bg },
+    DiffviewDiffAddText = { fg = color.silver },
     DiffviewDiffDelete = { bg = color.diff_delete_bg },
-    DiffviewDiffDeleteText = { bg = color.diff_delete_bg },
+    DiffviewDiffDeleteText = { fg = color.red },
+    DiffviewDiffChange = { link = "DiffChange" },
+    DiffviewDiffText = { link = "DiffText" },
     DiffviewDiffFill = { fg = color.faded_text, bg = bg },
+    DiffviewDiffAddAsDelete = { bg = color.diff_delete_bg, fg = color.red },
+    DiffviewDiffDeleteDim = { link = "Comment" },
+
+    -- File panel
+    DiffviewFilePanelTitle = { fg = color.magenta, bold = true },
+    DiffviewFilePanelCounter = { fg = color.cyan, bold = true },
+    DiffviewFilePanelFileName = { fg = color.text },
+    DiffviewFilePanelPath = { fg = color.faded_text },
+    DiffviewFilePanelRootPath = { link = "DiffviewFilePanelTitle" },
+    DiffviewFilePanelSelected = { fg = color.cyan, bold = true },
+    DiffviewFilePanelInsertions = { fg = color.green },
+    DiffviewFilePanelDeletions = { fg = color.red },
+    DiffviewFilePanelConflicts = { fg = color.yellow },
+
+    -- File statuses
+    DiffviewStatusAdded = { link = "GitAdded" },
+    DiffviewStatusDeleted = { link = "GitDeleted" },
+    DiffviewStatusModified = { link = "GitChanged" },
+    DiffviewStatusRenamed = { link = "GitChanged" },
+    DiffviewStatusCopied = { link = "GitChanged" },
+    DiffviewStatusTypeChange = { link = "GitChanged" },
+    DiffviewStatusUnmerged = { fg = color.yellow },
+    DiffviewStatusUntracked = { fg = color.faded_text },
+    DiffviewStatusBroken = { fg = color.red },
+    DiffviewStatusUnknown = { fg = color.faded_text },
+    DiffviewStatusIgnored = { link = "Comment" },
+
+    -- Folders
+    DiffviewFolderName = { link = "Directory" },
+    DiffviewFolderSign = { link = "PreProc" },
+
+    -- Git metadata
+    DiffviewHash = { link = "Identifier" },
+    DiffviewReference = { link = "Function" },
+    DiffviewReflogSelector = { link = "Special" },
+
+    -- UI elements
+    DiffviewNormal = { link = "Normal" },
+    DiffviewNonText = { link = "NonText" },
+    DiffviewCursorLine = { link = "CursorLine" },
+    DiffviewWinSeparator = { link = "WinSeparator" },
+    DiffviewSignColumn = { link = "SignColumn" },
+    DiffviewStatusLine = { link = "StatusLine" },
+    DiffviewStatusLineNC = { link = "StatusLineNC" },
+    DiffviewEndOfBuffer = { link = "EndOfBuffer" },
+    DiffviewVertSplit = { link = "VertSplit" },
+
+    -- Color helpers
+    DiffviewDim1 = { fg = color.faded_text },
+    DiffviewPrimary = { fg = color.cyan },
+    DiffviewSecondary = { fg = color.orange },
 
     --
     -- Gitsigns

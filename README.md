@@ -187,7 +187,7 @@ require("lualine").setup({
 | `teal`           | `#749689` | ![#749689](https://img.shields.io/badge/-749689-749689) |
 | `beige`          | `#EFC986` | ![#EFC986](https://img.shields.io/badge/-EFC986-EFC986) |
 | `orange`         | `#de935f` | ![#de935f](https://img.shields.io/badge/-de935f-de935f) |
-| `purple`         | `#b08cba` | ![#b08cba](https://img.shields.io/badge/-b08cba-b08cba) |
+| `purple`         | `#95739C` | ![#95739C](https://img.shields.io/badge/-95739C-95739C) |
 | `silver`         | `#acbcc3` | ![#acbcc3](https://img.shields.io/badge/-acbcc3-acbcc3) |
 | `cambridge_blue` | `#99C1B9` | ![#99C1B9](https://img.shields.io/badge/-99C1B9-99C1B9) |
 | `english_violet` | `#59546C` | ![#59546C](https://img.shields.io/badge/-59546C-59546C) |

@@ -250,7 +250,7 @@ function M.get(pallete, opts)
     SnacksIndentChunk = { fg = color.medium_gray },
     SnacksDashboardDesc = { fg = color.white },
     SnacksDashboardDir = { fg = color.cyan },
-    SnacksDashboardHeader = { fg = color.green },
+    SnacksDashboardHeader = { fg = color.cyan },
     SnacksPickerGitStatusUntracked = { fg = color.bar_faded_text },
     --
     -- Noice.nvim

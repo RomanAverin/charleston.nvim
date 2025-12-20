@@ -251,7 +251,31 @@ function M.get(pallete, opts)
     SnacksDashboardDesc = { fg = color.white },
     SnacksDashboardDir = { fg = color.cyan },
     SnacksDashboardHeader = { fg = color.cyan },
+    -- Snacks.nvim Picker
+    SnacksPicker = { bg = color.float_bg },
+    SnacksPickerBorder = { fg = color.faded_text, bg = color.float_bg },
+    SnacksPickerMatch = { fg = color.orange, bold = true },
+    SnacksPickerList = { bg = color.float_bg },
+    SnacksPickerListBorder = { fg = color.faded_text, bg = color.float_bg },
+    SnacksPickerListCursorLine = { bg = bg },
+    SnacksPickerPrompt = { fg = color.white },
+    SnacksPickerInput = { fg = color.white, bg = color.float_bg },
+    SnacksPickerInputBorder = { fg = color.faded_text, bg = color.float_bg },
+    SnacksPickerInputSearch = { fg = color.orange, bold = true },
+    SnacksPickerFile = { fg = color.text },
+    SnacksPickerDir = { fg = color.cyan },
+    SnacksPickerPathHidden = { fg = color.faded_text },
+    SnacksPickerPathIgnored = { fg = color.bar_faded_text },
+    SnacksPickerIcon = { fg = color.faded_text },
+    SnacksPickerIconFile = { fg = color.faded_text },
+    SnacksPickerIconDir = { fg = color.cyan },
+    SnacksPickerGitStatusModified = { fg = color.blue },
+    SnacksPickerGitStatusAdded = { fg = color.green },
+    SnacksPickerGitStatusDeleted = { fg = color.red },
     SnacksPickerGitStatusUntracked = { fg = color.bar_faded_text },
+    SnacksPickerPreview = { bg = color.float_bg },
+    SnacksPickerPreviewBorder = { fg = color.faded_text, bg = color.float_bg },
+    SnacksPickerPreviewTitle = { link = "FloatTitle" },
     --
     -- Noice.nvim
     --
@@ -451,8 +475,10 @@ function M.get(pallete, opts)
     -- Telescope
     --
     TelescopeNormal = { bg = color.float_bg },
-    TelescopeMatching = { fg = color.charcoal },
+    TelescopeMatching = { fg = color.orange, bold = true },
     TelescopeSelection = { bg = bg },
+    TelescopeSelectionCaret = { fg = color.cyan },
+    TelescopePromptPrefix = { fg = color.white },
     TelescopeBorder = { fg = color.faded_text, bg = float_bg }, -- this is used for telescope titles
     TelescopeResultsDiffAdd = { link = "GitAdded" },
     TelescopeResultsDiffChange = { link = "GitChanged" },
@@ -469,6 +495,9 @@ function M.get(pallete, opts)
     FzfLuaHeaderBind = { fg = color.yellow, bold = true }, -- header keybind
     FzfLuaHeaderText = { fg = color.magenta }, -- keybind help text
     FzfLuaDirPart = { fg = color.bar_faded_text },
+    FzfLuaFilePart = { fg = color.text },
+    FzfLuaPathLineNr = { fg = color.green },
+    FzfLuaDirIcon = { fg = color.cyan },
     FzfLuaSearch = { fg = color.orange, bold = true },
     FzfLuaFzfMatch = { fg = color.orange, bold = true },
     FzfLuaBackdrop = { bg = bar_bg },

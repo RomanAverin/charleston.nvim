@@ -1,0 +1,8 @@
+# Ignore generated screenshots
+output/
+
+# Keep examples
+!examples/
+
+# Keep documentation
+!README.md

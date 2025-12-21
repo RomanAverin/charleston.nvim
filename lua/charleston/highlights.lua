@@ -59,6 +59,7 @@ function M.get(pallete, opts)
     CursorColumn = { bg = color.lighter_gray }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine = { bg = color.lighter_gray }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     IblIndent = { fg = color.thin_line },
+    IblScope = { fg = color.white },
     VirtColumn = { fg = color.thin_line },
     ColorColumn = { fg = color.thin_line }, -- Columns set with 'colorcolumn'
     Directory = { fg = color.text }, -- Directory names (and other special names in listings)

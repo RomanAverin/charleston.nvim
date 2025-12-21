@@ -68,8 +68,8 @@ function M.get(pallete, opts)
     -- TermCursorNC { }, -- Cursor in an unfocused terminal
     ErrorMsg = { fg = color.red }, -- Error messages on the command line
     Folded = { fg = color.bg, bg = color.charcoal }, -- Line used for closed folds
-    FoldColumn = { fg = color.charcoal, bg = bg }, -- 'foldcolumn'
-    SignColumn = { fg = color.text, bg = bg }, -- Column where |signs| are displayed
+    FoldColumn = { fg = color.charcoal }, -- 'foldcolumn'
+    SignColumn = { fg = color.text }, -- Column where |signs| are displayed
     -- IncSearch    { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     -- Substitute   { }, -- |:substitute| replacement text highlighting
     LineNr = { fg = color.strong_faded_text }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.

@@ -245,7 +245,9 @@ require("lualine").setup({
 
 See `lua/charleston/colors.lua` for the complete reference.
 
-## 🎯 Lualine
+## 🎯 Specific plugins
+
+### Lualine.nvim
 
 For the lualine add this
 
@@ -258,16 +260,14 @@ require('lualine').setup {
 }
 ```
 
-## Bufferline
-
-<details>
+### Bufferline.nvim
 
 Charleston provides native support for [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) with a dedicated integration module.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Bufferline needs to be loaded after setting up Charleston or it will highlight incorrectly
 
-### Basic Usage
+#### Basic Usage
 
 ```lua
 return {
@@ -286,7 +286,7 @@ return {
 }
 ```
 
-### Advanced Configuration
+#### Advanced Configuration
 
 You can customize the bufferline theme with styles and custom colors:
 
@@ -310,8 +310,8 @@ Available options:
 - `styles`: Table with style options (`"italic"`, `"bold"`)
 - `custom.all`: Custom highlight overrides that apply to all highlights
 
-</details>
-
 ## 🍭 Extras
 
 Themes for other app. In the extras folder.
+
+- Ghostty

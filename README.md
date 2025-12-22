@@ -256,6 +256,60 @@ require('lualine').setup {
 }
 ```
 
+## Bufferline
+
+<details>
+
+Charleston provides native support for [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) with a dedicated integration module.
+
+> [!NOTE]
+> Bufferline needs to be loaded after setting up Charleston or it will highlight incorrectly
+
+### Basic Usage
+
+```lua
+return {
+  "akinsho/bufferline.nvim",
+  after = "charleston", -- Mandatory option, otherwise incorrect
+  opts = {
+    highlights = function()
+      return require("charleston.bufferline").get_theme()
+    end,
+    options = {
+      separator_style = "slant",
+      always_show_bufferline = false,
+      show_tab_indicators = true,
+    },
+  },
+}
+```
+
+### Advanced Configuration
+
+You can customize the bufferline theme with styles and custom colors:
+
+```lua
+local palette = require("charleston").get_palette()
+
+require("bufferline").setup {
+  highlights = require("charleston.bufferline").get_theme {
+    styles = { "italic", "bold" },
+    custom = {
+      all = {
+        fill = { bg = "#000000" },
+      },
+    },
+  },
+}
+```
+
+Available options:
+
+- `styles`: Table with style options (`"italic"`, `"bold"`)
+- `custom.all`: Custom highlight overrides that apply to all highlights
+
+</details>
+
 ## 🍭 Extras
 
 Themes for other app. In the extras folder.

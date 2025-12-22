@@ -40,7 +40,7 @@ Charleston color theme for neovim
 - [blink.cmp](https://github.com/Saghen/blink.cmp)
 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)
-  - [diffview.nvim](https://github.com/sindrets/diffview.nvim)
+- [diffview.nvim](https://github.com/sindrets/diffview.nvim)
 - [fzf-lua](https://github.com/ibhagwan/fzf-lua)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [mason.nvim](https://github.com/mason-org/mason.nvim)

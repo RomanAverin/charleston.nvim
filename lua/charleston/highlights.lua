@@ -188,33 +188,75 @@ function M.get(pallete, opts)
     --
     BufferlineBackground = { fg = color.bar_faded_text, bg = bar_bg },
     BufferlineBufferVisible = { fg = color.bar_text, bg = bar_bg },
-    BufferlineBufferSelected = { fg = color.white, bg = bar_bg, bold = true },
+    BufferlineBufferSelected = { fg = color.white, bold = true, bg = "NONE" },
     BufferlineFill = { bg = bar_bg },
     -- tabs
     BufferlineTab = { bg = bar_bg },
-    BufferlineTabSelected = { fg = color.white, bg = bar_bg },
+    BufferlineTabSelected = { fg = color.white, bg = "NONE" },
     BufferlineTabSeparator = { fg = color.bg, bg = bar_bg },
     BufferlineTabSeparatorVisible = { fg = color.bg, bg = bar_bg },
-    BufferlineTabSeparatorSelected = { fg = color.bg, bg = bar_bg },
+    BufferlineTabSeparatorSelected = { fg = color.bg, bg = "NONE" },
 
     BufferlineTabClose = { fg = color.red, bg = bar_bg },
     BufferlineIndicatorVisible = { fg = color.magenta, bg = bar_bg },
-    BufferlineIndicatorSelected = { fg = color.magenta, bg = bar_bg },
+    BufferlineIndicatorSelected = { fg = color.magenta, bg = "NONE" },
     -- separators
     BufferlineSeparator = { fg = color.bg, bg = bar_bg },
     BufferlineSeparatorVisible = { fg = color.bg, bg = bar_bg },
-    BufferlineSeparatorSelected = { fg = color.bg, bg = bar_bg },
+    BufferlineSeparatorSelected = { fg = color.bg, bg = "NONE" },
     BufferlineOffsetSeparator = { fg = color.bg, bg = bar_bg },
 
     BufferlineModified = { fg = color.cyan, bg = bar_bg },
     BufferlineModifiedVisible = { fg = color.cyan, bg = bar_bg },
-    BufferlineModifiedSelected = { fg = color.cyan, bg = bar_bg },
+    BufferlineModifiedSelected = { fg = color.cyan, bg = "NONE" },
     BufferlineDuplicate = { fg = color.faded_text, bg = bar_bg },
     BufferlineDuplicateVisible = { fg = color.faded_text, bg = bar_bg },
-    BufferlineDuplicateSelected = { fg = color.text, bg = bar_bg },
+    BufferlineDuplicateSelected = { fg = color.text, bg = "NONE" },
     BufferlineCloseButton = { fg = color.faded_text, bg = bar_bg },
     BufferlineCloseButtonVisible = { fg = color.faded_text, bg = bar_bg },
-    BufferlineCloseButtonSelected = { fg = color.red, bg = bar_bg },
+    BufferlineCloseButtonSelected = { fg = color.red, bg = "NONE" },
+    -- Numbers
+    BufferlineNumbers = { fg = color.bar_faded_text, bg = bar_bg },
+    BufferlineNumbersVisible = { fg = color.bar_text, bg = bar_bg },
+    BufferlineNumbersSelected = { fg = color.white, bold = true, bg = "NONE" },
+    -- Diagnostic states
+    BufferlineDiagnostic = { fg = color.text, bg = bar_bg },
+    BufferlineDiagnosticVisible = { fg = color.text, bg = bar_bg },
+    BufferlineDiagnosticSelected = { fg = color.text, bg = "NONE" },
+    -- Error
+    BufferlineError = { fg = color.red, bg = bar_bg },
+    BufferlineErrorVisible = { fg = color.red, bg = bar_bg },
+    BufferlineErrorSelected = { fg = color.red, bg = "NONE" },
+    BufferlineErrorDiagnostic = { fg = color.red, bg = bar_bg },
+    BufferlineErrorDiagnosticVisible = { fg = color.red, bg = bar_bg },
+    BufferlineErrorDiagnosticSelected = { fg = color.red, bg = "NONE" },
+    -- Warning
+    BufferlineWarning = { fg = color.yellow, bg = bar_bg },
+    BufferlineWarningVisible = { fg = color.yellow, bg = bar_bg },
+    BufferlineWarningSelected = { fg = color.yellow, bg = "NONE" },
+    BufferlineWarningDiagnostic = { fg = color.yellow, bg = bar_bg },
+    BufferlineWarningDiagnosticVisible = { fg = color.yellow, bg = bar_bg },
+    BufferlineWarningDiagnosticSelected = { fg = color.yellow, bg = "NONE" },
+    -- Info
+    BufferlineInfo = { fg = color.blue, bg = bar_bg },
+    BufferlineInfoVisible = { fg = color.blue, bg = bar_bg },
+    BufferlineInfoSelected = { fg = color.blue, bg = "NONE" },
+    BufferlineInfoDiagnostic = { fg = color.blue, bg = bar_bg },
+    BufferlineInfoDiagnosticVisible = { fg = color.blue, bg = bar_bg },
+    BufferlineInfoDiagnosticSelected = { fg = color.blue, bg = "NONE" },
+    -- Hint
+    BufferlineHint = { fg = color.silver, bg = bar_bg },
+    BufferlineHintVisible = { fg = color.silver, bg = bar_bg },
+    BufferlineHintSelected = { fg = color.silver, bg = "NONE" },
+    BufferlineHintDiagnostic = { fg = color.silver, bg = bar_bg },
+    BufferlineHintDiagnosticVisible = { fg = color.silver, bg = bar_bg },
+    BufferlineHintDiagnosticSelected = { fg = color.silver, bg = "NONE" },
+    -- Pick state
+    BufferlinePick = { fg = color.orange, bg = bar_bg, bold = true },
+    BufferlinePickVisible = { fg = color.orange, bg = bar_bg, bold = true },
+    BufferlinePickSelected = { fg = color.orange, bold = true, bg = "NONE" },
+    -- Trunc marker
+    BufferlineTruncMarker = { fg = color.bar_faded_text, bg = bar_bg },
 
     --
     -- Render-markdown.nvim
@@ -520,8 +562,8 @@ function M.get(pallete, opts)
     -- NeoGit
     --
     NeogitSectionHeader = { fg = color.magenta },
-    gitcommitFirstLine = { fg = color.text, bg = bg },
-    gitcommitSummary = { fg = color.text, bg = bg },
+    gitcommitFirstLine = { fg = color.text },
+    gitcommitSummary = { fg = color.text },
     NeogitDiffAdd = { fg = color.green, bg = color.diff_add_bg },
     NeogitDiffDelete = { fg = color.red, bg = color.diff_delete_bg },
     NeogitDiffDeleteHighlight = { link = "NeogitDiffDelete" },

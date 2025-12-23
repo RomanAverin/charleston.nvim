@@ -1,1 +1,4 @@
 .claude/
+.vscode/
+.DS_Store
+.repro

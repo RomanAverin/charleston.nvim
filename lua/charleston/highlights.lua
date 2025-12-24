@@ -42,15 +42,18 @@ function M.get(pallete, opts)
     Structure = { fg = color.orange }, --   struct, union, enum, etc.
     Special = { fg = color.silver }, -- (*) Any special symbol
     SpecialChar = { fg = color.silver }, -- Special character in a constant
-    -- Tag            { }, --   You can use CTRL-] on this
+    Tag = { fg = color.cyan, underline = true }, --   You can use CTRL-] on this
     Delimiter = { fg = color.beige }, --   Character that needs attention
     SpecialComment = { fg = color.strong_text }, --   Special things inside a comment (e.g. '\n')
-    -- Debug          { }, --   Debugging statements
+    Debug = { fg = color.orange, bold = true }, --   Debugging statements
 
     Underlined = { bg = float_bg, underline = true }, -- Text that stands out, HTML links
-    -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE May be invisible here in template)
+    Ignore = { fg = color.faded_text }, -- Left blank, hidden |hl-Ignore| (NOTE May be invisible here in template)
     Error = { fg = color.red }, -- Any erroneous construct
-    -- Todo           { }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Todo = { fg = color.yellow, bg = color.medium_backgroud, bold = true }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Added = { fg = color.green }, -- Added line in a diff
+    Changed = { fg = color.blue }, -- Changed line in a diff
+    Removed = { fg = color.red }, -- Removed line in a diff
 
     Conceal = { fg = color.faded_text }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor = { reverse = true }, -- Character under the cursor

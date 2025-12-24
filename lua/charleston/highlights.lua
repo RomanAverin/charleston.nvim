@@ -64,40 +64,65 @@ function M.get(pallete, opts)
     ColorColumn = { fg = color.thin_line }, -- Columns set with 'colorcolumn'
     Directory = { fg = color.text }, -- Directory names (and other special names in listings)
     EndOfBuffer = { fg = color.faded_text, bg = bg }, -- Filler lines ~ after the end of the buffer. By default, this is highlighted like |hl-NonText|.
-    -- TermCursor   { }, -- Cursor in a focused terminal
-    -- TermCursorNC { }, -- Cursor in an unfocused terminal
+    TermCursor = { reverse = true }, -- Cursor in a focused terminal
+    TermCursorNC = { link = "TermCursor" }, -- Cursor in an unfocused terminal
     ErrorMsg = { fg = color.red }, -- Error messages on the command line
     Folded = { fg = color.bg, bg = color.charcoal }, -- Line used for closed folds
     FoldColumn = { fg = color.charcoal }, -- 'foldcolumn'
     SignColumn = { fg = color.text }, -- Column where |signs| are displayed
-    -- IncSearch    { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-    -- Substitute   { }, -- |:substitute| replacement text highlighting
+    IncSearch = { fg = color.bg, bg = color.orange, bold = true }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    Substitute = { fg = color.bg, bg = color.purple }, -- |:substitute| replacement text highlighting
     LineNr = { fg = color.strong_faded_text }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNrAbove = { fg = color.strong_faded_text }, -- Line number for when the 'relativenumber' option is set, above the cursor line
+    LineNrBelow = { fg = color.strong_faded_text }, -- Line number for when the 'relativenumber' option is set, below the cursor line
     CursorLineNr = { fg = color.silver, bold = true }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    CursorLineFold = { link = "FoldColumn" }, -- Like FoldColumn when 'cursorline' is set for the cursor line
+    CursorLineSign = { link = "SignColumn" }, -- Like SignColumn when 'cursorline' is set for the cursor line
     MatchParen = { fg = color.white, bold = true, underline = true }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     MsgArea = { fg = color.silver }, -- Area for messages and cmdline
     ModeMsg = { link = "MsgArea" }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgSeparator = { link = "MsgArea" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg = { fg = color.silver, bg = float_bg }, -- |more-prompt|
+    OkMsg = { fg = color.green, bold = true }, -- Success messages
+    StdoutMsg = { fg = color.text }, -- Messages in stdout from shell commands
+    StderrMsg = { fg = color.red }, -- Messages in stderr from shell commands
     NonText = { fg = color.beige }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     NormalFloat = { fg = color.text, bg = color.float_bg }, -- Normal text in floating windows.
     FloatBorder = { fg = color.thick_line, bg = color.float_bg },
     NormalNC = { fg = color.text, bg = bg }, -- normal text in non-current windows
     Pmenu = { fg = color.text, bg = color.float_bg }, -- Popup menu: Normal item.
-    -- PmenuSel = { }, -- Popup menu: Selected item.
-    -- PmenuSbar = {  }, -- Popup menu: Scrollbar.d
-    -- PmenuThumb = { }, -- Popup menu: Thumb of the scrollbar.
+    PmenuSel = { fg = color.white, bg = color.medium_backgroud, bold = true }, -- Popup menu: Selected item.
+    PmenuKind = { fg = color.cyan, bg = color.float_bg }, -- Popup menu: Normal item "kind".
+    PmenuKindSel = { fg = color.cyan, bg = color.medium_backgroud, bold = true }, -- Popup menu: Selected item "kind".
+    PmenuExtra = { fg = color.faded_text, bg = color.float_bg }, -- Popup menu: Normal item "extra text".
+    PmenuExtraSel = { fg = color.faded_text, bg = color.medium_backgroud }, -- Popup menu: Selected item "extra text".
+    PmenuSbar = { bg = color.strong_faded_text }, -- Popup menu: Scrollbar.
+    PmenuThumb = { bg = color.silver }, -- Popup menu: Thumb of the scrollbar.
+    PmenuMatch = { fg = color.orange, bg = color.float_bg, bold = true }, -- Popup menu: Matched text in normal item. Combined with |hl-Pmenu|.
+    PmenuMatchSel = { fg = color.orange, bg = color.medium_backgroud, bold = true }, -- Popup menu: Matched text in selected item. Combined with |hl-PmenuMatch| and |hl-PmenuSel|.
+    PmenuBorder = { fg = color.thick_line, bg = color.float_bg }, -- Popup menu: border of popup menu.
+    PmenuShadow = { bg = color.bg }, -- Popup menu: blended areas when 'pumborder' is "shadow".
+    PmenuShadowThrough = { bg = "NONE" }, -- Popup menu: shadow corners when 'pumborder' is "shadow".
+    ComplMatchIns = { fg = color.orange, bold = true }, -- Matched text of the currently inserted completion.
+    PreInsert = { fg = color.faded_text, italic = opts.italic == true }, -- Text inserted when "preinsert" is in 'completeopt'.
+    ComplHint = { fg = color.faded_text, italic = opts.italic == true }, -- Virtual text of the currently selected completion.
+    ComplHintMore = { fg = color.silver }, -- The additional information of the virtual text.
+    SnippetTabstop = { fg = color.beige, bg = color.medium_backgroud }, -- Tabstops in snippets. |vim.snippet|
+    SnippetTabstopActive = { fg = color.cyan, bg = color.medium_backgroud, bold = true }, -- The currently active tabstop. |vim.snippet|
     Question = { fg = color.silver }, -- |hit-enter| prompt and yes/no questions
-    -- QuickFixLine { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+    QuickFixLine = { bg = color.lighter_gray, bold = true }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search = { fg = color.bg, bg = color.cyan }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
+    CurSearch = { fg = color.bg, bg = color.yellow, bold = true }, -- Current match for the last search pattern (see 'hlsearch'). Note: This is correct after a search, but may get outdated if changes are made or the screen is redrawn.
     Scrollbar = { fg = bar_bg }, -- Current background and foreground of the main window's scrollbars
     SpecialKey = { fg = color.faded_text }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
-    -- SpellBad     { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
-    -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-    -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-    -- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
+    SpellBad = { sp = color.red, undercurl = true }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
+    SpellCap = { sp = color.yellow, undercurl = true }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+    SpellLocal = { sp = color.cyan, undercurl = true }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
+    SpellRare = { sp = color.purple, undercurl = true }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
     StatusLine = { bg = bar_bg }, -- Status line of current window
     StatusLineNC = { bg = bar_bg }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    StatusLineTerm = { link = "StatusLine" }, -- Status line of terminal window
+    StatusLineTermNC = { link = "StatusLineNC" }, -- Status line of non-current terminal window
     StatusBarSegmentNormal = { fg = color.bar_text, bg = bar_bg },
     StatusBarSegmentFaded = { fg = color.bar_faded_text, bg = bar_bg },
     StatusBarDiagnosticError = { fg = color.red, bg = bar_bg },
@@ -105,6 +130,9 @@ function M.get(pallete, opts)
     StatusBarDiagnosticInfo = { fg = color.blue, bg = bar_bg },
     StatusBarDiagnosticHint = { fg = color.silver, bg = bar_bg },
     FloatTitle = { fg = color.bg, bg = color.yellow, bold = true },
+    FloatFooter = { fg = color.bg, bg = color.charcoal }, -- Footer of floating windows
+    FloatShadow = { bg = color.bg }, -- Shadow area for floating windows (blurred areas when border is "shadow")
+    FloatShadowThrough = { bg = "NONE" }, -- Shadow corners for floating windows (transparent)
     IndentBlanklineChar = { fg = color.thin_line },
     IndentBlanklineContextChar = { fg = color.thin_line },
     TodoComment = { fg = color.purple },
@@ -402,6 +430,7 @@ function M.get(pallete, opts)
     DiffChange = { bg = color.bg_dimmed }, -- Diff mode: Changed line |diff.txt|
     DiffDelete = { fg = color.faded_text, bg = bg }, -- Diff mode: Deleted line |diff.txt|
     DiffText = { bg = color.medium_backgroud }, -- Diff mode: Changed text within a changed line |diff.txt|
+    DiffTextAdd = { bg = color.diff_add_bg, fg = color.green, bold = true }, -- Diff mode: Added text within a changed line |diff.txt|
 
     --
     -- Diffview

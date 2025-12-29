@@ -38,7 +38,7 @@ function M.get(pallete, opts)
     PreCondit = { link = "Define" }, --   Preprocessor #if, #else, #endif, etc.
     Type = { fg = color.beige }, -- (*) int, long, char, etc.
     Typedef = { link = "Type" }, --   A typedef
-    StorageClass = { fg = color.orange }, --   static, register, volatile, etc.
+    StorageClass = { fg = color.purple }, --   static, register, volatile, etc.
     Structure = { fg = color.cyan }, --   struct, union, enum, etc.
     Special = { fg = color.silver }, -- (*) Any special symbol
     SpecialChar = { fg = color.silver }, -- Special character in a constant

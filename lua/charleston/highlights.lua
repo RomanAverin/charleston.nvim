@@ -29,7 +29,7 @@ function M.get(pallete, opts)
     Repeat = { fg = color.purple }, --   for, do, while, etc.
     Label = { fg = color.text }, --   case, default, etc.
     Operator = { fg = color.orange }, --   "sizeof", "+", "*", etc.
-    Keyword = { fg = color.blue }, --   any other keyword
+    Keyword = { fg = color.magenta }, --   any other keyword
     Exception = { fg = color.purple }, --   try, catch, throw
     PreProc = { fg = color.magenta }, -- (*) Generic Preprocessor
     Include = { fg = color.blue, bold = true }, --   Preprocessor #include

@@ -176,8 +176,8 @@ function M.get(pallete, opts)
     --
     ["@comment"] = { link = "Comment" }, -- Comment
     ["@comment.hint"] = { fg = color.silver },
-    ["@comment.info"] = { fg = color.silver },
-    ["@comment.note"] = { fg = color.teal },
+    ["@comment.info"] = { fg = color.blue },
+    ["@comment.note"] = { fg = color.blue },
     ["@comment.todo"] = { fg = color.blue },
     ["@comment.warning"] = { fg = color.yellow },
     ["@constant"] = { link = "Constant" }, -- Constant

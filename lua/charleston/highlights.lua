@@ -39,7 +39,7 @@ function M.get(pallete, opts)
     Type = { fg = color.beige }, -- (*) int, long, char, etc.
     Typedef = { link = "Type" }, --   A typedef
     StorageClass = { fg = color.orange }, --   static, register, volatile, etc.
-    Structure = { fg = color.orange }, --   struct, union, enum, etc.
+    Structure = { fg = color.cyan }, --   struct, union, enum, etc.
     Special = { fg = color.silver }, -- (*) Any special symbol
     SpecialChar = { fg = color.silver }, -- Special character in a constant
     Tag = { fg = color.cyan, underline = true }, --   You can use CTRL-] on this

@@ -501,7 +501,9 @@ function M.get(pallete, opts)
     GitSignsAddInline = { link = "DiffviewDiffAddText" },
     GitSignsDeleteInline = { link = "DiffviewDiffDeleteText" },
 
+    --
     -- LSP highlighting
+    --
     LspReferenceText = { sp = color.beige, underline = true }, -- Used for highlighting "text" references
     LspReferenceRead = { sp = color.beige, underline = true }, -- Used for highlighting "read" references
     LspReferenceWrite = { sp = color.beige, underline = true, bold = true }, -- Used for highlighting "write" references

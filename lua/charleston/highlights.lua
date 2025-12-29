@@ -292,12 +292,12 @@ function M.get(pallete, opts)
     --
     -- Render-markdown.nvim
     --
-    RenderMarkdownH1 = { fg = color.silver, bold = true },
+    RenderMarkdownH1 = { fg = color.white, bold = true },
     RenderMarkdownH2 = { fg = color.silver, bold = true },
-    RenderMarkdownH3 = { fg = color.silver, bold = true },
-    RenderMarkdownH4 = { fg = color.silver, bold = true },
-    RenderMarkdownH5 = { fg = color.silver, bold = true },
-    RenderMarkdownH6 = { fg = color.silver, bold = true },
+    RenderMarkdownH3 = { fg = color.silver },
+    RenderMarkdownH4 = { fg = color.text, bold = true },
+    RenderMarkdownH5 = { fg = color.text },
+    RenderMarkdownH6 = { fg = color.strong_text },
     RenderMarkdownH1Bg = { bg = bg },
     RenderMarkdownH2Bg = { link = "RenderMarkdownH1Bg" },
     RenderMarkdownH3Bg = { link = "RenderMarkdownH1Bg" },

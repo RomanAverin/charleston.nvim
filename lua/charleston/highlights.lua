@@ -26,7 +26,7 @@ function M.get(pallete, opts)
     Function = { fg = color.cyan }, --   Function name (also: methods for classes)
     Statement = { fg = color.purple }, -- (*) Any statement
     Conditional = { fg = color.purple }, --   if, then, else, endif, switch, etc.
-    Repeat = { fg = color.english_violet }, --   for, do, while, etc.
+    Repeat = { fg = color.purple }, --   for, do, while, etc.
     Label = { fg = color.text }, --   case, default, etc.
     Operator = { fg = color.orange }, --   "sizeof", "+", "*", etc.
     Keyword = { fg = color.blue }, --   any other keyword

@@ -162,7 +162,7 @@ function M.get(pallete, opts)
 
     -- NB!: VertSplit is dynamic. See functions below.
     VertSplit = { fg = color.white }, -- Vertical split line
-    Visual = { bg = color.medium_background }, -- Visual mode selection
+    Visual = { bg = color.lighter_gray }, -- Visual mode selection
     VisualNOS = { link = "Visual" }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg = { fg = color.yellow }, -- Warning messages
     Whitespace = { fg = color.faded_text }, -- "nbsp", "space", "tab" and "trail" in 'listchars'

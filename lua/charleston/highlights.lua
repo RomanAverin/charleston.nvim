@@ -510,9 +510,9 @@ function M.get(pallete, opts)
     GitSignsDeleteInline = { link = "DiffviewDiffDeleteText" },
 
     -- LSP highlighting
-    LspReferenceText = { bg = color.medium_background }, -- Used for highlighting "text" references
-    LspReferenceRead = { bg = color.medium_background }, -- Used for highlighting "read" references
-    LspReferenceWrite = { bg = color.lighter_gray, bold = true }, -- Used for highlighting "write" references
+    LspReferenceText = { sp = color.beige, underline = true }, -- Used for highlighting "text" references
+    LspReferenceRead = { sp = color.beige, underline = true }, -- Used for highlighting "read" references
+    LspReferenceWrite = { sp = color.beige, underline = true, bold = true }, -- Used for highlighting "write" references
     LspInlayHint = { fg = color.faded_text, italic = opts.italic == true, underdashed = true },
     LspCodeLens = { link = "Comment" }, -- Used to color the virtual text of the codelens. See |nvim_buf_set_extmark()|.
     -- LspCodeLensSeparator        { } , -- Used to color the seperator between two or more code lens.

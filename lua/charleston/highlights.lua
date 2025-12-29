@@ -181,6 +181,7 @@ function M.get(pallete, opts)
     ["@comment.todo"] = { fg = color.blue },
     ["@comment.warning"] = { fg = color.yellow },
     ["@constant"] = { link = "Constant" }, -- Constant
+    ["@function.builtin.python"] = { fg = color.magenta },
     ["@keyword"] = { fg = color.magenta },
     ["@macro"] = { link = "Macro" }, -- Macro
     ["@string"] = { link = "String" }, -- String

@@ -3,3 +3,4 @@
 ## App list
 
 - Ghostty
+- Zed

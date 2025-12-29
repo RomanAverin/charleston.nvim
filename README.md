@@ -315,3 +315,4 @@ Available options:
 Themes for other app. In the extras folder.
 
 - Ghostty
+- Zed

@@ -201,7 +201,7 @@ function M.get(pallete, opts)
     --
     ["@keyword.import"] = { fg = color.magenta, bold = true },
     ["@keyword.rust"] = { fg = color.magenta },
-    ["@keyword.python"] = { fg = color.magenta },
+    ["@keyword.python"] = { fg = color.purple },
     ["@lsp.type.struct.rust"] = { fg = color.cyan },
     ["@lsp.type.variable.lua"] = { link = "@lsp.type.parameter" },
     ["@lsp.type.parameter.rust"] = { link = "@lsp.type.parameter" },

@@ -17,7 +17,7 @@ function M.get(pallete, opts)
     Comment = { fg = color.faded_text, italic = opts.italic == true }, -- Any comment
     Constant = { fg = color.beige }, -- (*) Any constant
     String = { fg = color.green }, --   A string constant: "this is a string"
-    Character = { fg = color.teal }, --   A character constant: 'c', '\n'
+    Character = { fg = color.cambridge_blue }, --   A character constant: 'c', '\n'
     Number = { fg = color.cambridge_blue }, --   A number constant: 234, 0xff
     Boolean = { fg = color.silver }, --   A boolean constant: TRUE, false
     Float = { fg = color.silver }, --   A floating point constant: 2.3e10

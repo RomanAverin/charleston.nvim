@@ -40,8 +40,8 @@ function M.get(pallete, opts)
     Typedef = { link = "Type" }, --   A typedef
     StorageClass = { fg = color.purple }, --   static, register, volatile, etc.
     Structure = { fg = color.cyan }, --   struct, union, enum, etc.
-    Special = { fg = color.silver }, -- (*) Any special symbol
-    SpecialChar = { fg = color.silver }, -- Special character in a constant
+    Special = { fg = color.text }, -- (*) Any special symbol
+    SpecialChar = { fg = color.text }, -- Special character in a constant
     Tag = { fg = color.cyan, underline = true }, --   You can use CTRL-] on this
     Delimiter = { fg = color.beige }, --   Character that needs attention
     SpecialComment = { fg = color.strong_text }, --   Special things inside a comment (e.g. '\n')

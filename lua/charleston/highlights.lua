@@ -23,7 +23,7 @@ function M.get(pallete, opts)
     Float = { fg = color.silver }, --   A floating point constant: 2.3e10
     Identifier = { fg = color.beige }, -- (*) Any variable name
     Variable = { link = "Identifier" }, -- Variable name
-    Function = { fg = color.cyan }, --   Function name (also: methods for classes)
+    Function = { fg = color.blue }, --   Function name (also: methods for classes)
     Statement = { fg = color.purple }, -- (*) Any statement
     Conditional = { fg = color.purple }, --   if, then, else, endif, switch, etc.
     Repeat = { fg = color.purple }, --   for, do, while, etc.

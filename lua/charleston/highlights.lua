@@ -182,34 +182,25 @@ function M.get(pallete, opts)
     ["@comment.warning"] = { fg = color.yellow },
     ["@constant"] = { link = "Constant" }, -- Constant
     ["@function.builtin.python"] = { fg = color.magenta },
+    ["@include"] = { link = "Include" }, -- Include
     ["@keyword"] = { fg = color.magenta },
-    ["@macro"] = { link = "Macro" }, -- Macro
-    ["@string"] = { link = "String" }, -- String
-    ["@markup"] = { fg = color.faded_text }, -- Markup
+    ["@keyword.import"] = { fg = color.magenta, bold = true },
+    ["@keyword.python"] = { fg = color.purple },
+    ["@keyword.rust"] = { fg = color.magenta },
     ["@label.markdown"] = { link = "Normal" },
-
-    ["@variable"] = { fg = color.beige, italic = opts.italic == true }, -- Variable
+    ["@lsp.type.parameter"] = { fg = color.cyan },
+    ["@lsp.type.parameter.rust"] = { link = "@lsp.type.parameter" },
+    ["@lsp.type.struct.rust"] = { fg = color.cyan },
+    ["@lsp.type.variable.lua"] = { link = "@lsp.type.parameter" },
+    ["@macro"] = { link = "Macro" }, -- Macro
+    ["@markup"] = { fg = color.faded_text }, -- Markup
     ["@punctuation.bracket"] = { fg = color.beige },
+    ["@string"] = { link = "String" }, -- String
+    ["@structure"] = { link = "Structure" }, -- Structure
     ["@tag"] = { link = "Label" },
     ["@type"] = { link = "Type" }, -- Type
     ["@type.definition"] = { link = "Typedef" }, -- Typedef
-    ["@structure"] = { link = "Structure" }, -- Structure
-    ["@include"] = { link = "Include" }, -- Include
-
-    --
-    --  highlights for a languages
-    --
-    ["@keyword.import"] = { fg = color.magenta, bold = true },
-    ["@keyword.rust"] = { fg = color.magenta },
-    ["@keyword.python"] = { fg = color.purple },
-    ["@lsp.type.struct.rust"] = { fg = color.cyan },
-    ["@lsp.type.variable.lua"] = { link = "@lsp.type.parameter" },
-    ["@lsp.type.parameter.rust"] = { link = "@lsp.type.parameter" },
-
-    --
-    --  LSP syntax groups
-    --
-    ["@lsp.type.parameter"] = { fg = color.cyan },
+    ["@variable"] = { fg = color.beige, italic = opts.italic == true }, -- Variable
 
     markdownCode = { fg = color.faded_text },
     markdownCodeBlock = { fg = color.faded_text },

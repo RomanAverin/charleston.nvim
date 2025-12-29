@@ -5,7 +5,7 @@ return {
     a = { fg = colors.bg, bg = colors.white, gui = "bold" },
     b = { fg = colors.bg, bg = colors.blue },
     c = { fg = colors.blue, bg = colors.bar_bg },
-    x = { fg = colors.grey, bg = colors.bar_bg },
+    x = { fg = colors.bar_faded_text, bg = colors.bar_bg },
     y = { fg = colors.bg, bg = colors.blue },
     z = { fg = colors.bg, bg = colors.teal },
   },

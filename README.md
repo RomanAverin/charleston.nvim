@@ -204,7 +204,7 @@ require("lualine").setup({
 | `strong_text`       | `#80838f` | ![#80838f](https://img.shields.io/badge/-80838f-80838f) |
 | `faded_text`        | `#686d75` | ![#686d75](https://img.shields.io/badge/-686d75-686d75) |
 | `strong_faded_text` | `#464b50` | ![#464b50](https://img.shields.io/badge/-464b50-464b50) |
-| `medium_backgroud`  | `#51545C` | ![#51545C](https://img.shields.io/badge/-51545C-51545C) |
+| `medium_background` | `#51545C` | ![#51545C](https://img.shields.io/badge/-51545C-51545C) |
 
 #### UI Elements
 

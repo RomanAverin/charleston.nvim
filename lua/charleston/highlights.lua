@@ -50,7 +50,7 @@ function M.get(pallete, opts)
     Underlined = { bg = float_bg, underline = true }, -- Text that stands out, HTML links
     Ignore = { fg = color.faded_text }, -- Left blank, hidden |hl-Ignore| (NOTE May be invisible here in template)
     Error = { fg = color.red }, -- Any erroneous construct
-    Todo = { fg = color.yellow, bg = color.medium_backgroud, bold = true }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Todo = { fg = color.yellow, bg = color.medium_background, bold = true }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
     Added = { fg = color.green }, -- Added line in a diff
     Changed = { fg = color.blue }, -- Changed line in a diff
     Removed = { fg = color.red }, -- Removed line in a diff
@@ -94,15 +94,15 @@ function M.get(pallete, opts)
     FloatBorder = { fg = color.thick_line, bg = color.float_bg },
     NormalNC = { fg = color.text, bg = bg }, -- normal text in non-current windows
     Pmenu = { fg = color.text, bg = color.float_bg }, -- Popup menu: Normal item.
-    PmenuSel = { fg = color.white, bg = color.medium_backgroud, bold = true }, -- Popup menu: Selected item.
+    PmenuSel = { fg = color.white, bg = color.medium_background, bold = true }, -- Popup menu: Selected item.
     PmenuKind = { fg = color.cyan, bg = color.float_bg }, -- Popup menu: Normal item "kind".
-    PmenuKindSel = { fg = color.cyan, bg = color.medium_backgroud, bold = true }, -- Popup menu: Selected item "kind".
+    PmenuKindSel = { fg = color.cyan, bg = color.medium_background, bold = true }, -- Popup menu: Selected item "kind".
     PmenuExtra = { fg = color.faded_text, bg = color.float_bg }, -- Popup menu: Normal item "extra text".
-    PmenuExtraSel = { fg = color.faded_text, bg = color.medium_backgroud }, -- Popup menu: Selected item "extra text".
+    PmenuExtraSel = { fg = color.faded_text, bg = color.medium_background }, -- Popup menu: Selected item "extra text".
     PmenuSbar = { bg = color.strong_faded_text }, -- Popup menu: Scrollbar.
     PmenuThumb = { bg = color.silver }, -- Popup menu: Thumb of the scrollbar.
     PmenuMatch = { fg = color.orange, bg = color.float_bg, bold = true }, -- Popup menu: Matched text in normal item. Combined with |hl-Pmenu|.
-    PmenuMatchSel = { fg = color.orange, bg = color.medium_backgroud, bold = true }, -- Popup menu: Matched text in selected item. Combined with |hl-PmenuMatch| and |hl-PmenuSel|.
+    PmenuMatchSel = { fg = color.orange, bg = color.medium_background, bold = true }, -- Popup menu: Matched text in selected item. Combined with |hl-PmenuMatch| and |hl-PmenuSel|.
     PmenuBorder = { fg = color.thick_line, bg = color.float_bg }, -- Popup menu: border of popup menu.
     PmenuShadow = { bg = color.bg }, -- Popup menu: blended areas when 'pumborder' is "shadow".
     PmenuShadowThrough = { bg = "NONE" }, -- Popup menu: shadow corners when 'pumborder' is "shadow".
@@ -110,8 +110,8 @@ function M.get(pallete, opts)
     PreInsert = { fg = color.faded_text, italic = opts.italic == true }, -- Text inserted when "preinsert" is in 'completeopt'.
     ComplHint = { fg = color.faded_text, italic = opts.italic == true }, -- Virtual text of the currently selected completion.
     ComplHintMore = { fg = color.silver }, -- The additional information of the virtual text.
-    SnippetTabstop = { fg = color.beige, bg = color.medium_backgroud }, -- Tabstops in snippets. |vim.snippet|
-    SnippetTabstopActive = { fg = color.cyan, bg = color.medium_backgroud, bold = true }, -- The currently active tabstop. |vim.snippet|
+    SnippetTabstop = { fg = color.beige, bg = color.medium_background }, -- Tabstops in snippets. |vim.snippet|
+    SnippetTabstopActive = { fg = color.cyan, bg = color.medium_background, bold = true }, -- The currently active tabstop. |vim.snippet|
     Question = { fg = color.silver }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine = { bg = color.lighter_gray, bold = true }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search = { fg = color.bg, bg = color.cyan }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
@@ -162,12 +162,12 @@ function M.get(pallete, opts)
 
     -- NB!: VertSplit is dynamic. See functions below.
     VertSplit = { fg = color.white }, -- Vertical split line
-    Visual = { bg = color.medium_backgroud }, -- Visual mode selection
+    Visual = { bg = color.medium_background }, -- Visual mode selection
     VisualNOS = { link = "Visual" }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg = { fg = color.yellow }, -- Warning messages
     Whitespace = { fg = color.faded_text }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     WinSeparator = { link = "VertSplit" }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
-    WildMenu = { fg = color.white, bg = color.medium_backgroud }, -- Current match in 'wildmenu' completion
+    WildMenu = { fg = color.white, bg = color.medium_background }, -- Current match in 'wildmenu' completion
     Winbar = { bg = bar_bg },
     WinbarNC = { bg = bar_bg },
 
@@ -432,7 +432,7 @@ function M.get(pallete, opts)
     DiffAdd = { bg = color.diff_add_bg }, -- Diff mode: Added line |diff.txt|
     DiffChange = { bg = color.bg_dimmed }, -- Diff mode: Changed line |diff.txt|
     DiffDelete = { fg = color.faded_text, bg = bg }, -- Diff mode: Deleted line |diff.txt|
-    DiffText = { bg = color.medium_backgroud }, -- Diff mode: Changed text within a changed line |diff.txt|
+    DiffText = { bg = color.medium_background }, -- Diff mode: Changed text within a changed line |diff.txt|
     DiffTextAdd = { bg = color.diff_add_bg, fg = color.green, bold = true }, -- Diff mode: Added text within a changed line |diff.txt|
 
     --

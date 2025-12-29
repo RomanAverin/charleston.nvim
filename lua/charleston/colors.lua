@@ -25,7 +25,7 @@ M.palette = {
   strong_text = "#80838f",
   faded_text = "#686d75",
   strong_faded_text = "#464b50",
-  medium_backgroud = "#51545C",
+  medium_background = "#51545C",
   -- lines
   thin_line = "#363E47",
   thick_line = "#5F6366",

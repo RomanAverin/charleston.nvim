@@ -50,7 +50,7 @@ function M.get(pallete, opts)
     Underlined = { bg = float_bg, underline = true }, -- Text that stands out, HTML links
     Ignore = { fg = color.faded_text }, -- Left blank, hidden |hl-Ignore| (NOTE May be invisible here in template)
     Error = { fg = color.red }, -- Any erroneous construct
-    Todo = { fg = color.yellow, bg = color.medium_background, bold = true }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Todo = { fg = color.blue, bg = color.medium_background, bold = true }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
     Added = { fg = color.green }, -- Added line in a diff
     Changed = { fg = color.blue }, -- Changed line in a diff
     Removed = { fg = color.red }, -- Removed line in a diff
@@ -138,10 +138,10 @@ function M.get(pallete, opts)
     FloatShadowThrough = { bg = "NONE" }, -- Shadow corners for floating windows (transparent)
     IndentBlanklineChar = { fg = color.thin_line },
     IndentBlanklineContextChar = { fg = color.thin_line },
-    TodoComment = { fg = color.purple },
-    FixmeComment = { fg = color.purple },
-    HackComment = { fg = color.yellow },
-    PriorityComment = { fg = color.orange },
+    TodoComment = { fg = color.blue, bold = true },
+    FixmeComment = { fg = color.red, bold = true },
+    HackComment = { fg = color.yellow, bold = true },
+    PriorityComment = { fg = color.orange, bold = true },
     MiniStarterSection = { fg = color.text, bg = bg, bold = true },
     MiniStarterFooter = { link = "Comment" },
     ZenBg = { fg = color.text, bg = bg },
@@ -178,7 +178,7 @@ function M.get(pallete, opts)
     ["@comment.hint"] = { fg = color.silver },
     ["@comment.info"] = { fg = color.silver },
     ["@comment.note"] = { fg = color.teal },
-    ["@comment.todo"] = { fg = color.cyan },
+    ["@comment.todo"] = { fg = color.blue },
     ["@comment.warning"] = { fg = color.yellow },
     ["@constant"] = { link = "Constant" }, -- Constant
     ["@keyword"] = { fg = color.magenta },

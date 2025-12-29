@@ -203,7 +203,7 @@ function M.get(pallete, opts)
     ["@keyword.python"] = { fg = color.magenta },
     ["@lsp.type.struct.rust"] = { fg = color.cyan },
     ["@lsp.type.variable.lua"] = { link = "@lsp.type.parameter" },
-    ["@lsp.type.parameter.rust"] = { link = "@variable" },
+    ["@lsp.type.parameter.rust"] = { link = "@lsp.type.parameter" },
 
     --
     --  LSP syntax groups

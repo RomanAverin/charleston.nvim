@@ -20,7 +20,7 @@ function M.get(pallete, opts)
     Character = { fg = color.teal }, --   A character constant: 'c', '\n'
     Number = { fg = color.cambridge_blue }, --   A number constant: 234, 0xff
     Boolean = { fg = color.silver }, --   A boolean constant: TRUE, false
-    Float = { fg = color.yellow }, --   A floating point constant: 2.3e10
+    Float = { fg = color.silver }, --   A floating point constant: 2.3e10
     Identifier = { fg = color.beige }, -- (*) Any variable name
     Variable = { link = "Identifier" }, -- Variable name
     Function = { fg = color.cyan }, --   Function name (also: methods for classes)

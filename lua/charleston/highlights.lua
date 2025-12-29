@@ -616,7 +616,7 @@ function M.get(pallete, opts)
     NotifyWARNBorder = { fg = color.float_bg, bg = float_bg },
     NotifyERRORIcon = { fg = color.red },
     NotifyERRORTitle = { fg = color.red },
-    NotifyERRORBody = { fg = color.red, bg = float_bg },
+    NotifyERRORBody = { fg = color.text, bg = float_bg },
     NotifyERRORBorder = { fg = color.float_bg, bg = float_bg },
 
     ---

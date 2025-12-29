@@ -198,7 +198,7 @@ function M.get(pallete, opts)
     --
     --  highlights for a languages
     --
-    ["@keyword.import"] = { link = "Include" },
+    ["@keyword.import"] = { fg = color.magenta, bold = true },
     ["@keyword.rust"] = { fg = color.magenta },
     ["@keyword.python"] = { fg = color.magenta },
     ["@lsp.type.struct.rust"] = { fg = color.cyan },

@@ -15,7 +15,7 @@ function M.get(pallete, opts)
   local hl = {
     Normal = { fg = color.text, bg = bg }, -- Normal text
     Comment = { fg = color.faded_text, italic = opts.italic == true }, -- Any comment
-    Constant = { fg = color.cyan }, -- (*) Any constant
+    Constant = { fg = color.beige }, -- (*) Any constant
     String = { fg = color.green }, --   A string constant: "this is a string"
     Character = { fg = color.teal }, --   A character constant: 'c', '\n'
     Number = { fg = color.yellow }, --   A number constant: 234, 0xff

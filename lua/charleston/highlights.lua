@@ -429,10 +429,10 @@ function M.get(pallete, opts)
     diffChanged = { link = "GitChanged" },
     diffDeleted = { link = "GitDeleted" },
 
-    DiffAdd = { bg = color.diff_add_bg }, -- Diff mode: Added line |diff.txt|
-    DiffChange = { bg = color.bg_dimmed }, -- Diff mode: Changed line |diff.txt|
-    DiffDelete = { fg = color.faded_text, bg = bg }, -- Diff mode: Deleted line |diff.txt|
-    DiffText = { bg = color.medium_background }, -- Diff mode: Changed text within a changed line |diff.txt|
+    DiffAdd = { fg = color.green, bg = color.diff_add_bg }, -- Diff mode: Added line |diff.txt|
+    DiffChange = { fg = color.blue, bg = color.bg_dimmed }, -- Diff mode: Changed line |diff.txt|
+    DiffDelete = { fg = color.red, bg = bg }, -- Diff mode: Deleted line |diff.txt|
+    DiffText = { fg = color.blue, bg = color.medium_background }, -- Diff mode: Changed text within a changed line |diff.txt|
     DiffTextAdd = { bg = color.diff_add_bg, fg = color.green, bold = true }, -- Diff mode: Added text within a changed line |diff.txt|
 
     --

@@ -9,7 +9,7 @@ function M.get(pallete, opts)
 
   -- setup transparent backgrounds
   local bg = opts.transparent and "NONE" or color.bg
-  local float_bg = opts.transparent and "NONE" or color.float_bg
+  local float_bg = color.float_bg -- always explicit background for float windows and messages
   local bar_bg = opts.transparent and "NONE" or color.bar_bg
 
   local hl = {

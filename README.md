@@ -7,7 +7,7 @@ Charleston color theme for neovim
 
 <details>
 <p align="center">
-<img src="https://github.com/user-attachments/assets/c5a89833-15d4-40d2-8286-7fb715a5579f"</img>
+<img src="https://github.com/user-attachments/assets/b7e85bd2-d381-4bb3-a72e-1c75f2238388"</img>
 <img src="https://github.com/user-attachments/assets/d922f452-9d0a-4fe8-99ab-6e623deac06c"</img>
 <img src="https://github.com/user-attachments/assets/b41e8bf0-4a60-4baa-8ee3-6d606f95c0de"</img>
 </p>

@@ -4,8 +4,8 @@ Charleston color theme for neovim
 </h3>
 
 <p align="center">
-  <a href="https://luarocks.org/modules/neorocks/charleston.nvim">
-    <img src="https://img.shields.io/luarocks/v/neorocks/charleston.nvim?logo=lua&color=purple" alt="LuaRocks">
+  <a href="https://luarocks.org/modules/romanaverin/charleston.nvim">
+    <img src="https://img.shields.io/luarocks/v/romanaverin/charleston.nvim?logo=lua&color=purple" alt="LuaRocks">
   </a>
 </p>
 

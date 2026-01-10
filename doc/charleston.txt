@@ -1,7 +1,7 @@
 *charleston.txt*    High contrast Neovim colorscheme with low saturation
 
 ==============================================================================
-Table of Contents                                      *charleston-contents*
+Table of Contents                                      *charleston*
 
 1. Introduction ............................ |charleston-introduction|
 2. Requirements ............................ |charleston-requirements|

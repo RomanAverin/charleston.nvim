@@ -2,7 +2,7 @@ local colors = require("charleston.colors")
 local theme = require("charleston.theme")
 
 local M = {}
-M.version = "2.0.0"
+M.version = "2.0.1"
 
 M.defaults_opts = {
   terminal_colors = true,
@@ -66,7 +66,7 @@ function M.load()
   -- Generate hash for cache invalidation
   local hash = require("charleston.lib.hashing").hash({
     version = M.version,
-    opts = M.opts
+    opts = M.opts,
   })
 
   local path_sep = package.config:sub(1, 1)
@@ -147,7 +147,7 @@ vim.api.nvim_create_user_command("CharlestonCompile", function()
     -- Update the cached hash after successful compilation
     local hash = require("charleston.lib.hashing").hash({
       version = M.version,
-      opts = M.opts
+      opts = M.opts,
     })
     local path_sep = package.config:sub(1, 1)
     local hash_path = vim.fn.stdpath("cache") .. path_sep .. "charleston" .. path_sep .. "cached_hash"

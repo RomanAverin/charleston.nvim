@@ -1,0 +1,375 @@
+*charleston.txt*    High contrast Neovim colorscheme with low saturation
+
+==============================================================================
+Table of Contents                                      *charleston-contents*
+
+1. Introduction ............................ |charleston-introduction|
+2. Requirements ............................ |charleston-requirements|
+3. Installation ............................ |charleston-installation|
+4. Usage ................................... |charleston-usage|
+5. Configuration ........................... |charleston-config|
+6. Options ................................. |charleston-options|
+7. API ..................................... |charleston-api|
+8. Palette Customization ................... |charleston-customization|
+9. Plugin Integrations ..................... |charleston-integrations|
+10. Supported Plugins ...................... |charleston-plugins|
+11. License ................................ |charleston-license|
+
+==============================================================================
+1. Introduction                                    *charleston-introduction*
+
+Charleston is a clean, dark Neovim theme designed for high contrast with
+low saturation colors. It features smooth, professional colors that are easy
+on the eyes during long coding sessions.
+
+Key features:
+  • High contrast with low saturation colors
+  • Support for many popular plugins
+  • Italic font style option
+  • Transparent background support
+  • Comprehensive LSP and treesitter integration
+  • Customizable color palette
+  • Performance-optimized with caching
+  • Primarily designed for use with LazyVim
+
+==============================================================================
+2. Requirements                                    *charleston-requirements*
+
+  • Neovim >= 0.9
+
+==============================================================================
+3. Installation                                    *charleston-installation*
+
+Using lazy.nvim: ~
+>lua
+    {
+        "romanaverin/charleston.nvim",
+        name = "charleston",
+        priority = 1000,
+    }
+<
+
+Using rocks.nvim: ~
+>vim
+    :Rocks install charleston.nvim
+<
+
+Or add to your `rocks.toml`:
+>toml
+    [plugins]
+    "charleston.nvim" = "2.0.1"
+<
+
+Using packer.nvim: ~
+>lua
+    use { "romanaverin/charleston.nvim" }
+<
+
+Using vim-plug: ~
+>vim
+    Plug 'romanaverin/charleston.nvim'
+<
+
+==============================================================================
+4. Usage                                                 *charleston-usage*
+
+Activate the colorscheme with: ~
+>vim
+    colorscheme charleston
+<
+
+Or with Lua: ~
+>lua
+    vim.cmd.colorscheme("charleston")
+<
+
+For LazyVim users: ~
+>lua
+    {
+      "LazyVim/LazyVim",
+      opts = {
+        colorscheme = "charleston",
+      },
+    }
+<
+
+Compile cache manually: ~
+
+Charleston uses a compilation cache for performance. To manually recompile:
+>vim
+    :CharlestonCompile
+<
+
+This is useful after making configuration changes or palette customizations.
+
+==============================================================================
+5. Configuration                                         *charleston-config*
+
+Configure options by passing them to the `setup()` function: ~
+>lua
+    require("charleston").setup({
+      terminal_colors = true,    -- sets terminal colors
+      italic = true,             -- use italic font style
+      darker_background = false, -- use more darker background
+      transparent = false,       -- enable transparent background
+      palette_overrides = {},    -- override palette colors
+    })
+<
+
+Then load the colorscheme: ~
+>lua
+    require("charleston").load()
+<
+
+Or simply activate with `vim.cmd.colorscheme("charleston")` after setup.
+
+==============================================================================
+6. Options                                              *charleston-options*
+
+                                               *charleston-terminal_colors*
+terminal_colors ~
+    Type: `boolean`
+    Default: `true`
+
+    Enable terminal color settings. When enabled, Charleston will set
+    terminal colors to match the theme.
+
+                                                       *charleston-italic*
+italic ~
+    Type: `boolean`
+    Default: `true`
+
+    Use italic font style for comments, keywords, and certain syntax
+    elements. Requires a font that supports italics.
+
+                                               *charleston-darker_background*
+darker_background ~
+    Type: `boolean`
+    Default: `false`
+
+    Use a darker background color for improved contrast in bright
+    environments.
+
+                                                   *charleston-transparent*
+transparent ~
+    Type: `boolean`
+    Default: `false`
+
+    Enable transparent background. Useful for terminal emulators with
+    custom backgrounds or transparency settings.
+
+                                              *charleston-palette_overrides*
+palette_overrides ~
+    Type: `table`
+    Default: `{}`
+
+    Override or extend the color palette. See |charleston-customization|
+    for detailed usage.
+
+==============================================================================
+7. API                                                      *charleston-api*
+
+charleston.setup({opts})                                *charleston.setup()*
+
+    Configure Charleston options. Must be called before loading the
+    colorscheme.
+
+    Parameters: ~
+        {opts} (table|nil) Configuration options. See |charleston-options|
+
+    Example: ~
+>lua
+        require("charleston").setup({
+          italic = false,
+          transparent = true,
+        })
+<
+
+charleston.load()                                        *charleston.load()*
+
+    Load the Charleston colorscheme with current configuration. This
+    function applies the theme, handles caching, and sets up highlight
+    groups.
+
+    Example: ~
+>lua
+        require("charleston").setup({ italic = false })
+        require("charleston").load()
+<
+
+charleston.get_palette()                          *charleston.get_palette()*
+
+    Get the final color palette with all customizations applied. Useful
+    for integrating Charleston colors with other plugins.
+
+    Returns: ~
+        (table) The customized color palette
+
+    Example: ~
+>lua
+        local palette = require("charleston").get_palette()
+        print(palette.blue)    -- #88ABDC
+        print(palette.red)     -- #cc6666
+<
+
+==============================================================================
+8. Palette Customization                          *charleston-customization*
+
+Charleston supports extensive palette customization through the
+`palette_overrides` option. You can override existing colors or add
+custom colors for use in other plugins.
+
+Override existing colors: ~
+>lua
+    require("charleston").setup({
+      palette_overrides = {
+        red = "#ff0000",
+        bg = "#000000",
+        bg_dimmed = "#0a0a0a",
+      }
+    })
+<
+
+Add custom colors: ~
+>lua
+    require("charleston").setup({
+      palette_overrides = {
+        my_custom_color = "#abcdef",
+        statusline_bg = "#2a2a2a",
+      }
+    })
+<
+
+Using custom palette in other plugins: ~
+>lua
+    -- In your lualine config
+    local colors = require("charleston").get_palette()
+
+    require("lualine").setup({
+      options = {
+        theme = {
+          normal = {
+            a = { bg = colors.blue, fg = colors.bg },
+            b = { bg = colors.statusline_bg, fg = colors.text },
+          }
+        }
+      }
+    })
+<
+
+All palette overrides are cached for maximum performance. Manual
+recompilation with |:CharlestonCompile| may be needed after changes.
+
+Default palette colors: ~
+
+Main colors:
+  red            #cc6666    green          #A9C476
+  yellow         #D0AB3C    blue           #88ABDC
+  magenta        #B689BC    cyan           #7fb2c8
+  charcoal       #708499    teal           #749689
+  beige          #EFC986    orange         #de935f
+  purple         #95739C    silver         #acbcc3
+
+Base colors:
+  bg             #1D2024    bg_dimmed      #262B31
+  text           #C5C8D3    strong_text    #80838f
+  faded_text     #686d75
+See `lua/charleston/colors.lua` for the complete color palette.
+
+==============================================================================
+9. Plugin Integrations                              *charleston-integrations*
+
+Lualine.nvim ~
+>lua
+    require('lualine').setup {
+      options = {
+        theme = "charleston"
+      }
+    }
+<
+
+Bufferline.nvim ~
+
+Note: Bufferline must be loaded after Charleston for correct highlighting.
+>lua
+    return {
+      "akinsho/bufferline.nvim",
+      after = "charleston",  -- Mandatory
+      opts = {
+        highlights = function()
+          return require("charleston.bufferline").get_theme()
+        end,
+        options = {
+          separator_style = "slant",
+          always_show_bufferline = false,
+        },
+      },
+    }
+<
+
+Advanced bufferline configuration: ~
+>lua
+    local palette = require("charleston").get_palette()
+
+    require("bufferline").setup {
+      highlights = require("charleston.bufferline").get_theme {
+        styles = { "italic", "bold" },
+        custom = {
+          all = {
+            fill = { bg = palette.bg_dimmed },
+          },
+        },
+      },
+    }
+<
+
+==============================================================================
+10. Supported Plugins                                   *charleston-plugins*
+
+Charleston provides native support for the following plugins:
+
+  • blink.cmp
+  • bufferline.nvim
+  • dashboard-nvim
+  • diffview.nvim
+  • fzf-lua
+  • gitsigns.nvim
+  • mason.nvim
+  • neo-tree.nvim
+  • neogit
+  • noice.nvim
+  • render-markdown.nvim
+  • snacks.nvim
+  • telescope.nvim
+  • which-key
+
+If you need support for a plugin not listed here, please open an issue at:
+https://github.com/RomanAverin/charleston.nvim/issues
+
+==============================================================================
+11. License                                              *charleston-license*
+
+MIT License
+
+Copyright (c) 2024 Roman Averin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:

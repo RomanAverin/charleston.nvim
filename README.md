@@ -3,6 +3,12 @@ Charleston color theme for neovim
 <img width="512" height="512" alt="charleston_logo" src="https://github.com/user-attachments/assets/cb96efe8-aed0-4ef3-8cdb-07bde9a361af" />
 </h3>
 
+<p align="center">
+  <a href="https://luarocks.org/modules/neorocks/charleston.nvim">
+    <img src="https://img.shields.io/luarocks/v/neorocks/charleston.nvim?logo=lua&color=purple" alt="LuaRocks">
+  </a>
+</p>
+
 ## 📸 Screenshots
 
 <details>
@@ -54,14 +60,14 @@ Charleston color theme for neovim
 
 ## 📦 Install
 
-Only use with lazy plugin manager:
+### Using lazy.nvim (recommended for LazyVim users)
 
 ```lua
 {
     "romanaverin/charleston.nvim",
     name = "charleston",
     priority = 1000,
-},
+}
 ```
 
 To use a specific version:
@@ -70,10 +76,44 @@ To use a specific version:
 {
     "romanaverin/charleston.nvim",
     name = "charleston",
-    version = "1.8.0", -- or use "*" for the latest in the main branch
+    version = "2.0.1", -- or use "*" for the latest in the main branch
     priority = 1000,
-},
+}
 ```
+
+### Using rocks.nvim
+
+```vim
+:Rocks install charleston.nvim
+```
+
+Or add to your `rocks.toml`:
+
+```toml
+[plugins]
+"charleston.nvim" = "2.0.1"
+```
+
+### Using packer.nvim
+
+```lua
+use { "romanaverin/charleston.nvim" }
+```
+
+### Using vim-plug
+
+```vim
+Plug 'romanaverin/charleston.nvim'
+```
+
+### Package Manager Comparison
+
+| Plugin Manager | Source   | Installation Command                 |
+| -------------- | -------- | ------------------------------------ |
+| lazy.nvim      | GitHub   | `{ "romanaverin/charleston.nvim" }`  |
+| rocks.nvim     | LuaRocks | `:Rocks install charleston.nvim`     |
+| packer.nvim    | GitHub   | `use "romanaverin/charleston.nvim"`  |
+| vim-plug       | GitHub   | `Plug 'romanaverin/charleston.nvim'` |
 
 ## 🚀 Usage
 

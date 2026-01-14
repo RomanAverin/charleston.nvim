@@ -70,7 +70,10 @@ Charleston color theme for neovim
 }
 ```
 
-To use a specific version:
+> [!TIP]
+> Special information on versioning.
+> You can use the main branch, where the main development with preliminary testing is carried out. However, major changes and established features are fixed in the form of tags.
+> To use a specific version:
 
 ```lua
 {

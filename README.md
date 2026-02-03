@@ -1,7 +1,8 @@
 <h1 align="center">
-Charleston color theme for neovim
-<img width="512" height="512" alt="charleston_logo" src="https://github.com/user-attachments/assets/cb96efe8-aed0-4ef3-8cdb-07bde9a361af" />
+Color theme for neovim
+  <img width="800" height="200" alt="charleston_logo" src="https://github.com/user-attachments/assets/88b5ac77-e1df-40d2-add8-1104f6126e1f" />
 </h3>
+
 
 <p align="center">
   <a href="https://luarocks.org/modules/romanaverin/charleston.nvim">

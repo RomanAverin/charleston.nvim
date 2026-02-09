@@ -3,7 +3,6 @@ Color theme for neovim
   <img width="800" height="200" alt="charleston_logo" src="https://github.com/user-attachments/assets/88b5ac77-e1df-40d2-add8-1104f6126e1f" />
 </h3>
 
-
 <p align="center">
   <a href="https://luarocks.org/modules/romanaverin/charleston.nvim">
     <img src="https://img.shields.io/luarocks/v/romanaverin/charleston.nvim?logo=lua&color=purple" alt="LuaRocks">
@@ -109,15 +108,6 @@ use { "romanaverin/charleston.nvim" }
 ```vim
 Plug 'romanaverin/charleston.nvim'
 ```
-
-### Package Manager Comparison
-
-| Plugin Manager | Source   | Installation Command                 |
-| -------------- | -------- | ------------------------------------ |
-| lazy.nvim      | GitHub   | `{ "romanaverin/charleston.nvim" }`  |
-| rocks.nvim     | LuaRocks | `:Rocks install charleston.nvim`     |
-| packer.nvim    | GitHub   | `use "romanaverin/charleston.nvim"`  |
-| vim-plug       | GitHub   | `Plug 'romanaverin/charleston.nvim'` |
 
 ## 🚀 Usage
 

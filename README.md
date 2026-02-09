@@ -80,7 +80,7 @@ Color theme for neovim
 {
     "romanaverin/charleston.nvim",
     name = "charleston",
-    version = "2.0.1", -- or use "*" for the latest in the main branch
+    version = "2.0.2", -- or use "*" for the latest in the main branch
     priority = 1000,
 }
 ```
@@ -95,7 +95,7 @@ Or add to your `rocks.toml`:
 
 ```toml
 [plugins]
-"charleston.nvim" = "2.0.1"
+"charleston.nvim" = "2.0.2"
 ```
 
 ### Using packer.nvim

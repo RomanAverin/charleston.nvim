@@ -1,5 +1,4 @@
 <h1 align="center">
-Color theme for neovim
   <img width="800" height="200" alt="charleston_logo" src="https://github.com/user-attachments/assets/88b5ac77-e1df-40d2-add8-1104f6126e1f" />
 </h3>
 
@@ -8,6 +7,9 @@ Color theme for neovim
     <img src="https://img.shields.io/luarocks/v/romanaverin/charleston.nvim?logo=lua&color=purple" alt="LuaRocks">
   </a>
 </p>
+
+## ✨ About
+A color scheme is something personal. It's often a matter of taste. Charleson is a color scheme for those who like good text contrast. Each color is carefully selected to maintain contrast with the background. 
 
 ## 📸 Screenshots
 
@@ -19,7 +21,7 @@ Color theme for neovim
 </p>
 </details>
 
-## ✨ Features
+## 📑 Features
 
 - High contrast color theme with a low saturation and smooth colors
 - Many plugins supported(write if no support is available)

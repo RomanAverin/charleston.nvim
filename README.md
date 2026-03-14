@@ -9,7 +9,8 @@
 </p>
 
 ## ✨ About
-A color scheme is something personal. It's often a matter of taste. Charleson is a color scheme for those who like good text contrast. Each color is carefully selected to maintain contrast with the background. 
+
+A color scheme is something personal. It's often a matter of taste. Charleson is a color scheme for those who like good text contrast. Each color is carefully selected to maintain contrast with the background.
 
 ## 📸 Screenshots
 
@@ -352,3 +353,4 @@ Themes for other app. In the extras folder.
 
 - Ghostty
 - Zed
+- Opencode

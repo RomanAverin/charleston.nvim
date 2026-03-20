@@ -411,6 +411,25 @@ function M.get(pallete, opts)
     MasonHighlightBlockBold = { fg = color.magenta },
 
     --
+    -- Lazy.nvim
+    --
+    LazyNormal = { fg = color.text, bg = color.float_bg },
+    LazyButton = { fg = color.text, bg = color.medium_background },
+    LazyButtonActive = { fg = color.bg, bg = color.yellow, bold = true },
+    LazyH1 = { fg = color.bg, bg = color.yellow, bold = true },
+    LazyH2 = { fg = color.magenta, bold = true },
+    LazyComment = { fg = color.faded_text },
+    LazyCommit = { fg = color.faded_text },
+    LazyCommitType = { fg = color.cyan },
+    LazyReasonPlugin = { fg = color.cyan },
+    LazyReasonEvent = { fg = color.yellow },
+    LazyReasonStart = { fg = color.green },
+    LazyReasonCmd = { fg = color.magenta },
+    LazySpecial = { fg = color.orange },
+    LazyProgressDone = { fg = color.green },
+    LazyProgressTodo = { fg = color.faded_text },
+
+    --
     -- Git
     --
     GitAdded = { fg = color.green },
@@ -600,6 +619,7 @@ function M.get(pallete, opts)
     NeogitHunkHeaderCursor = { link = "NeogitHunkHeader" },
     NeogitDiffHeader = { link = "NeogitHunkHeader" },
 
+    NotifyBackground = { bg = float_bg },
     NotifyINFOIcon = { fg = color.blue },
     NotifyINFOTitle = { fg = color.blue },
     NotifyINFOBody = { fg = color.text, bg = float_bg },
@@ -612,6 +632,14 @@ function M.get(pallete, opts)
     NotifyERRORTitle = { fg = color.red },
     NotifyERRORBody = { fg = color.text, bg = float_bg },
     NotifyERRORBorder = { fg = color.float_bg, bg = float_bg },
+    NotifyDEBUGIcon = { fg = color.silver },
+    NotifyDEBUGTitle = { fg = color.silver },
+    NotifyDEBUGBody = { fg = color.text, bg = float_bg },
+    NotifyDEBUGBorder = { fg = color.float_bg, bg = float_bg },
+    NotifyTRACEIcon = { fg = color.magenta },
+    NotifyTRACETitle = { fg = color.magenta },
+    NotifyTRACEBody = { fg = color.text, bg = float_bg },
+    NotifyTRACEBorder = { fg = color.float_bg, bg = float_bg },
 
     ---
     --- Cmp

@@ -107,18 +107,38 @@ function M.load()
     theme.setup(M.opts)
   end
 
+  local function reapply_compiled_highlights()
+    local recompiled = loadfile(compiled_path)
+    if recompiled then
+      recompiled()
+    end
+  end
+
   -- Reapply highlights after all plugins are loaded (fixes render-markdown issue)
   vim.api.nvim_create_autocmd("User", {
     pattern = "LazyDone",
     callback = function()
       if vim.g.colors_name == "charleston" then
-        local recompiled = loadfile(compiled_path)
-        if recompiled then
-          recompiled()
-        end
+        reapply_compiled_highlights()
       end
     end,
     desc = "Reapply Charleston highlights after plugins load",
+  })
+
+  -- Reapply highlights when lazy-loaded UI plugins override them during startup.
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "LazyLoad",
+    callback = function(event)
+      if vim.g.colors_name ~= "charleston" then
+        return
+      end
+
+      local plugin = type(event.data) == "string" and event.data or ""
+      if plugin == "nvim-notify" or plugin == "snacks.nvim" or plugin == "noice.nvim" then
+        vim.schedule(reapply_compiled_highlights)
+      end
+    end,
+    desc = "Reapply Charleston highlights after notify UI plugin load",
   })
 
   return colors.palette

@@ -458,7 +458,7 @@ function M.get(pallete, opts)
     LazyReasonRuntime = { fg = color.orange },
     LazyReasonSource = { fg = color.cyan },
     LazyReasonStart = { fg = color.green },
-    LazySpecial = { fg = color.cyan },
+    LazySpecial = { fg = color.yellow },
     LazyTaskOutput = { fg = color.text },
     LazyUrl = { fg = color.cyan, underline = true },
     LazyValue = { fg = color.green },

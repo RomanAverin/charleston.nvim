@@ -64,7 +64,7 @@ function M.get(pallete, opts)
     IblIndent = { fg = color.thin_line },
     IblScope = { fg = color.white },
     VirtColumn = { fg = color.thin_line },
-    ColorColumn = { fg = color.thin_line }, -- Columns set with 'colorcolumn'
+    ColorColumn = { bg = color.thin_line }, -- Columns set with 'colorcolumn'
     Directory = { fg = color.text }, -- Directory names (and other special names in listings)
     EndOfBuffer = { fg = color.faded_text, bg = bg }, -- Filler lines ~ after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     TermCursor = { reverse = true }, -- Cursor in a focused terminal

@@ -59,7 +59,7 @@ function M.get(pallete, opts)
     Cursor = { reverse = true }, -- Character under the cursor
     lCursor = { link = "Cursor" }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM = { link = "Cursor" }, -- Like Cursor, but used when in IME mode |CursorIM|
-    CursorColumn = { bg = color.lighter_gray }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+    CursorColumn = { bg = color.bar_bg }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine = { bg = color.lighter_gray }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     IblIndent = { fg = color.thin_line },
     IblScope = { fg = color.white },
@@ -438,7 +438,7 @@ function M.get(pallete, opts)
     -- Mason
     --
     MasonNormal = { fg = color.text, bg = color.float_bg },
-    MasonHeader = { fg = color.bg, bg = color.magenta, bold = true },
+    MasonHeader = { fg = color.bg, bg = color.yellow, bold = true },
     MasonHeaderSecondary = { fg = color.bg, bg = color.cyan, bold = true },
     MasonHighlight = { fg = color.cyan },
     MasonHighlightBlock = { fg = color.bg, bg = color.cyan },

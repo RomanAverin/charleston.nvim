@@ -297,7 +297,7 @@ function M.get(pallete, opts)
     RenderMarkdownH5Bg = { link = "RenderMarkdownH1Bg" },
     RenderMarkdownH6Bg = { link = "RenderMarkdownH1Bg" },
     RenderMarkdownCode = { fg = color.green, bg = float_bg },
-    RenderMarkdownCodeInline = { fg = color.faded_text, bg = float_bg },
+    RenderMarkdownCodeInline = { fg = color.faded_text },
     RenderMarkdownInlineHighlight = { fg = color.faded_text, bg = float_bg },
     RenderMarkdownBullet = { fg = color.silver },
     RenderMarkdownTableHead = { fg = color.blue },

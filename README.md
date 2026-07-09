@@ -8,11 +8,11 @@
   </a>
 </p>
 
-## ✨ About
+## About
 
 A color scheme is something personal. It's often a matter of taste. Charleson is a color scheme for those who like good text contrast. Each color is carefully selected to maintain contrast with the background.
 
-## 📸 Screenshots
+## Screenshots
 
 <details>
 <p align="center">
@@ -22,7 +22,7 @@ A color scheme is something personal. It's often a matter of taste. Charleson is
 </p>
 </details>
 
-## 📑 Features
+## Features
 
 - High contrast color theme with a low saturation and smooth colors
 - Many plugins supported(write if no support is available)
@@ -35,16 +35,16 @@ A color scheme is something personal. It's often a matter of taste. Charleson is
 > The color scheme is under deep development.
 > But it will be very useful to get feedback.
 
-## 🗺️ Roadmap
+## Roadmap
 
 - ✅ ~~Transparent supported (with enhanced terminal compatibility)~~
 - ✅ ~~Customization colors~~
 
-## 📋 Requirements
+## Requirements
 
 - neovim >= 0.9
 
-## 🔌 Supported plugins
+## Supported plugins
 
 - [blink.cmp](https://github.com/Saghen/blink.cmp)
 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
@@ -61,7 +61,7 @@ A color scheme is something personal. It's often a matter of taste. Charleson is
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [which-key](https://github.com/folke/which-key.nvim)
 
-## 📦 Install
+## Install
 
 ### Using lazy.nvim (recommended for LazyVim users)
 
@@ -112,7 +112,7 @@ use { "romanaverin/charleston.nvim" }
 Plug 'romanaverin/charleston.nvim'
 ```
 
-## 🚀 Usage
+## Usage
 
 Lazy:
 
@@ -136,7 +136,7 @@ A cache is used for compilation and fast loading. The average user does not need
 Force compile cache
 `: CharlestonCompile`
 
-## ⚙️ Options
+## Options
 
 To configure options, add `opts` to the plugin declaration:
 
@@ -150,7 +150,7 @@ opts = {
 }
 ```
 
-## 🎨 Palette Customization
+## Palette Customization
 
 Charleston supports customization of the color palette through `palette_overrides`.
 You can override any color from the palette or add custom colors:
@@ -282,7 +282,7 @@ require("lualine").setup({
 
 See `lua/charleston/colors.lua` for the complete reference.
 
-## 🎯 Specific plugins
+## Specific plugins
 
 ### Lualine.nvim
 
@@ -347,7 +347,7 @@ Available options:
 - `styles`: Table with style options (`"italic"`, `"bold"`)
 - `custom.all`: Custom highlight overrides that apply to all highlights
 
-## 🍭 Extras
+## Extras
 
 Themes for other app. In the extras folder.
 

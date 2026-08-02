@@ -354,4 +354,5 @@ Themes for other app. In the extras folder.
 - Ghostty
 - Zed
 - Opencode
+- Pi
 - btop

@@ -12,6 +12,8 @@
 
 A color scheme is something personal. It's often a matter of taste. Charleson is a color scheme for those who like good text contrast. Each color is carefully selected to maintain contrast with the background.
 
+Since `3.0.0` color marks meaning rather than the parser category: one role gets one color, and that role looks the same in every language. See [Design philosophy](#-design-philosophy).
+
 ## 📸 Screenshots
 
 <details>
@@ -25,6 +27,7 @@ A color scheme is something personal. It's often a matter of taste. Charleson is
 ## 📑 Features
 
 - High contrast color theme with a low saturation and smooth colors
+- Semantic highlighting: one color per role, identical in every language
 - Many plugins supported(write if no support is available)
 - Italic font style option
 - Transparent supported
@@ -35,10 +38,37 @@ A color scheme is something personal. It's often a matter of taste. Charleson is
 > The color scheme is under deep development.
 > But it will be very useful to get feedback.
 
+## 🎨 Design philosophy
+
+A highlight group earns a color only when that color says something the code does not already say. There are **no per-language rules** in this colorscheme: the same meaning must not look different because the file is Rust instead of Python.
+
+| Role | Color | What it covers |
+| --- | --- | --- |
+| keyword | `magenta` | every keyword: `if`, `for`, `return`, `import`, `pub`, `static`, `try` |
+| type | `cyan` | types, classes, structs, enums, traits, modules |
+| call | `cyan` | function and method calls — the same family as types |
+| definition | `purple` | a function or method name **where it is introduced** |
+| name | `beige` | variables, parameters, fields, properties, named constants |
+| value | `silver` | numbers, booleans, enum variants, escape sequences |
+| literal | `green` | strings, characters, raw text |
+| macro | `orange` | macros and attributes |
+| punctuation | `silver` | brackets, commas, semicolons, operators |
+| comment | `faded_text` | comments |
+
+Two consequences worth knowing about:
+
+- A function name is colored **where it is defined** (`purple`), while calls sit in the type family (`cyan`). Definitions are rare and worth finding; calls are most of the buffer.
+- All keywords share one accent instead of a color per construct — `if`, `for` and `import` used to be three different colors.
+
+The UI keeps its own colors, because there color already carries meaning: diagnostics, git and diff, search matches, pickers, statusline.
+
+Background reading: [Tonsky — I am sorry, but everyone is getting syntax highlighting wrong](https://tonsky.me/blog/syntax-highlighting/).
+
 ## 🗺️ Roadmap
 
 - ✅ ~~Transparent supported (with enhanced terminal compatibility)~~
 - ✅ ~~Customization colors~~
+- ✅ ~~Semantic highlighting: one color per role, no per-language rules~~
 
 ## 📋 Requirements
 
@@ -220,7 +250,7 @@ require("lualine").setup({
 | `green`          | `#A9C476` | ![#A9C476](https://img.shields.io/badge/-A9C476-A9C476) |
 | `yellow`         | `#D0AB3C` | ![#D0AB3C](https://img.shields.io/badge/-D0AB3C-D0AB3C) |
 | `blue`           | `#88ABDC` | ![#88ABDC](https://img.shields.io/badge/-88ABDC-88ABDC) |
-| `magenta`        | `#B689BC` | ![#B689BC](https://img.shields.io/badge/-B689BC-B689BC) |
+| `magenta`        | `#C39DC8` | ![#C39DC8](https://img.shields.io/badge/-C39DC8-C39DC8) |
 | `cyan`           | `#7fb2c8` | ![#7fb2c8](https://img.shields.io/badge/-7fb2c8-7fb2c8) |
 | `charcoal`       | `#708499` | ![#708499](https://img.shields.io/badge/-708499-708499) |
 | `teal`           | `#749689` | ![#749689](https://img.shields.io/badge/-749689-749689) |
@@ -274,7 +304,7 @@ require("lualine").setup({
 | `brightGreen`   | `#8b9440` | ![#8b9440](https://img.shields.io/badge/-8b9440-8b9440) |
 | `brightYellow`  | `#ec9c62` | ![#ec9c62](https://img.shields.io/badge/-ec9c62-ec9c62) |
 | `brightBlue`    | `#5d7f9a` | ![#5d7f9a](https://img.shields.io/badge/-5d7f9a-5d7f9a) |
-| `brightMagenta` | `#b689bC` | ![#b689bC](https://img.shields.io/badge/-b689bC-b689bC) |
+| `brightMagenta` | `#C39DC8` | ![#C39DC8](https://img.shields.io/badge/-C39DC8-C39DC8) |
 | `brightCyan`    | `#5e8d87` | ![#5e8d87](https://img.shields.io/badge/-5e8d87-5e8d87) |
 | `brightWhite`   | `#6d757d` | ![#6d757d](https://img.shields.io/badge/-6d757d-6d757d) |
 

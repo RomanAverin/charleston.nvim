@@ -228,6 +228,166 @@ describe("Highlights", function()
     end)
   end)
 
+  describe("semantic roles", function()
+    local hl = highlights.get(palette, opts)
+
+    it("should not define language-specific groups", function()
+      local languages = {
+        "python",
+        "rust",
+        "lua",
+        "go",
+        "typescript",
+        "javascript",
+        "c",
+        "cpp",
+        "ruby",
+        "java",
+        "php",
+        "markdown",
+        "html",
+        "css",
+        "json",
+        "yaml",
+        "toml",
+        "vim",
+        "sh",
+        "bash",
+        "zsh",
+      }
+
+      for group_name, _ in pairs(hl) do
+        for _, lang in ipairs(languages) do
+          assert(
+            not group_name:match("^@.*%." .. lang .. "$"),
+            "Language-specific group '" .. group_name .. "' should not exist"
+          )
+        end
+      end
+    end)
+
+    it("should paint every keyword with one color", function()
+      local keyword_groups = {
+        "Statement",
+        "Conditional",
+        "Repeat",
+        "Label",
+        "Exception",
+        "StorageClass",
+        "PreProc",
+        "Include",
+        "Define",
+        "@keyword",
+      }
+
+      for _, group in ipairs(keyword_groups) do
+        assert(
+          hl[group].fg == hl.Keyword.fg,
+          "Group '" .. group .. "' should share the keyword color, got " .. tostring(hl[group].fg)
+        )
+      end
+    end)
+
+    it("should paint every literal value with one color", function()
+      local value_groups = {
+        "Float",
+        "Boolean",
+        "SpecialChar",
+        "@constructor",
+        "@lsp.type.enumMember",
+        "@operator",
+        "@punctuation.bracket",
+      }
+
+      for _, group in ipairs(value_groups) do
+        assert(
+          hl[group].fg == hl.Number.fg,
+          "Group '" .. group .. "' should share the value color, got " .. tostring(hl[group].fg)
+        )
+      end
+    end)
+
+    it("should paint names that hold data with one color", function()
+      local name_groups = { "Constant", "@variable", "@variable.parameter", "@property", "@lsp.type.property" }
+
+      for _, group in ipairs(name_groups) do
+        assert(
+          hl[group].fg == hl.Identifier.fg,
+          "Group '" .. group .. "' should share the data-name color, got " .. tostring(hl[group].fg)
+        )
+      end
+    end)
+
+    it("should distinguish definitions from usages", function()
+      assert(hl["@function"].fg == palette.purple, "Function definitions should use the definition color")
+      assert(hl["@function.call"].fg == palette.cyan, "Function calls should use the call color")
+      assert(hl["@function.method.call"].fg == palette.cyan, "Method calls should use the call color")
+      assert(
+        hl["@lsp.type.function"].fg == palette.cyan,
+        "LSP function tokens should use the call color, otherwise semantic tokens repaint call sites"
+      )
+      assert(
+        hl["@lsp.typemod.function.declaration"].fg == palette.purple,
+        "LSP function declarations should use the definition color"
+      )
+    end)
+
+    it("should use one color per type role", function()
+      local type_groups = { "Type", "Structure", "@type", "@module", "@lsp.type.class", "@lsp.type.namespace" }
+
+      for _, group in ipairs(type_groups) do
+        assert(
+          hl[group].fg == palette.cyan,
+          "Group '" .. group .. "' should share the type color, got " .. tostring(hl[group].fg)
+        )
+      end
+    end)
+
+    it("should keep the code palette limited to the semantic roles", function()
+      local core_groups = {
+        "String",
+        "Character",
+        "Number",
+        "Boolean",
+        "Constant",
+        "Identifier",
+        "Function",
+        "Type",
+        "Structure",
+        "Keyword",
+        "Conditional",
+        "Repeat",
+        "Statement",
+        "Operator",
+        "Delimiter",
+        "Macro",
+        "Comment",
+        "@variable",
+        "@variable.parameter",
+        "@function.call",
+        "@punctuation.bracket",
+      }
+
+      local seen, count = {}, 0
+      for _, group in ipairs(core_groups) do
+        local fg = hl[group].fg
+        assert(fg ~= nil, "Core syntax group '" .. group .. "' should define a foreground")
+        if not seen[fg] then
+          seen[fg] = true
+          count = count + 1
+        end
+      end
+
+      -- One color per role in the `syn` table (call and type share cyan,
+      -- value and punctuation share silver).
+      assert(count <= 8, "Code should use at most 8 role colors, got " .. count)
+    end)
+
+    it("should not italicize variables", function()
+      assert(hl["@variable"].italic == nil, "Variables should not be italic, it covers most of the buffer")
+    end)
+  end)
+
   describe("options handling", function()
     it("should handle transparent option", function()
       local transparent_opts = vim.tbl_extend("force", opts, { transparent = true })

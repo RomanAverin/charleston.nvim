@@ -7,7 +7,7 @@ M.palette = {
   green = "#A9C476",
   yellow = "#D0AB3C",
   blue = "#88ABDC",
-  magenta = "#B689BC",
+  magenta = "#C39DC8",
   cyan = "#7fb2c8",
   charcoal = "#708499",
   teal = "#749689",
@@ -50,7 +50,7 @@ M.palette = {
   brightGreen = "#8b9440",
   brightYellow = "#ec9c62",
   brightBlue = "#5d7f9a",
-  brightMagenta = "#b689bC",
+  brightMagenta = "#C39DC8",
   brightCyan = "#5e8d87",
   brightWhite = "#6d757d",
 }

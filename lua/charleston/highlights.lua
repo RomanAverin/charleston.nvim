@@ -12,39 +12,54 @@ function M.get(pallete, opts)
   local float_bg = color.float_bg -- always explicit background for float windows and messages
   local bar_bg = opts.transparent and "NONE" or color.bar_bg
 
+  -- Semantic roles: one role = one color, the same one in every language.
+  -- Color marks meaning, not the parser category. See README "Design philosophy".
+  local syn = {
+    keyword = color.magenta, -- every keyword: if/for/return/import/pub/static/try
+    type = color.cyan, -- types, classes, structs, enums, traits, modules
+    call = color.cyan, -- function and method calls -- the same family as types
+    definition = color.purple, -- a function or method name where it is introduced
+    name = color.beige, -- variables, parameters, fields, properties, named constants
+    value = color.silver, -- numbers, booleans, enum variants, escapes
+    literal = color.green, -- strings, characters, raw text
+    macro = color.orange, -- macros and attributes
+    punctuation = color.silver, -- brackets, commas, semicolons, operators
+    comment = color.faded_text, -- comments
+  }
+
   local hl = {
     Normal = { fg = color.text, bg = bg }, -- Normal text
-    Comment = { fg = color.faded_text, italic = opts.italic == true }, -- Any comment
-    Constant = { fg = color.beige }, -- (*) Any constant
-    String = { fg = color.green }, --   A string constant: "this is a string"
-    Character = { fg = color.cambridge_blue }, --   A character constant: 'c', '\n'
-    Number = { fg = color.cambridge_blue }, --   A number constant: 234, 0xff
-    Boolean = { fg = color.brightYellow }, --   A boolean constant: TRUE, false
-    Float = { fg = color.silver }, --   A floating point constant: 2.3e10
-    Identifier = { fg = color.beige }, -- (*) Any variable name
+    Comment = { fg = syn.comment, italic = opts.italic == true }, -- Any comment
+    Constant = { fg = syn.name }, -- (*) Any constant
+    String = { fg = syn.literal }, --   A string constant: "this is a string"
+    Character = { fg = syn.literal }, --   A character constant: 'c', '\n'
+    Number = { fg = syn.value }, --   A number constant: 234, 0xff
+    Boolean = { fg = syn.value }, --   A boolean constant: TRUE, false
+    Float = { fg = syn.value }, --   A floating point constant: 2.3e10
+    Identifier = { fg = syn.name }, -- (*) Any variable name
     Variable = { link = "Identifier" }, -- Variable name
-    Function = { fg = color.blue }, --   Function name (also: methods for classes)
-    Statement = { fg = color.purple }, -- (*) Any statement
-    Conditional = { fg = color.purple }, --   if, then, else, endif, switch, etc.
-    Repeat = { fg = color.purple }, --   for, do, while, etc.
-    Label = { fg = color.text }, --   case, default, etc.
-    Operator = { fg = color.orange }, --   "sizeof", "+", "*", etc.
-    Keyword = { fg = color.magenta }, --   any other keyword
-    Exception = { fg = color.purple }, --   try, catch, throw
-    PreProc = { fg = color.magenta }, -- (*) Generic Preprocessor
-    Include = { fg = color.blue, bold = true }, --   Preprocessor #include
-    Define = { fg = color.brightBlue }, --   Preprocessor #define
-    Macro = { link = "Define" }, --   Same as Define
+    Function = { fg = syn.definition }, --   Function name (also: methods for classes)
+    Statement = { fg = syn.keyword }, -- (*) Any statement
+    Conditional = { fg = syn.keyword }, --   if, then, else, endif, switch, etc.
+    Repeat = { fg = syn.keyword }, --   for, do, while, etc.
+    Label = { fg = syn.keyword }, --   case, default, etc.
+    Operator = { fg = syn.punctuation }, --   "sizeof", "+", "*", etc.
+    Keyword = { fg = syn.keyword }, --   any other keyword
+    Exception = { fg = syn.keyword }, --   try, catch, throw
+    PreProc = { fg = syn.keyword }, -- (*) Generic Preprocessor
+    Include = { fg = syn.keyword }, --   Preprocessor #include
+    Define = { fg = syn.keyword }, --   Preprocessor #define
+    Macro = { fg = syn.macro }, --   Macro invocation: vec!, format!
     PreCondit = { link = "Define" }, --   Preprocessor #if, #else, #endif, etc.
-    Type = { fg = color.beige }, -- (*) int, long, char, etc.
+    Type = { fg = syn.type }, -- (*) int, long, char, etc.
     Typedef = { link = "Type" }, --   A typedef
-    StorageClass = { fg = color.purple }, --   static, register, volatile, etc.
-    Structure = { fg = color.cyan }, --   struct, union, enum, etc.
-    Special = { fg = color.text }, -- (*) Any special symbol
-    SpecialChar = { fg = color.text }, -- Special character in a constant
-    Tag = { fg = color.cyan, underline = true }, --   You can use CTRL-] on this
-    Delimiter = { fg = color.beige }, --   Character that needs attention
-    SpecialComment = { fg = color.strong_text }, --   Special things inside a comment (e.g. '\n')
+    StorageClass = { fg = syn.keyword }, --   static, register, volatile, etc.
+    Structure = { fg = syn.type }, --   struct, union, enum, etc.
+    Special = { fg = syn.value }, -- (*) Any special symbol
+    SpecialChar = { fg = syn.value }, -- Special character in a constant
+    Tag = { fg = syn.type, underline = true }, --   You can use CTRL-] on this
+    Delimiter = { fg = syn.punctuation }, --   Character that needs attention
+    SpecialComment = { fg = syn.comment }, --   Special things inside a comment (e.g. '\n')
     Debug = { fg = color.orange, bold = true }, --   Debugging statements
 
     Underlined = { bg = float_bg, underline = true }, -- Text that stands out, HTML links
@@ -89,7 +104,7 @@ function M.get(pallete, opts)
     OkMsg = { fg = color.green, bold = true }, -- Success messages
     StdoutMsg = { fg = color.text }, -- Messages in stdout from shell commands
     StderrMsg = { fg = color.red }, -- Messages in stderr from shell commands
-    NonText = { fg = color.beige }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    NonText = { fg = color.strong_faded_text }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     NormalFloat = { fg = color.text, bg = color.float_bg }, -- Normal text in floating windows.
     FloatBorder = { fg = color.thick_line, bg = color.float_bg },
     NormalNC = { fg = color.text, bg = bg }, -- normal text in non-current windows
@@ -110,7 +125,7 @@ function M.get(pallete, opts)
     PreInsert = { fg = color.faded_text, italic = opts.italic == true }, -- Text inserted when "preinsert" is in 'completeopt'.
     ComplHint = { fg = color.faded_text, italic = opts.italic == true }, -- Virtual text of the currently selected completion.
     ComplHintMore = { fg = color.silver }, -- The additional information of the virtual text.
-    SnippetTabstop = { fg = color.beige, bg = color.medium_background }, -- Tabstops in snippets. |vim.snippet|
+    SnippetTabstop = { fg = color.text, bg = color.medium_background }, -- Tabstops in snippets. |vim.snippet|
     SnippetTabstopActive = { fg = color.cyan, bg = color.medium_background, bold = true }, -- The currently active tabstop. |vim.snippet|
     Question = { fg = color.silver }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine = { bg = color.lighter_gray, bold = true }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
@@ -172,39 +187,125 @@ function M.get(pallete, opts)
     WinbarNC = { bg = bar_bg },
 
     --
-    -- Tree-Sitter syntax groups.
+    -- Tree-sitter syntax groups.
     --
-    ["@comment"] = { link = "Comment" }, -- Comment
+    -- One role = one color, identical in every language. There are no
+    -- language-specific rules here on purpose: the same meaning must not look
+    -- different just because the file is Rust instead of Python.
+    --
+    -- Literals
+    ["@string"] = { link = "String" },
+    ["@string.regexp"] = { fg = syn.literal },
+    ["@string.escape"] = { fg = syn.value },
+    ["@string.special"] = { fg = syn.value },
+    ["@character"] = { link = "Character" },
+    ["@character.special"] = { fg = syn.value },
+    ["@number"] = { link = "Number" },
+    ["@number.float"] = { link = "Float" },
+    ["@boolean"] = { link = "Boolean" },
+    ["@constant.builtin"] = { fg = syn.value },
+    ["@constructor"] = { fg = syn.value }, -- Ok(), Some(), and table constructors
+
+    -- Names that hold data
+    ["@variable"] = { fg = syn.name },
+    ["@variable.builtin"] = { fg = syn.name },
+    ["@variable.member"] = { fg = syn.name },
+    ["@variable.parameter"] = { fg = syn.name },
+    ["@property"] = { fg = syn.name },
+    ["@field"] = { fg = syn.name },
+    ["@constant"] = { link = "Constant" },
+    ["@constant.macro"] = { fg = syn.name },
+    ["@label"] = { fg = syn.name },
+    ["@tag.attribute"] = { fg = syn.name },
+
+    -- Definitions stand out; calls share the type family
+    ["@function"] = { fg = syn.definition },
+    ["@function.method"] = { fg = syn.definition },
+    ["@function.call"] = { fg = syn.call },
+    ["@function.method.call"] = { fg = syn.call },
+    ["@function.builtin"] = { fg = syn.call },
+
+    -- Types and modules
+    ["@type"] = { fg = syn.type },
+    ["@type.builtin"] = { fg = syn.type },
+    ["@type.definition"] = { fg = syn.type },
+    ["@module"] = { fg = syn.type },
+    ["@tag"] = { fg = syn.type },
+    ["@structure"] = { link = "Structure" },
+
+    -- Keywords: every one of them, in a single accent
+    ["@keyword"] = { fg = syn.keyword },
+    ["@include"] = { link = "Include" },
+
+    -- Macros and attributes
+    ["@attribute"] = { fg = syn.macro },
+    ["@macro"] = { link = "Macro" },
+    ["@function.macro"] = { link = "Macro" },
+
+    -- Syntax noise: quiet, so that names and literals stay in front
+    ["@operator"] = { fg = syn.punctuation },
+    ["@punctuation.delimiter"] = { fg = syn.punctuation },
+    ["@punctuation.bracket"] = { fg = syn.punctuation },
+    ["@punctuation.special"] = { fg = syn.punctuation },
+    ["@tag.delimiter"] = { fg = syn.punctuation },
+
+    -- Comments: the attention markers keep their signal colors
+    ["@comment"] = { link = "Comment" },
     ["@comment.hint"] = { fg = color.silver },
     ["@comment.info"] = { fg = color.blue },
     ["@comment.note"] = { fg = color.blue },
     ["@comment.todo"] = { fg = color.blue },
     ["@comment.warning"] = { fg = color.yellow },
-    ["@constant"] = { link = "Constant" }, -- Constant
-    ["@function.builtin.python"] = { fg = color.magenta },
-    ["@include"] = { link = "Include" }, -- Include
-    ["@keyword"] = { fg = color.magenta },
-    ["@keyword.import"] = { fg = color.magenta, bold = true },
-    ["@keyword.python"] = { fg = color.purple },
-    ["@keyword.rust"] = { fg = color.magenta },
-    ["@label.markdown"] = { link = "Normal" },
-    ["@lsp.type.parameter"] = { fg = color.cyan },
-    ["@lsp.type.parameter.rust"] = { link = "@lsp.type.parameter" },
-    ["@lsp.type.struct.rust"] = { fg = color.cyan },
-    ["@lsp.type.variable.lua"] = { link = "@lsp.type.parameter" },
-    ["@macro"] = { link = "Macro" }, -- Macro
-    ["@markup"] = { fg = color.faded_text }, -- Markup
-    ["@punctuation.bracket"] = { fg = color.beige },
-    ["@string"] = { link = "String" }, -- String
-    ["@structure"] = { link = "Structure" }, -- Structure
-    ["@tag"] = { link = "Label" },
-    ["@type"] = { link = "Type" }, -- Type
-    ["@type.definition"] = { link = "Typedef" }, -- Typedef
-    ["@variable"] = { fg = color.beige, italic = opts.italic == true }, -- Variable
+    ["@comment.error"] = { fg = color.red },
 
-    markdownCode = { fg = color.faded_text },
-    markdownCodeBlock = { fg = color.faded_text },
-    markdownLinkText = { fg = color.blue, underline = true },
+    -- Markup
+    ["@markup"] = { fg = color.text },
+    ["@markup.heading"] = { fg = syn.name, bold = true },
+    ["@markup.strong"] = { bold = true },
+    ["@markup.italic"] = { italic = true },
+    ["@markup.strikethrough"] = { strikethrough = true },
+    ["@markup.raw"] = { fg = syn.literal },
+    ["@markup.link"] = { fg = syn.definition },
+    ["@markup.link.url"] = { fg = syn.definition, underline = true },
+    ["@markup.list"] = { fg = syn.punctuation },
+    ["@markup.quote"] = { fg = syn.comment },
+
+    -- Diff
+    ["@diff.plus"] = { fg = color.green },
+    ["@diff.minus"] = { fg = color.red },
+    ["@diff.delta"] = { fg = color.blue },
+
+    --
+    -- LSP semantic tokens.
+    --
+    -- These win over tree-sitter, so every role is spelled out. Left to the
+    -- default links (@lsp.type.function -> Function) the server would paint call
+    -- sites with the definition color again, per language.
+    --
+    ["@lsp.type.variable"] = { fg = syn.name },
+    ["@lsp.type.property"] = { fg = syn.name },
+    ["@lsp.type.parameter"] = { fg = syn.name },
+    ["@lsp.type.function"] = { fg = syn.call },
+    ["@lsp.type.method"] = { fg = syn.call },
+    ["@lsp.type.namespace"] = { fg = syn.type },
+    ["@lsp.type.class"] = { fg = syn.type },
+    ["@lsp.type.struct"] = { fg = syn.type },
+    ["@lsp.type.interface"] = { fg = syn.type },
+    ["@lsp.type.enum"] = { fg = syn.type },
+    ["@lsp.type.type"] = { fg = syn.type },
+    ["@lsp.type.typeParameter"] = { fg = syn.type },
+    ["@lsp.type.enumMember"] = { fg = syn.value },
+    ["@lsp.type.keyword"] = { fg = syn.keyword },
+    ["@lsp.type.macro"] = { fg = syn.macro },
+    ["@lsp.type.operator"] = { fg = syn.punctuation },
+    ["@lsp.typemod.function.declaration"] = { fg = syn.definition },
+    ["@lsp.typemod.method.declaration"] = { fg = syn.definition },
+    ["@lsp.mod.deprecated"] = { strikethrough = true },
+
+    -- Legacy markdown syntax, for buffers without a tree-sitter parser
+    markdownCode = { fg = syn.literal },
+    markdownCodeBlock = { fg = syn.literal },
+    markdownLinkText = { fg = syn.definition, underline = true },
 
     --
     -- Bufferline
@@ -301,7 +402,7 @@ function M.get(pallete, opts)
     RenderMarkdownInlineHighlight = { fg = color.faded_text, bg = float_bg },
     RenderMarkdownBullet = { fg = color.silver },
     RenderMarkdownTableHead = { fg = color.blue },
-    RenderMarkdownTableRow = { fg = color.cyan },
+    RenderMarkdownTableRow = { fg = color.text },
     RenderMarkdownSuccess = { fg = color.green },
     RenderMarkdownInfo = { fg = color.silver },
     RenderMarkdownHint = { fg = color.teal },

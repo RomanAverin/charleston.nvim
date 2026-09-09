@@ -4,16 +4,17 @@
 Table of Contents                                      *charleston*
 
 1. Introduction ............................ |charleston-introduction|
-2. Requirements ............................ |charleston-requirements|
-3. Installation ............................ |charleston-installation|
-4. Usage ................................... |charleston-usage|
-5. Configuration ........................... |charleston-config|
-6. Options ................................. |charleston-options|
-7. API ..................................... |charleston-api|
-8. Palette Customization ................... |charleston-customization|
-9. Plugin Integrations ..................... |charleston-integrations|
-10. Supported Plugins ...................... |charleston-plugins|
-11. License ................................ |charleston-license|
+2. Design philosophy ....................... |charleston-philosophy|
+3. Requirements ............................ |charleston-requirements|
+4. Installation ............................ |charleston-installation|
+5. Usage ................................... |charleston-usage|
+6. Configuration ........................... |charleston-config|
+7. Options ................................. |charleston-options|
+8. API ..................................... |charleston-api|
+9. Palette Customization ................... |charleston-customization|
+10. Plugin Integrations .................... |charleston-integrations|
+11. Supported Plugins ...................... |charleston-plugins|
+12. License ................................ |charleston-license|
 
 ==============================================================================
 1. Introduction                                    *charleston-introduction*
@@ -24,6 +25,7 @@ on the eyes during long coding sessions.
 
 Key features:
   • High contrast with low saturation colors
+  • Semantic highlighting: one color per role, the same in every language
   • Support for many popular plugins
   • Italic font style option
   • Transparent background support
@@ -33,12 +35,47 @@ Key features:
   • Primarily designed for use with LazyVim
 
 ==============================================================================
-2. Requirements                                    *charleston-requirements*
+2. Design philosophy                                  *charleston-philosophy*
+
+Color marks meaning, not the parser category. A highlight group earns a color
+only when that color says something the code does not already say, and the
+same meaning looks the same in every language -- there are no per-language
+rules in this colorscheme.
+
+The roles: ~
+
+  Role          Color        What it covers ~
+  keyword       magenta      every keyword: if, for, return, import, static
+  type          cyan         types, classes, structs, enums, traits, modules
+  call          cyan         function and method calls
+  definition    purple       a function or method name where it is introduced
+  name          beige        variables, parameters, fields, properties,
+                             named constants
+  value         silver       numbers, booleans, enum variants, escapes
+  literal       green        strings, characters, raw text
+  macro         orange       macros and attributes
+  punctuation   silver       brackets, commas, semicolons, operators
+  comment       dim grey     comments
+
+Two consequences are worth knowing about: ~
+
+  • A function name is colored where it is defined (purple), while calls sit in
+    the type family (cyan). Definitions are rare and worth finding; calls are
+    most of the buffer.
+  • Keywords all share one accent instead of a color per construct.
+
+The UI keeps its own colors, because there the color already means something:
+diagnostics, git and diff, search matches, pickers, statusline.
+
+Background of this design: https://tonsky.me/blog/syntax-highlighting/
+
+==============================================================================
+3. Requirements                                    *charleston-requirements*
 
   • Neovim >= 0.9
 
 ==============================================================================
-3. Installation                                    *charleston-installation*
+4. Installation                                    *charleston-installation*
 
 Using lazy.nvim: ~
 >lua
@@ -71,7 +108,7 @@ Using vim-plug: ~
 <
 
 ==============================================================================
-4. Usage                                                 *charleston-usage*
+5. Usage                                                 *charleston-usage*
 
 Activate the colorscheme with: ~
 >vim
@@ -103,7 +140,7 @@ Charleston uses a compilation cache for performance. To manually recompile:
 This is useful after making configuration changes or palette customizations.
 
 ==============================================================================
-5. Configuration                                         *charleston-config*
+6. Configuration                                         *charleston-config*
 
 Configure options by passing them to the `setup()` function: ~
 >lua
@@ -124,7 +161,7 @@ Then load the colorscheme: ~
 Or simply activate with `vim.cmd.colorscheme("charleston")` after setup.
 
 ==============================================================================
-6. Options                                              *charleston-options*
+7. Options                                              *charleston-options*
 
                                                *charleston-terminal_colors*
 terminal_colors ~
@@ -139,8 +176,9 @@ italic ~
     Type: `boolean`
     Default: `true`
 
-    Use italic font style for comments, keywords, and certain syntax
-    elements. Requires a font that supports italics.
+    Use italic font style for comments, inlay hints and completion hints.
+    Variables and keywords are never italic. Requires a font that supports
+    italics.
 
                                                *charleston-darker_background*
 darker_background ~
@@ -167,7 +205,7 @@ palette_overrides ~
     for detailed usage.
 
 ==============================================================================
-7. API                                                      *charleston-api*
+8. API                                                      *charleston-api*
 
 charleston.setup({opts})                                *charleston.setup()*
 
@@ -213,7 +251,7 @@ charleston.get_palette()                          *charleston.get_palette()*
 <
 
 ==============================================================================
-8. Palette Customization                          *charleston-customization*
+9. Palette Customization                          *charleston-customization*
 
 Charleston supports extensive palette customization through the
 `palette_overrides` option. You can override existing colors or add
@@ -277,7 +315,7 @@ Base colors:
 See `lua/charleston/colors.lua` for the complete color palette.
 
 ==============================================================================
-9. Plugin Integrations                              *charleston-integrations*
+10. Plugin Integrations                             *charleston-integrations*
 
 Lualine.nvim ~
 >lua
@@ -324,7 +362,7 @@ Advanced bufferline configuration: ~
 <
 
 ==============================================================================
-10. Supported Plugins                                   *charleston-plugins*
+11. Supported Plugins                                  *charleston-plugins*
 
 Charleston provides native support for the following plugins:
 
@@ -347,7 +385,7 @@ If you need support for a plugin not listed here, please open an issue at:
 https://github.com/RomanAverin/charleston.nvim/issues
 
 ==============================================================================
-11. License                                              *charleston-license*
+12. License                                             *charleston-license*
 
 MIT License
 

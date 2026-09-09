@@ -2,7 +2,7 @@ local colors = require("charleston.colors")
 local theme = require("charleston.theme")
 
 local M = {}
-M.version = "2.2.0"
+M.version = "3.0.0"
 
 M.defaults_opts = {
   terminal_colors = true,

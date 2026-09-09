@@ -78,7 +78,7 @@
         "terminal.ansi.green": "#A9C476ff",
         "terminal.ansi.yellow": "#D0AB3Cff",
         "terminal.ansi.blue": "#88ABDCff",
-        "terminal.ansi.magenta": "#B689BCff",
+        "terminal.ansi.magenta": "#C39DC8ff",
         "terminal.ansi.cyan": "#7fb2c8ff",
         "terminal.ansi.white": "#acbcc3ff",
         "terminal.ansi.bright_black": "#80838fff",
@@ -86,7 +86,7 @@
         "terminal.ansi.bright_green": "#8b9440ff",
         "terminal.ansi.bright_yellow": "#ec9c62ff",
         "terminal.ansi.bright_blue": "#5d7f9aff",
-        "terminal.ansi.bright_magenta": "#b689bCff",
+        "terminal.ansi.bright_magenta": "#C39DC8ff",
         "terminal.ansi.bright_cyan": "#5e8d87ff",
         "terminal.ansi.bright_white": "#ffffffff",
         "terminal.ansi.dim_black": "#464b50ff",
@@ -94,7 +94,7 @@
         "terminal.ansi.dim_green": "#8b944080",
         "terminal.ansi.dim_yellow": "#D0AB3C80",
         "terminal.ansi.dim_blue": "#5d7f9a80",
-        "terminal.ansi.dim_magenta": "#B689BC80",
+        "terminal.ansi.dim_magenta": "#C39DC880",
         "terminal.ansi.dim_cyan": "#5e8d8780",
         "terminal.ansi.dim_white": "#686d75ff",
         "link_text.hover": "#7fb2c8ff",
@@ -162,9 +162,9 @@
             "selection": "#88ABDC33"
           },
           {
-            "cursor": "#B689BCff",
-            "background": "#B689BC66",
-            "selection": "#B689BC33"
+            "cursor": "#C39DC8ff",
+            "background": "#C39DC866",
+            "selection": "#C39DC833"
           },
           {
             "cursor": "#de935fff",
@@ -221,7 +221,7 @@
             "font_weight": 700
           },
           "keyword": {
-            "color": "#B689BCff"
+            "color": "#C39DC8ff"
           },
           "label": {
             "color": "#C5C8D3ff"

@@ -41,7 +41,7 @@ theme[mem_box]="#749689"
 theme[net_box]="#7fb2c8"
 
 # Processes box outline color
-theme[proc_box]="#B689BC"
+theme[proc_box]="#C39DC8"
 
 # Box divider line and small boxes line color
 theme[div_line]="#363E47"

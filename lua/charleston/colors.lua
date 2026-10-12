@@ -16,8 +16,6 @@ M.palette = {
   purple = "#95739C",
   -- additional colors
   silver = "#acbcc3",
-  cambridge_blue = "#99C1B9",
-  english_violet = "#59546C",
   -- base
   bg = "#1D2024",
   bg_dimmed = "#262B31",

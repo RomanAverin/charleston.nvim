@@ -258,8 +258,6 @@ require("lualine").setup({
 | `orange`         | `#de935f` | ![#de935f](https://img.shields.io/badge/-de935f-de935f) |
 | `purple`         | `#95739C` | ![#95739C](https://img.shields.io/badge/-95739C-95739C) |
 | `silver`         | `#acbcc3` | ![#acbcc3](https://img.shields.io/badge/-acbcc3-acbcc3) |
-| `cambridge_blue` | `#99C1B9` | ![#99C1B9](https://img.shields.io/badge/-99C1B9-99C1B9) |
-| `english_violet` | `#59546C` | ![#59546C](https://img.shields.io/badge/-59546C-59546C) |
 
 #### Base Colors
 

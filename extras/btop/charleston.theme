@@ -14,7 +14,7 @@ theme[title]="#88ABDC"
 theme[hi_fg]="#de935f"
 
 # Background color of selected item in processes box
-theme[selected_bg]="#59546C"
+theme[selected_bg]="#51545C"
 
 # Foreground color of selected item in processes box
 theme[selected_fg]="#C5C8D3"
@@ -64,7 +64,7 @@ theme[free_end]="#749689"
 # Mem/Disk cached meter
 theme[cached_start]="#7fb2c8"
 theme[cached_mid]="#749689"
-theme[cached_end]="#99C1B9"
+theme[cached_end]="#7fb2c8"
 
 # Mem/Disk available meter
 theme[available_start]="#A9C476"
@@ -84,7 +84,7 @@ theme[download_end]="#708499"
 # Upload graph colors
 theme[upload_start]="#A9C476"
 theme[upload_mid]="#749689"
-theme[upload_end]="#99C1B9"
+theme[upload_end]="#7fb2c8"
 
 # Process box color gradient for threads, mem and cpu usage
 theme[process_start]="#A9C476"

@@ -37,6 +37,7 @@ describe("Highlights", function()
         "fg",
         "bg",
         "sp",
+        "blend",
         "bold",
         "italic",
         "underline",
@@ -67,6 +68,11 @@ describe("Highlights", function()
             assert(type(value) == "string", "Link value should be string in group: " .. group_name)
           elseif key == "force" then
             assert(type(value) == "boolean", "Force value should be boolean in group: " .. group_name)
+          elseif key == "blend" then
+            assert(
+              type(value) == "number" and value % 1 == 0 and value >= 0 and value <= 100,
+              "Blend value should be an integer from 0 to 100 in group: " .. group_name
+            )
           elseif
             key == "bold"
             or key == "italic"

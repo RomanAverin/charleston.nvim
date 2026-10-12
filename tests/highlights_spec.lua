@@ -231,7 +231,7 @@ describe("Highlights", function()
   describe("semantic roles", function()
     local hl = highlights.get(palette, opts)
 
-    it("should not define language-specific groups", function()
+    it("should not define language-specific groups except Vim commands used by Noice", function()
       local languages = {
         "python",
         "rust",
@@ -259,7 +259,7 @@ describe("Highlights", function()
       for group_name, _ in pairs(hl) do
         for _, lang in ipairs(languages) do
           assert(
-            not group_name:match("^@.*%." .. lang .. "$"),
+            group_name == "@function.macro.vim" or not group_name:match("^@.*%." .. lang .. "$"),
             "Language-specific group '" .. group_name .. "' should not exist"
           )
         end
@@ -295,8 +295,6 @@ describe("Highlights", function()
         "SpecialChar",
         "@constructor",
         "@lsp.type.enumMember",
-        "@operator",
-        "@punctuation.bracket",
       }
 
       for _, group in ipairs(value_groups) do
@@ -304,6 +302,9 @@ describe("Highlights", function()
           hl[group].fg == hl.Number.fg,
           "Group '" .. group .. "' should share the value color, got " .. tostring(hl[group].fg)
         )
+      end
+      for _, group in ipairs({ "@operator", "@punctuation.bracket" }) do
+        assert(hl[group].fg == palette.silver, "Group '" .. group .. "' should use the punctuation color")
       end
     end)
 
@@ -319,7 +320,7 @@ describe("Highlights", function()
     end)
 
     it("should distinguish definitions from usages", function()
-      assert(hl["@function"].fg == palette.purple, "Function definitions should use the definition color")
+      assert(hl["@function"].fg == palette.white, "Function definitions should use the definition color")
       assert(hl["@function.call"].fg == palette.cyan, "Function calls should use the call color")
       assert(hl["@function.method.call"].fg == palette.cyan, "Method calls should use the call color")
       assert(
@@ -327,7 +328,7 @@ describe("Highlights", function()
         "LSP function tokens should use the call color, otherwise semantic tokens repaint call sites"
       )
       assert(
-        hl["@lsp.typemod.function.declaration"].fg == palette.purple,
+        hl["@lsp.typemod.function.declaration"].fg == palette.white,
         "LSP function declarations should use the definition color"
       )
     end)

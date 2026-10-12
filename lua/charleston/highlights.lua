@@ -18,9 +18,9 @@ function M.get(pallete, opts)
     keyword = color.magenta, -- every keyword: if/for/return/import/pub/static/try
     type = color.cyan, -- types, classes, structs, enums, traits, modules
     call = color.cyan, -- function and method calls -- the same family as types
-    definition = color.purple, -- a function or method name where it is introduced
+    definition = color.white, -- a function or method name where it is introduced
     name = color.beige, -- variables, parameters, fields, properties, named constants
-    value = color.silver, -- numbers, booleans, enum variants, escapes
+    value = color.orange, -- numbers, booleans, enum variants, escapes
     literal = color.green, -- strings, characters, raw text
     macro = color.orange, -- macros and attributes
     punctuation = color.silver, -- brackets, commas, semicolons, operators
@@ -190,8 +190,8 @@ function M.get(pallete, opts)
     -- Tree-sitter syntax groups.
     --
     -- One role = one color, identical in every language. There are no
-    -- language-specific rules here on purpose: the same meaning must not look
-    -- different just because the file is Rust instead of Python.
+    -- language-specific rules except for Vim commands used by Noice: the same
+    -- meaning must not look different just because the file is Rust instead of Python.
     --
     -- Literals
     ["@string"] = { link = "String" },
@@ -241,6 +241,7 @@ function M.get(pallete, opts)
     ["@attribute"] = { fg = syn.macro },
     ["@macro"] = { link = "Macro" },
     ["@function.macro"] = { link = "Macro" },
+    ["@function.macro.vim"] = { fg = color.yellow }, -- Vim commands, including Noice command input
 
     -- Syntax noise: quiet, so that names and literals stay in front
     ["@operator"] = { fg = syn.punctuation },
@@ -418,6 +419,10 @@ function M.get(pallete, opts)
     SnacksDashboardDesc = { fg = color.white },
     SnacksDashboardDir = { fg = color.cyan },
     SnacksDashboardHeader = { fg = color.cyan },
+    SnacksDashboardIcon = { fg = color.cyan },
+    SnacksDashboardFile = { fg = color.cyan },
+    SnacksDashboardSpecial = { fg = color.cyan },
+    SnacksDashboardKey = { fg = color.cyan },
     -- Snacks.nvim Picker
     SnacksPicker = { bg = color.float_bg },
     SnacksPickerBorder = { fg = color.faded_text, bg = color.float_bg },
@@ -485,7 +490,7 @@ function M.get(pallete, opts)
     NoiceCmdlineIconCmdLine = { fg = color.white },
     NoiceCmdlineIconFilter = { fg = color.magenta },
     NoiceCmdlineIconHelp = { fg = color.cyan },
-    NoiceCmdlineIconInput = { fg = color.red },
+    NoiceCmdlineIconInput = { fg = color.cyan },
     NoiceCmdlineIconLua = { fg = color.blue },
     NoiceCmdlineIconSearch = { fg = color.yellow },
     NoiceConfirmBorder = { fg = color.blue },
@@ -498,7 +503,7 @@ function M.get(pallete, opts)
     BlinkCmpLabelDeprecated = { link = "BlinkCmpLabel" },
     BlinkCmpSource = { fg = color.teal },
     BlinkCmpMenuSelection = { bg = color.strong_faded_text },
-    BlinkCmpLabelMatch = { bold = true, fg = color.yellow },
+    BlinkCmpLabelMatch = { fg = color.yellow },
     BlinkCmpGhostText = { fg = color.bar_faded_text },
     BlinkCmpKind = { fg = color.bar_text },
     BlinkCmpKindDefaul = { fg = color.bar_text },

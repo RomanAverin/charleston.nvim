@@ -326,17 +326,31 @@ describe("Highlights", function()
     end)
 
     it("should distinguish definitions from usages", function()
-      assert(hl["@function"].fg == palette.white, "Function definitions should use the definition color")
-      assert(hl["@function.call"].fg == palette.cyan, "Function calls should use the call color")
-      assert(hl["@function.method.call"].fg == palette.cyan, "Method calls should use the call color")
-      assert(
-        hl["@lsp.type.function"].fg == palette.cyan,
-        "LSP function tokens should use the call color, otherwise semantic tokens repaint call sites"
-      )
-      assert(
-        hl["@lsp.typemod.function.declaration"].fg == palette.white,
-        "LSP function declarations should use the definition color"
-      )
+      local definitions = {
+        "Function",
+        "@function",
+        "@function.method",
+        "@method",
+        "@lsp.typemod.function.declaration",
+        "@lsp.typemod.method.declaration",
+        "@lsp.typemod.function.definition",
+        "@lsp.typemod.method.definition",
+      }
+      local usages = {
+        "@function.call",
+        "@function.method.call",
+        "@function.builtin",
+        "@method.call",
+        "@lsp.type.function",
+        "@lsp.type.method",
+      }
+
+      for _, group in ipairs(definitions) do
+        assert(hl[group].fg == palette.white, "Definition '" .. group .. "' should use the definition color")
+      end
+      for _, group in ipairs(usages) do
+        assert(hl[group].fg == palette.cyan, "Usage '" .. group .. "' should use the call color")
+      end
     end)
 
     it("should use one color per type role", function()
@@ -386,7 +400,7 @@ describe("Highlights", function()
       end
 
       -- One color per role in the `syn` table (call and type share cyan,
-      -- value and punctuation share silver).
+      -- value and macro share orange).
       assert(count <= 8, "Code should use at most 8 role colors, got " .. count)
     end)
 

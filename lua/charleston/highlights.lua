@@ -224,6 +224,8 @@ function M.get(pallete, opts)
     ["@function.call"] = { fg = syn.call },
     ["@function.method.call"] = { fg = syn.call },
     ["@function.builtin"] = { fg = syn.call },
+    ["@method"] = { fg = syn.definition }, -- Legacy Tree-sitter method captures
+    ["@method.call"] = { fg = syn.call },
 
     -- Types and modules
     ["@type"] = { fg = syn.type },
@@ -301,6 +303,8 @@ function M.get(pallete, opts)
     ["@lsp.type.operator"] = { fg = syn.punctuation },
     ["@lsp.typemod.function.declaration"] = { fg = syn.definition },
     ["@lsp.typemod.method.declaration"] = { fg = syn.definition },
+    ["@lsp.typemod.function.definition"] = { fg = syn.definition },
+    ["@lsp.typemod.method.definition"] = { fg = syn.definition },
     ["@lsp.mod.deprecated"] = { strikethrough = true },
 
     -- Legacy markdown syntax, for buffers without a tree-sitter parser

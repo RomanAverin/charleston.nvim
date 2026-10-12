@@ -47,9 +47,9 @@ A highlight group earns a color only when that color says something the code doe
 | keyword | `magenta` | every keyword: `if`, `for`, `return`, `import`, `pub`, `static`, `try` |
 | type | `cyan` | types, classes, structs, enums, traits, modules |
 | call | `cyan` | function and method calls — the same family as types |
-| definition | `purple` | a function or method name **where it is introduced** |
+| definition | `white` | a function or method name **where it is introduced** |
 | name | `beige` | variables, parameters, fields, properties, named constants |
-| value | `silver` | numbers, booleans, enum variants, escape sequences |
+| value | `orange` | numbers, booleans, enum variants, escape sequences |
 | literal | `green` | strings, characters, raw text |
 | macro | `orange` | macros and attributes |
 | punctuation | `silver` | brackets, commas, semicolons, operators |
@@ -57,7 +57,7 @@ A highlight group earns a color only when that color says something the code doe
 
 Two consequences worth knowing about:
 
-- A function name is colored **where it is defined** (`purple`), while calls sit in the type family (`cyan`). Definitions are rare and worth finding; calls are most of the buffer.
+- Function and method declarations and definitions share `white`, including associated functions such as Rust's `new`. Calls share the type family (`cyan`), including built-in functions. Tree-sitter and LSP tokens use the same roles; LSP modifiers `declaration` and `definition` both mark the definition color.
 - All keywords share one accent instead of a color per construct — `if`, `for` and `import` used to be three different colors.
 
 The UI keeps its own colors, because there color already carries meaning: diagnostics, git and diff, search matches, pickers, statusline.

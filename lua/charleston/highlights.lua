@@ -168,6 +168,8 @@ function M.get(pallete, opts)
     FlashPrompt = { bg = bar_bg },
     FlashPromptIcon = { bg = bar_bg },
     MiniCursorword = { bg = bg },
+    -- mini.icons links Azure (directories) to Function, which is white
+    MiniIconsAzure = { fg = color.cyan },
     NvimSurroundHighlight = { fg = color.bg, bg = color.cyan },
 
     TabLine = { bg = bar_bg }, -- Tab pages line, not active tab page label
